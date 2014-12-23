@@ -60,6 +60,6 @@ public final class AllOfTest {
 
     @Test public void
     hasAMismatchDescriptionDescribingTheFirstFailingMatch() {
-        assertMismatchDescription("\"good\" was \"bad\"", allOf(equalTo("bad"), equalTo("good")), "bad");
+        assertMismatchDescription("was \"bad\"", allOf(equalTo("bad"), equalTo("good")), "bad");
     }
 }
