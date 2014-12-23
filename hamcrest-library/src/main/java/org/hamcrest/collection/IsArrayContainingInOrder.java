@@ -17,7 +17,7 @@ public class IsArrayContainingInOrder<E> extends TypeSafeMatcher<E[]> {
     private final IsIterableContainingInOrder<E> iterableMatcher;
 
     public IsArrayContainingInOrder(List<Matcher<? super E>> matchers) {
-        this.iterableMatcher = new IsIterableContainingInOrder<E>(matchers);
+        this.iterableMatcher = new IsIterableContainingInOrder<>(matchers);
         this.matchers = matchers;
     }
 
@@ -46,8 +46,9 @@ public class IsArrayContainingInOrder<E> extends TypeSafeMatcher<E[]> {
      * @param items
      *     the items that must equal the items within an examined array
      */
+    @SafeVarargs
     public static <E> Matcher<E[]> arrayContaining(E... items) {
-        List<Matcher<? super E>> matchers = new ArrayList<Matcher<? super E>>();
+        List<Matcher<? super E>> matchers = new ArrayList<>();
         for (E item : items) {
             matchers.add(equalTo(item));
         }
@@ -64,6 +65,7 @@ public class IsArrayContainingInOrder<E> extends TypeSafeMatcher<E[]> {
      * @param itemMatchers
      *     the matchers that must be satisfied by the items in the examined array
      */
+    @SafeVarargs
     public static <E> Matcher<E[]> arrayContaining(Matcher<? super E>... itemMatchers) {
         //required for JDK 1.6
         //noinspection RedundantTypeArguments
@@ -83,7 +85,7 @@ public class IsArrayContainingInOrder<E> extends TypeSafeMatcher<E[]> {
      *     a list of matchers, each of which must be satisfied by the corresponding item in an examined array
      */
     public static <E> Matcher<E[]> arrayContaining(List<Matcher<? super E>> itemMatchers) {
-        return new IsArrayContainingInOrder<E>(itemMatchers);
+        return new IsArrayContainingInOrder<>(itemMatchers);
     }
 
 }

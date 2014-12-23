@@ -34,7 +34,7 @@ public class IsEmptyCollection<E> extends TypeSafeMatcher<Collection<? extends E
      * 
      */
     public static <E> Matcher<Collection<? extends E>> empty() {
-        return new IsEmptyCollection<E>();
+        return new IsEmptyCollection<>();
     }
 
     /**

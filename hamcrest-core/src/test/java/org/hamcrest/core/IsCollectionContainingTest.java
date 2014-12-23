@@ -52,10 +52,10 @@ public final class IsCollectionContainingTest {
     
     @Test public void
     canMatchItemWhenCollectionHoldsSuperclass() { // Issue 24
-        final Set<Number> s = new HashSet<Number>();
+        final Set<Number> s = new HashSet<>();
         s.add(2);
 
-        assertMatches(new IsCollectionContaining<Number>(new IsEqual<Number>(2)), s);
+        assertMatches(new IsCollectionContaining<>(new IsEqual<Number>(2)), s);
         assertMatches(IsCollectionContaining.hasItem(2), s);
     }
 

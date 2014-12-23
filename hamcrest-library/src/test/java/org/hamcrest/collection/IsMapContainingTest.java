@@ -18,7 +18,7 @@ public class IsMapContainingTest extends AbstractMatcherTest {
     }
 
     public void testMatchesMapContainingMatchingKeyAndValue() {
-        Map<String,Integer> map = new TreeMap<String,Integer>();
+        Map<String,Integer> map = new TreeMap<>();
         map.put("a", 1);
         map.put("b", 2);
 

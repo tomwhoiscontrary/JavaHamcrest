@@ -29,7 +29,7 @@ public class IsArrayWithSize<E> extends FeatureMatcher<E[], Integer> {
      *     a matcher for the length of an examined array
      */
     public static <E> Matcher<E[]> arrayWithSize(Matcher<? super Integer> sizeMatcher) {
-        return new IsArrayWithSize<E>(sizeMatcher);
+        return new IsArrayWithSize<>(sizeMatcher);
     }
 
     /**

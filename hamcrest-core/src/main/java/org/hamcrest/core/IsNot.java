@@ -40,7 +40,7 @@ public class IsNot<T> extends BaseMatcher<T>  {
      *     the matcher whose sense should be inverted
      */
     public static <T> Matcher<T> not(Matcher<T> matcher) {
-        return new IsNot<T>(matcher);
+        return new IsNot<>(matcher);
     }
 
     /**

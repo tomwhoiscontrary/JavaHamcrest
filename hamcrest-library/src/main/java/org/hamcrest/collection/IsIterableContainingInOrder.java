@@ -20,7 +20,7 @@ public class IsIterableContainingInOrder<E> extends TypeSafeDiagnosingMatcher<It
 
     @Override
     protected boolean matchesSafely(Iterable<? extends E> iterable, Description mismatchDescription) {
-        final MatchSeries<E> matchSeries = new MatchSeries<E>(matchers, mismatchDescription);
+        final MatchSeries<E> matchSeries = new MatchSeries<>(matchers, mismatchDescription);
         for (E item : iterable) {
             if (!matchSeries.matches(item)) {
                 return false;
@@ -92,8 +92,9 @@ public class IsIterableContainingInOrder<E> extends TypeSafeDiagnosingMatcher<It
      * @param items
      *     the items that must equal the items provided by an examined {@link Iterable}
      */
+    @SafeVarargs
     public static <E> Matcher<Iterable<? extends E>> contains(E... items) {
-        List<Matcher<? super E>> matchers = new ArrayList<Matcher<? super E>>();
+        List<Matcher<? super E>> matchers = new ArrayList<>();
         for (E item : items) {
             matchers.add(equalTo(item));
         }
@@ -128,6 +129,7 @@ public class IsIterableContainingInOrder<E> extends TypeSafeDiagnosingMatcher<It
      * @param itemMatchers
      *     the matchers that must be satisfied by the items provided by an examined {@link Iterable}
      */
+    @SafeVarargs
     public static <E> Matcher<Iterable<? extends E>> contains(Matcher<? super E>... itemMatchers) {
         // required for JDK 1.6
         //noinspection RedundantTypeArguments
@@ -148,6 +150,6 @@ public class IsIterableContainingInOrder<E> extends TypeSafeDiagnosingMatcher<It
      *     an examined {@link Iterable}
      */
     public static <E> Matcher<Iterable<? extends E>> contains(List<Matcher<? super E>> itemMatchers) {
-        return new IsIterableContainingInOrder<E>(itemMatchers);
+        return new IsIterableContainingInOrder<>(itemMatchers);
     }
 }

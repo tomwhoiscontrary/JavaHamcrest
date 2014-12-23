@@ -52,7 +52,7 @@ public class HasProperty<T> extends TypeSafeMatcher<T> {
      *     the name of the JavaBean property that examined beans should possess
      */
     public static <T> Matcher<T> hasProperty(String propertyName) {
-        return new HasProperty<T>(propertyName);
+        return new HasProperty<>(propertyName);
     }
 
 }

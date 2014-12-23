@@ -18,7 +18,7 @@ public class SelfDescribingValueIterator<T> implements Iterator<SelfDescribing> 
 
     @Override
     public SelfDescribing next() {
-        return new SelfDescribingValue<T>(values.next());
+        return new SelfDescribingValue<>(values.next());
     }
 
     @Override

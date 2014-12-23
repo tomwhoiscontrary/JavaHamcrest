@@ -36,10 +36,10 @@ public class IsEmptyCollectionTest extends AbstractMatcherTest {
     private void needs(@SuppressWarnings("unused") Matcher<Collection<String>> bar) { }
     
     private static Collection<String> collectionOfValues() {
-        return new ArrayList<String>(asList("one", "three"));
+        return new ArrayList<>(asList("one", "three"));
     }
 
     private static Collection<Integer> emptyCollection() {
-        return new ArrayList<Integer>();
+        return new ArrayList<>();
     }
 }

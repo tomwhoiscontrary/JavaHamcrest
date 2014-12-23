@@ -145,6 +145,6 @@ public class HasPropertyWithValue<T> extends TypeSafeDiagnosingMatcher<T> {
      *     a matcher for the value of the specified property of the examined bean
      */
     public static <T> Matcher<T> hasProperty(String propertyName, Matcher<?> valueMatcher) {
-        return new HasPropertyWithValue<T>(propertyName, valueMatcher);
+        return new HasPropertyWithValue<>(propertyName, valueMatcher);
     }
 }
