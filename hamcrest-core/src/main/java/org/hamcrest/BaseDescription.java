@@ -49,6 +49,8 @@ public abstract class BaseDescription implements Description {
             append("F>");
         } else if (value.getClass().isArray()) {
             appendValueList("[",", ","]", new ArrayIterator(value));
+        } else if (value instanceof Iterable) {
+            appendValueList("<[",", ","]>", ((Iterable) value).iterator());
         } else {
             append('<');
             append(descriptionOf(value));
@@ -66,8 +68,9 @@ public abstract class BaseDescription implements Description {
         }
     }
 
+    @SafeVarargs
     @Override
-    public <T> Description appendValueList(String start, String separator, String end, T... values) {
+    public final <T> Description appendValueList(String start, String separator, String end, T... values) {
         return appendValueList(start, separator, end, Arrays.asList(values));
     }
     
