@@ -80,7 +80,7 @@ public abstract class BaseDescription implements Description {
     }
     
     private <T> Description appendValueList(String start, String separator, String end, Iterator<T> values) {
-        return appendList(start, separator, end, new SelfDescribingValueIterator<T>(values));
+        return appendList(start, separator, end, new SelfDescribingValueIterator<>(values));
     }
     
     @Override

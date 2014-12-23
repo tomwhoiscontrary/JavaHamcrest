@@ -24,8 +24,9 @@ public class Matchers {
      * For example:
      * <pre>assertThat("myValue", allOf(startsWith("my"), containsString("Val")))</pre>
      */
+    @SafeVarargs
     public static <T> org.hamcrest.Matcher<T> allOf(org.hamcrest.Matcher<? super T>... matchers) {
-        return org.hamcrest.core.AllOf.<T>allOf(matchers);
+        return org.hamcrest.core.AllOf.allOf(matchers);
     }
 
     /**
@@ -34,7 +35,7 @@ public class Matchers {
      * <pre>assertThat("myValue", allOf(startsWith("my"), containsString("Val")))</pre>
      */
     public static <T> org.hamcrest.Matcher<T> allOf(org.hamcrest.Matcher<? super T> first, org.hamcrest.Matcher<? super T> second) {
-        return org.hamcrest.core.AllOf.<T>allOf(first, second);
+        return org.hamcrest.core.AllOf.allOf(first, second);
     }
 
     /**
@@ -43,7 +44,7 @@ public class Matchers {
      * <pre>assertThat("myValue", allOf(startsWith("my"), containsString("Val")))</pre>
      */
     public static <T> org.hamcrest.Matcher<T> allOf(org.hamcrest.Matcher<? super T> first, org.hamcrest.Matcher<? super T> second, org.hamcrest.Matcher<? super T> third) {
-        return org.hamcrest.core.AllOf.<T>allOf(first, second, third);
+        return org.hamcrest.core.AllOf.allOf(first, second, third);
     }
 
     /**
@@ -52,7 +53,7 @@ public class Matchers {
      * <pre>assertThat("myValue", allOf(startsWith("my"), containsString("Val")))</pre>
      */
     public static <T> org.hamcrest.Matcher<T> allOf(org.hamcrest.Matcher<? super T> first, org.hamcrest.Matcher<? super T> second, org.hamcrest.Matcher<? super T> third, org.hamcrest.Matcher<? super T> fourth) {
-        return org.hamcrest.core.AllOf.<T>allOf(first, second, third, fourth);
+        return org.hamcrest.core.AllOf.allOf(first, second, third, fourth);
     }
 
     /**
@@ -61,7 +62,7 @@ public class Matchers {
      * <pre>assertThat("myValue", allOf(startsWith("my"), containsString("Val")))</pre>
      */
     public static <T> org.hamcrest.Matcher<T> allOf(org.hamcrest.Matcher<? super T> first, org.hamcrest.Matcher<? super T> second, org.hamcrest.Matcher<? super T> third, org.hamcrest.Matcher<? super T> fourth, org.hamcrest.Matcher<? super T> fifth) {
-        return org.hamcrest.core.AllOf.<T>allOf(first, second, third, fourth, fifth);
+        return org.hamcrest.core.AllOf.allOf(first, second, third, fourth, fifth);
     }
 
     /**
@@ -70,7 +71,7 @@ public class Matchers {
      * <pre>assertThat("myValue", allOf(startsWith("my"), containsString("Val")))</pre>
      */
     public static <T> org.hamcrest.Matcher<T> allOf(org.hamcrest.Matcher<? super T> first, org.hamcrest.Matcher<? super T> second, org.hamcrest.Matcher<? super T> third, org.hamcrest.Matcher<? super T> fourth, org.hamcrest.Matcher<? super T> fifth, org.hamcrest.Matcher<? super T> sixth) {
-        return org.hamcrest.core.AllOf.<T>allOf(first, second, third, fourth, fifth, sixth);
+        return org.hamcrest.core.AllOf.allOf(first, second, third, fourth, fifth, sixth);
     }
 
     /**
@@ -79,7 +80,7 @@ public class Matchers {
      * <pre>assertThat("myValue", anyOf(startsWith("foo"), containsString("Val")))</pre>
      */
     public static <T> org.hamcrest.core.AnyOf<T> anyOf(java.lang.Iterable<org.hamcrest.Matcher<? super T>> matchers) {
-        return org.hamcrest.core.AnyOf.<T>anyOf(matchers);
+        return org.hamcrest.core.AnyOf.anyOf(matchers);
     }
 
     /**
@@ -87,8 +88,9 @@ public class Matchers {
      * For example:
      * <pre>assertThat("myValue", anyOf(startsWith("foo"), containsString("Val")))</pre>
      */
+    @SafeVarargs
     public static <T> org.hamcrest.core.AnyOf<T> anyOf(org.hamcrest.Matcher<? super T>... matchers) {
-        return org.hamcrest.core.AnyOf.<T>anyOf(matchers);
+        return org.hamcrest.core.AnyOf.anyOf(matchers);
     }
 
     /**
@@ -97,7 +99,7 @@ public class Matchers {
      * <pre>assertThat("myValue", anyOf(startsWith("foo"), containsString("Val")))</pre>
      */
     public static <T> org.hamcrest.core.AnyOf<T> anyOf(org.hamcrest.Matcher<T> first, org.hamcrest.Matcher<? super T> second) {
-        return org.hamcrest.core.AnyOf.<T>anyOf(first, second);
+        return org.hamcrest.core.AnyOf.anyOf(first, second);
     }
 
     /**
@@ -106,7 +108,7 @@ public class Matchers {
      * <pre>assertThat("myValue", anyOf(startsWith("foo"), containsString("Val")))</pre>
      */
     public static <T> org.hamcrest.core.AnyOf<T> anyOf(org.hamcrest.Matcher<T> first, org.hamcrest.Matcher<? super T> second, org.hamcrest.Matcher<? super T> third) {
-        return org.hamcrest.core.AnyOf.<T>anyOf(first, second, third);
+        return org.hamcrest.core.AnyOf.anyOf(first, second, third);
     }
 
     /**
@@ -115,7 +117,7 @@ public class Matchers {
      * <pre>assertThat("myValue", anyOf(startsWith("foo"), containsString("Val")))</pre>
      */
     public static <T> org.hamcrest.core.AnyOf<T> anyOf(org.hamcrest.Matcher<T> first, org.hamcrest.Matcher<? super T> second, org.hamcrest.Matcher<? super T> third, org.hamcrest.Matcher<? super T> fourth) {
-        return org.hamcrest.core.AnyOf.<T>anyOf(first, second, third, fourth);
+        return org.hamcrest.core.AnyOf.anyOf(first, second, third, fourth);
     }
 
     /**
@@ -124,7 +126,7 @@ public class Matchers {
      * <pre>assertThat("myValue", anyOf(startsWith("foo"), containsString("Val")))</pre>
      */
     public static <T> org.hamcrest.core.AnyOf<T> anyOf(org.hamcrest.Matcher<T> first, org.hamcrest.Matcher<? super T> second, org.hamcrest.Matcher<? super T> third, org.hamcrest.Matcher<? super T> fourth, org.hamcrest.Matcher<? super T> fifth) {
-        return org.hamcrest.core.AnyOf.<T>anyOf(first, second, third, fourth, fifth);
+        return org.hamcrest.core.AnyOf.anyOf(first, second, third, fourth, fifth);
     }
 
     /**
@@ -133,7 +135,7 @@ public class Matchers {
      * <pre>assertThat("myValue", anyOf(startsWith("foo"), containsString("Val")))</pre>
      */
     public static <T> org.hamcrest.core.AnyOf<T> anyOf(org.hamcrest.Matcher<T> first, org.hamcrest.Matcher<? super T> second, org.hamcrest.Matcher<? super T> third, org.hamcrest.Matcher<? super T> fourth, org.hamcrest.Matcher<? super T> fifth, org.hamcrest.Matcher<? super T> sixth) {
-        return org.hamcrest.core.AnyOf.<T>anyOf(first, second, third, fourth, fifth, sixth);
+        return org.hamcrest.core.AnyOf.anyOf(first, second, third, fourth, fifth, sixth);
     }
 
     /**
@@ -142,7 +144,7 @@ public class Matchers {
      * <pre>assertThat("fab", both(containsString("a")).and(containsString("b")))</pre>
      */
     public static <LHS> org.hamcrest.core.CombinableMatcher.CombinableBothMatcher<LHS> both(org.hamcrest.Matcher<? super LHS> matcher) {
-        return org.hamcrest.core.CombinableMatcher.<LHS>both(matcher);
+        return org.hamcrest.core.CombinableMatcher.both(matcher);
     }
 
     /**
@@ -151,7 +153,7 @@ public class Matchers {
      * <pre>assertThat("fan", either(containsString("a")).or(containsString("b")))</pre>
      */
     public static <LHS> org.hamcrest.core.CombinableMatcher.CombinableEitherMatcher<LHS> either(org.hamcrest.Matcher<? super LHS> matcher) {
-        return org.hamcrest.core.CombinableMatcher.<LHS>either(matcher);
+        return org.hamcrest.core.CombinableMatcher.either(matcher);
     }
 
     /**
@@ -165,7 +167,7 @@ public class Matchers {
      * @param values      optional values to insert into the tokenised description
      */
     public static <T> org.hamcrest.Matcher<T> describedAs(java.lang.String description, org.hamcrest.Matcher<T> matcher, java.lang.Object... values) {
-        return org.hamcrest.core.DescribedAs.<T>describedAs(description, matcher, values);
+        return org.hamcrest.core.DescribedAs.describedAs(description, matcher, values);
     }
 
     /**
@@ -178,7 +180,7 @@ public class Matchers {
      * @param itemMatcher the matcher to apply to every item provided by the examined {@link Iterable}
      */
     public static <U> org.hamcrest.Matcher<java.lang.Iterable<? extends U>> everyItem(org.hamcrest.Matcher<U> itemMatcher) {
-        return org.hamcrest.core.Every.<U>everyItem(itemMatcher);
+        return org.hamcrest.core.Every.everyItem(itemMatcher);
     }
 
     /**
@@ -190,7 +192,7 @@ public class Matchers {
      * <pre>assertThat(cheese, equalTo(smelly))</pre>
      */
     public static <T> org.hamcrest.Matcher<T> is(org.hamcrest.Matcher<T> matcher) {
-        return org.hamcrest.core.Is.<T>is(matcher);
+        return org.hamcrest.core.Is.is(matcher);
     }
 
     /**
@@ -201,7 +203,7 @@ public class Matchers {
      * <pre>assertThat(cheese, is(equalTo(smelly)))</pre>
      */
     public static <T> org.hamcrest.Matcher<T> is(T value) {
-        return org.hamcrest.core.Is.<T>is(value);
+        return org.hamcrest.core.Is.is(value);
     }
 
     /**
@@ -212,7 +214,7 @@ public class Matchers {
      * <pre>assertThat(cheese, is(instanceOf(Cheddar.class)))</pre>
      */
     public static <T> org.hamcrest.Matcher<T> isA(java.lang.Class<T> type) {
-        return org.hamcrest.core.Is.<T>isA(type);
+        return org.hamcrest.core.Is.isA(type);
     }
 
     /**
@@ -243,7 +245,7 @@ public class Matchers {
      * @param itemMatcher the matcher to apply to items provided by the examined {@link Iterable}
      */
     public static <T> org.hamcrest.Matcher<java.lang.Iterable<? super T>> hasItem(org.hamcrest.Matcher<? super T> itemMatcher) {
-        return org.hamcrest.core.IsCollectionContaining.<T>hasItem(itemMatcher);
+        return org.hamcrest.core.IsCollectionContaining.hasItem(itemMatcher);
     }
 
     /**
@@ -257,7 +259,7 @@ public class Matchers {
      * @param item the item to compare against the items provided by the examined {@link Iterable}
      */
     public static <T> org.hamcrest.Matcher<java.lang.Iterable<? super T>> hasItem(T item) {
-        return org.hamcrest.core.IsCollectionContaining.<T>hasItem(item);
+        return org.hamcrest.core.IsCollectionContaining.hasItem(item);
     }
 
     /**
@@ -270,8 +272,9 @@ public class Matchers {
      *
      * @param itemMatchers the matchers to apply to items provided by the examined {@link Iterable}
      */
+    @SafeVarargs
     public static <T> org.hamcrest.Matcher<java.lang.Iterable<T>> hasItems(org.hamcrest.Matcher<? super T>... itemMatchers) {
-        return org.hamcrest.core.IsCollectionContaining.<T>hasItems(itemMatchers);
+        return org.hamcrest.core.IsCollectionContaining.hasItems(itemMatchers);
     }
 
     /**
@@ -284,8 +287,9 @@ public class Matchers {
      *
      * @param items the items to compare against the items provided by the examined {@link Iterable}
      */
+    @SafeVarargs
     public static <T> org.hamcrest.Matcher<java.lang.Iterable<T>> hasItems(T... items) {
-        return org.hamcrest.core.IsCollectionContaining.<T>hasItems(items);
+        return org.hamcrest.core.IsCollectionContaining.hasItems(items);
     }
 
     /**
@@ -310,7 +314,7 @@ public class Matchers {
      * </pre>
      */
     public static <T> org.hamcrest.Matcher<T> equalTo(T operand) {
-        return org.hamcrest.core.IsEqual.<T>equalTo(operand);
+        return org.hamcrest.core.IsEqual.equalTo(operand);
     }
 
     /**
@@ -333,7 +337,7 @@ public class Matchers {
      * <pre>assertThat(new Canoe(), instanceOf(Canoe.class));</pre>
      */
     public static <T> org.hamcrest.Matcher<T> any(java.lang.Class<T> type) {
-        return org.hamcrest.core.IsInstanceOf.<T>any(type);
+        return org.hamcrest.core.IsInstanceOf.any(type);
     }
 
     /**
@@ -346,7 +350,7 @@ public class Matchers {
      * <pre>assertThat(new Canoe(), instanceOf(Paddlable.class));</pre>
      */
     public static <T> org.hamcrest.Matcher<T> instanceOf(java.lang.Class<?> type) {
-        return org.hamcrest.core.IsInstanceOf.<T>instanceOf(type);
+        return org.hamcrest.core.IsInstanceOf.instanceOf(type);
     }
 
     /**
@@ -358,7 +362,7 @@ public class Matchers {
      * @param matcher the matcher whose sense should be inverted
      */
     public static <T> org.hamcrest.Matcher<T> not(org.hamcrest.Matcher<T> matcher) {
-        return org.hamcrest.core.IsNot.<T>not(matcher);
+        return org.hamcrest.core.IsNot.not(matcher);
     }
 
     /**
@@ -371,7 +375,7 @@ public class Matchers {
      * @param value the value that any examined object should <b>not</b> equal
      */
     public static <T> org.hamcrest.Matcher<T> not(T value) {
-        return org.hamcrest.core.IsNot.<T>not(value);
+        return org.hamcrest.core.IsNot.not(value);
     }
 
     /**
@@ -396,7 +400,7 @@ public class Matchers {
      * @param type dummy parameter used to infer the generic type of the returned matcher
      */
     public static <T> org.hamcrest.Matcher<T> notNullValue(java.lang.Class<T> type) {
-        return org.hamcrest.core.IsNull.<T>notNullValue(type);
+        return org.hamcrest.core.IsNull.notNullValue(type);
     }
 
     /**
@@ -417,7 +421,7 @@ public class Matchers {
      * @param type dummy parameter used to infer the generic type of the returned matcher
      */
     public static <T> org.hamcrest.Matcher<T> nullValue(java.lang.Class<T> type) {
-        return org.hamcrest.core.IsNull.<T>nullValue(type);
+        return org.hamcrest.core.IsNull.nullValue(type);
     }
 
     /**
@@ -427,7 +431,7 @@ public class Matchers {
      * @param target the target instance against which others should be assessed
      */
     public static <T> org.hamcrest.Matcher<T> sameInstance(T target) {
-        return org.hamcrest.core.IsSame.<T>sameInstance(target);
+        return org.hamcrest.core.IsSame.sameInstance(target);
     }
 
     /**
@@ -437,7 +441,7 @@ public class Matchers {
      * @param target the target instance against which others should be assessed
      */
     public static <T> org.hamcrest.Matcher<T> theInstance(T target) {
-        return org.hamcrest.core.IsSame.<T>theInstance(target);
+        return org.hamcrest.core.IsSame.theInstance(target);
     }
 
     /**
@@ -525,8 +529,9 @@ public class Matchers {
      *
      * @param elementMatchers the matchers that the elements of examined arrays should satisfy
      */
+    @SafeVarargs
     public static <T> org.hamcrest.collection.IsArray<T> array(org.hamcrest.Matcher<? super T>... elementMatchers) {
-        return org.hamcrest.collection.IsArray.<T>array(elementMatchers);
+        return org.hamcrest.collection.IsArray.array(elementMatchers);
     }
 
     /**
@@ -539,7 +544,7 @@ public class Matchers {
      * @param elementMatcher the matcher to apply to elements in examined arrays
      */
     public static <T> org.hamcrest.Matcher<T[]> hasItemInArray(org.hamcrest.Matcher<? super T> elementMatcher) {
-        return org.hamcrest.collection.IsArrayContaining.<T>hasItemInArray(elementMatcher);
+        return org.hamcrest.collection.IsArrayContaining.hasItemInArray(elementMatcher);
     }
 
     /**
@@ -552,7 +557,7 @@ public class Matchers {
      * @param element the element that should be present in examined arrays
      */
     public static <T> org.hamcrest.Matcher<T[]> hasItemInArray(T element) {
-        return org.hamcrest.collection.IsArrayContaining.<T>hasItemInArray(element);
+        return org.hamcrest.collection.IsArrayContaining.hasItemInArray(element);
     }
 
     /**
@@ -564,8 +569,9 @@ public class Matchers {
      *
      * @param items the items that must equal the items within an examined array
      */
+    @SafeVarargs
     public static <E> org.hamcrest.Matcher<E[]> arrayContaining(E... items) {
-        return org.hamcrest.collection.IsArrayContainingInOrder.<E>arrayContaining(items);
+        return org.hamcrest.collection.IsArrayContainingInOrder.arrayContaining(items);
     }
 
     /**
@@ -577,8 +583,9 @@ public class Matchers {
      *
      * @param itemMatchers the matchers that must be satisfied by the items in the examined array
      */
+    @SafeVarargs
     public static <E> org.hamcrest.Matcher<E[]> arrayContaining(org.hamcrest.Matcher<? super E>... itemMatchers) {
-        return org.hamcrest.collection.IsArrayContainingInOrder.<E>arrayContaining(itemMatchers);
+        return org.hamcrest.collection.IsArrayContainingInOrder.arrayContaining(itemMatchers);
     }
 
     /**
@@ -591,7 +598,7 @@ public class Matchers {
      * @param itemMatchers a list of matchers, each of which must be satisfied by the corresponding item in an examined array
      */
     public static <E> org.hamcrest.Matcher<E[]> arrayContaining(java.util.List<org.hamcrest.Matcher<? super E>> itemMatchers) {
-        return org.hamcrest.collection.IsArrayContainingInOrder.<E>arrayContaining(itemMatchers);
+        return org.hamcrest.collection.IsArrayContainingInOrder.arrayContaining(itemMatchers);
     }
 
     /**
@@ -613,8 +620,9 @@ public class Matchers {
      *
      * @param itemMatchers a list of matchers, each of which must be satisfied by an entry in an examined array
      */
+    @SafeVarargs
     public static <E> org.hamcrest.Matcher<E[]> arrayContainingInAnyOrder(org.hamcrest.Matcher<? super E>... itemMatchers) {
-        return org.hamcrest.collection.IsArrayContainingInAnyOrder.<E>arrayContainingInAnyOrder(itemMatchers);
+        return org.hamcrest.collection.IsArrayContainingInAnyOrder.arrayContainingInAnyOrder(itemMatchers);
     }
 
     /**
@@ -637,7 +645,7 @@ public class Matchers {
      * @param itemMatchers a list of matchers, each of which must be satisfied by an item provided by an examined array
      */
     public static <E> org.hamcrest.Matcher<E[]> arrayContainingInAnyOrder(java.util.Collection<org.hamcrest.Matcher<? super E>> itemMatchers) {
-        return org.hamcrest.collection.IsArrayContainingInAnyOrder.<E>arrayContainingInAnyOrder(itemMatchers);
+        return org.hamcrest.collection.IsArrayContainingInAnyOrder.arrayContainingInAnyOrder(itemMatchers);
     }
 
     /**
@@ -657,8 +665,9 @@ public class Matchers {
      *
      * @param items the items that must equal the entries of an examined array, in any order
      */
+    @SafeVarargs
     public static <E> org.hamcrest.Matcher<E[]> arrayContainingInAnyOrder(E... items) {
-        return org.hamcrest.collection.IsArrayContainingInAnyOrder.<E>arrayContainingInAnyOrder(items);
+        return org.hamcrest.collection.IsArrayContainingInAnyOrder.arrayContainingInAnyOrder(items);
     }
 
     /**
@@ -670,7 +679,7 @@ public class Matchers {
      * @param sizeMatcher a matcher for the length of an examined array
      */
     public static <E> org.hamcrest.Matcher<E[]> arrayWithSize(org.hamcrest.Matcher<? super java.lang.Integer> sizeMatcher) {
-        return org.hamcrest.collection.IsArrayWithSize.<E>arrayWithSize(sizeMatcher);
+        return org.hamcrest.collection.IsArrayWithSize.arrayWithSize(sizeMatcher);
     }
 
     /**
@@ -682,7 +691,7 @@ public class Matchers {
      * @param size the length that an examined array must have for a positive match
      */
     public static <E> org.hamcrest.Matcher<E[]> arrayWithSize(int size) {
-        return org.hamcrest.collection.IsArrayWithSize.<E>arrayWithSize(size);
+        return org.hamcrest.collection.IsArrayWithSize.arrayWithSize(size);
     }
 
     /**
@@ -692,7 +701,7 @@ public class Matchers {
      * <pre>assertThat(new String[0], emptyArray())</pre>
      */
     public static <E> org.hamcrest.Matcher<E[]> emptyArray() {
-        return org.hamcrest.collection.IsArrayWithSize.<E>emptyArray();
+        return org.hamcrest.collection.IsArrayWithSize.emptyArray();
     }
 
     /**
@@ -704,7 +713,7 @@ public class Matchers {
      * @param sizeMatcher a matcher for the size of an examined {@link java.util.Map}
      */
     public static <K, V> org.hamcrest.Matcher<java.util.Map<? extends K, ? extends V>> aMapWithSize(org.hamcrest.Matcher<? super java.lang.Integer> sizeMatcher) {
-        return org.hamcrest.collection.IsMapWithSize.<K, V>aMapWithSize(sizeMatcher);
+        return org.hamcrest.collection.IsMapWithSize.aMapWithSize(sizeMatcher);
     }
 
     /**
@@ -716,7 +725,7 @@ public class Matchers {
      * @param size the expected size of an examined {@link java.util.Map}
      */
     public static <K, V> org.hamcrest.Matcher<java.util.Map<? extends K, ? extends V>> aMapWithSize(int size) {
-        return org.hamcrest.collection.IsMapWithSize.<K, V>aMapWithSize(size);
+        return org.hamcrest.collection.IsMapWithSize.aMapWithSize(size);
     }
 
     /**
@@ -726,7 +735,7 @@ public class Matchers {
      * <pre>assertThat(myMap, is(anEmptyMap()))</pre>
      */
     public static <K, V> org.hamcrest.Matcher<java.util.Map<? extends K, ? extends V>> anEmptyMap() {
-        return org.hamcrest.collection.IsMapWithSize.<K, V>anEmptyMap();
+        return org.hamcrest.collection.IsMapWithSize.anEmptyMap();
     }
 
     /**
@@ -738,7 +747,7 @@ public class Matchers {
      * @param sizeMatcher a matcher for the size of an examined {@link java.util.Collection}
      */
     public static <E> org.hamcrest.Matcher<java.util.Collection<? extends E>> hasSize(org.hamcrest.Matcher<? super java.lang.Integer> sizeMatcher) {
-        return org.hamcrest.collection.IsCollectionWithSize.<E>hasSize(sizeMatcher);
+        return org.hamcrest.collection.IsCollectionWithSize.hasSize(sizeMatcher);
     }
 
     /**
@@ -750,7 +759,7 @@ public class Matchers {
      * @param size the expected size of an examined {@link java.util.Collection}
      */
     public static <E> org.hamcrest.Matcher<java.util.Collection<? extends E>> hasSize(int size) {
-        return org.hamcrest.collection.IsCollectionWithSize.<E>hasSize(size);
+        return org.hamcrest.collection.IsCollectionWithSize.hasSize(size);
     }
 
     /**
@@ -760,7 +769,7 @@ public class Matchers {
      * <pre>assertThat(new ArrayList&lt;String&gt;(), is(empty()))</pre>
      */
     public static <E> org.hamcrest.Matcher<java.util.Collection<? extends E>> empty() {
-        return org.hamcrest.collection.IsEmptyCollection.<E>empty();
+        return org.hamcrest.collection.IsEmptyCollection.empty();
     }
 
     /**
@@ -772,7 +781,7 @@ public class Matchers {
      * @param unusedToForceReturnType the type of the collection's content
      */
     public static <E> org.hamcrest.Matcher<java.util.Collection<E>> emptyCollectionOf(java.lang.Class<E> unusedToForceReturnType) {
-        return org.hamcrest.collection.IsEmptyCollection.<E>emptyCollectionOf(unusedToForceReturnType);
+        return org.hamcrest.collection.IsEmptyCollection.emptyCollectionOf(unusedToForceReturnType);
     }
 
     /**
@@ -781,7 +790,7 @@ public class Matchers {
      * <pre>assertThat(new ArrayList&lt;String&gt;(), is(emptyIterable()))</pre>
      */
     public static <E> org.hamcrest.Matcher<java.lang.Iterable<? extends E>> emptyIterable() {
-        return org.hamcrest.collection.IsEmptyIterable.<E>emptyIterable();
+        return org.hamcrest.collection.IsEmptyIterable.emptyIterable();
     }
 
     /**
@@ -792,7 +801,7 @@ public class Matchers {
      * @param unusedToForceReturnType the type of the iterable's content
      */
     public static <E> org.hamcrest.Matcher<java.lang.Iterable<E>> emptyIterableOf(java.lang.Class<E> unusedToForceReturnType) {
-        return org.hamcrest.collection.IsEmptyIterable.<E>emptyIterableOf(unusedToForceReturnType);
+        return org.hamcrest.collection.IsEmptyIterable.emptyIterableOf(unusedToForceReturnType);
     }
 
     /**
@@ -805,8 +814,9 @@ public class Matchers {
      *
      * @param items the items that must equal the items provided by an examined {@link Iterable}
      */
+    @SafeVarargs
     public static <E> org.hamcrest.Matcher<java.lang.Iterable<? extends E>> contains(E... items) {
-        return org.hamcrest.collection.IsIterableContainingInOrder.<E>contains(items);
+        return org.hamcrest.collection.IsIterableContainingInOrder.contains(items);
     }
 
     /**
@@ -820,7 +830,7 @@ public class Matchers {
      *                    examined {@link Iterable}
      */
     public static <E> org.hamcrest.Matcher<java.lang.Iterable<? extends E>> contains(org.hamcrest.Matcher<? super E> itemMatcher) {
-        return org.hamcrest.collection.IsIterableContainingInOrder.<E>contains(itemMatcher);
+        return org.hamcrest.collection.IsIterableContainingInOrder.contains(itemMatcher);
     }
 
     /**
@@ -833,8 +843,9 @@ public class Matchers {
      *
      * @param itemMatchers the matchers that must be satisfied by the items provided by an examined {@link Iterable}
      */
+    @SafeVarargs
     public static <E> org.hamcrest.Matcher<java.lang.Iterable<? extends E>> contains(org.hamcrest.Matcher<? super E>... itemMatchers) {
-        return org.hamcrest.collection.IsIterableContainingInOrder.<E>contains(itemMatchers);
+        return org.hamcrest.collection.IsIterableContainingInOrder.contains(itemMatchers);
     }
 
     /**
@@ -849,7 +860,7 @@ public class Matchers {
      *                     an examined {@link Iterable}
      */
     public static <E> org.hamcrest.Matcher<java.lang.Iterable<? extends E>> contains(java.util.List<org.hamcrest.Matcher<? super E>> itemMatchers) {
-        return org.hamcrest.collection.IsIterableContainingInOrder.<E>contains(itemMatchers);
+        return org.hamcrest.collection.IsIterableContainingInOrder.contains(itemMatchers);
     }
 
     /**
@@ -871,8 +882,9 @@ public class Matchers {
      *
      * @param itemMatchers a list of matchers, each of which must be satisfied by an item provided by an examined {@link Iterable}
      */
+    @SafeVarargs
     public static <T> org.hamcrest.Matcher<java.lang.Iterable<? extends T>> containsInAnyOrder(org.hamcrest.Matcher<? super T>... itemMatchers) {
-        return org.hamcrest.collection.IsIterableContainingInAnyOrder.<T>containsInAnyOrder(itemMatchers);
+        return org.hamcrest.collection.IsIterableContainingInAnyOrder.containsInAnyOrder(itemMatchers);
     }
 
     /**
@@ -894,8 +906,9 @@ public class Matchers {
      *
      * @param items the items that must equal the items provided by an examined {@link Iterable} in any order
      */
+    @SafeVarargs
     public static <T> org.hamcrest.Matcher<java.lang.Iterable<? extends T>> containsInAnyOrder(T... items) {
-        return org.hamcrest.collection.IsIterableContainingInAnyOrder.<T>containsInAnyOrder(items);
+        return org.hamcrest.collection.IsIterableContainingInAnyOrder.containsInAnyOrder(items);
     }
 
     /**
@@ -916,7 +929,7 @@ public class Matchers {
      * @param itemMatchers a list of matchers, each of which must be satisfied by an item provided by an examined {@link Iterable}
      */
     public static <T> org.hamcrest.Matcher<java.lang.Iterable<? extends T>> containsInAnyOrder(java.util.Collection<org.hamcrest.Matcher<? super T>> itemMatchers) {
-        return org.hamcrest.collection.IsIterableContainingInAnyOrder.<T>containsInAnyOrder(itemMatchers);
+        return org.hamcrest.collection.IsIterableContainingInAnyOrder.containsInAnyOrder(itemMatchers);
     }
 
     /**
@@ -928,8 +941,9 @@ public class Matchers {
      *
      * @param items the items that must be contained within items provided by an examined {@link Iterable} in the same relative order
      */
+    @SafeVarargs
     public static <E> org.hamcrest.Matcher<java.lang.Iterable<? extends E>> containsInRelativeOrder(E... items) {
-        return org.hamcrest.collection.IsIterableContainingInRelativeOrder.<E>containsInRelativeOrder(items);
+        return org.hamcrest.collection.IsIterableContainingInRelativeOrder.containsInRelativeOrder(items);
     }
 
     /**
@@ -941,8 +955,9 @@ public class Matchers {
      *
      * @param itemMatchers the matchers that must be satisfied by the items provided by an examined {@link Iterable} in the same relative order
      */
+    @SafeVarargs
     public static <E> org.hamcrest.Matcher<java.lang.Iterable<? extends E>> containsInRelativeOrder(org.hamcrest.Matcher<? super E>... itemMatchers) {
-        return org.hamcrest.collection.IsIterableContainingInRelativeOrder.<E>containsInRelativeOrder(itemMatchers);
+        return org.hamcrest.collection.IsIterableContainingInRelativeOrder.containsInRelativeOrder(itemMatchers);
     }
 
     /**
@@ -956,7 +971,7 @@ public class Matchers {
      *                     an examined {@link Iterable} in the same relative order
      */
     public static <E> org.hamcrest.Matcher<java.lang.Iterable<? extends E>> containsInRelativeOrder(java.util.List<org.hamcrest.Matcher<? super E>> itemMatchers) {
-        return org.hamcrest.collection.IsIterableContainingInRelativeOrder.<E>containsInRelativeOrder(itemMatchers);
+        return org.hamcrest.collection.IsIterableContainingInRelativeOrder.containsInRelativeOrder(itemMatchers);
     }
 
     /**
@@ -969,7 +984,7 @@ public class Matchers {
      * @param sizeMatcher a matcher for the number of items that should be yielded by an examined {@link Iterable}
      */
     public static <E> org.hamcrest.Matcher<java.lang.Iterable<E>> iterableWithSize(org.hamcrest.Matcher<? super java.lang.Integer> sizeMatcher) {
-        return org.hamcrest.collection.IsIterableWithSize.<E>iterableWithSize(sizeMatcher);
+        return org.hamcrest.collection.IsIterableWithSize.iterableWithSize(sizeMatcher);
     }
 
     /**
@@ -982,7 +997,7 @@ public class Matchers {
      * @param size the number of items that should be yielded by an examined {@link Iterable}
      */
     public static <E> org.hamcrest.Matcher<java.lang.Iterable<E>> iterableWithSize(int size) {
-        return org.hamcrest.collection.IsIterableWithSize.<E>iterableWithSize(size);
+        return org.hamcrest.collection.IsIterableWithSize.iterableWithSize(size);
     }
 
     /**
@@ -996,7 +1011,7 @@ public class Matchers {
      * @param valueMatcher the value matcher that, in combination with the keyMatcher, must be satisfied by at least one entry
      */
     public static <K, V> org.hamcrest.Matcher<java.util.Map<? extends K, ? extends V>> hasEntry(org.hamcrest.Matcher<? super K> keyMatcher, org.hamcrest.Matcher<? super V> valueMatcher) {
-        return org.hamcrest.collection.IsMapContaining.<K, V>hasEntry(keyMatcher, valueMatcher);
+        return org.hamcrest.collection.IsMapContaining.hasEntry(keyMatcher, valueMatcher);
     }
 
     /**
@@ -1010,7 +1025,7 @@ public class Matchers {
      * @param value the value that, in combination with the key, must be describe at least one entry
      */
     public static <K, V> org.hamcrest.Matcher<java.util.Map<? extends K, ? extends V>> hasEntry(K key, V value) {
-        return org.hamcrest.collection.IsMapContaining.<K, V>hasEntry(key, value);
+        return org.hamcrest.collection.IsMapContaining.hasEntry(key, value);
     }
 
     /**
@@ -1022,7 +1037,7 @@ public class Matchers {
      * @param keyMatcher the matcher that must be satisfied by at least one key
      */
     public static <K> org.hamcrest.Matcher<java.util.Map<? extends K, ?>> hasKey(org.hamcrest.Matcher<? super K> keyMatcher) {
-        return org.hamcrest.collection.IsMapContaining.<K>hasKey(keyMatcher);
+        return org.hamcrest.collection.IsMapContaining.hasKey(keyMatcher);
     }
 
     /**
@@ -1034,7 +1049,7 @@ public class Matchers {
      * @param key the key that satisfying maps must contain
      */
     public static <K> org.hamcrest.Matcher<java.util.Map<? extends K, ?>> hasKey(K key) {
-        return org.hamcrest.collection.IsMapContaining.<K>hasKey(key);
+        return org.hamcrest.collection.IsMapContaining.hasKey(key);
     }
 
     /**
@@ -1046,7 +1061,7 @@ public class Matchers {
      * @param valueMatcher the matcher that must be satisfied by at least one value
      */
     public static <V> org.hamcrest.Matcher<java.util.Map<?, ? extends V>> hasValue(org.hamcrest.Matcher<? super V> valueMatcher) {
-        return org.hamcrest.collection.IsMapContaining.<V>hasValue(valueMatcher);
+        return org.hamcrest.collection.IsMapContaining.hasValue(valueMatcher);
     }
 
     /**
@@ -1058,7 +1073,7 @@ public class Matchers {
      * @param value the value that satisfying maps must contain
      */
     public static <V> org.hamcrest.Matcher<java.util.Map<?, ? extends V>> hasValue(V value) {
-        return org.hamcrest.collection.IsMapContaining.<V>hasValue(value);
+        return org.hamcrest.collection.IsMapContaining.hasValue(value);
     }
 
     /**
@@ -1070,7 +1085,7 @@ public class Matchers {
      * @param collection the collection in which matching items must be found
      */
     public static <T> org.hamcrest.Matcher<T> in(java.util.Collection<T> collection) {
-        return org.hamcrest.collection.IsIn.<T>in(collection);
+        return org.hamcrest.collection.IsIn.in(collection);
     }
 
     /**
@@ -1082,7 +1097,7 @@ public class Matchers {
      * @param elements the array in which matching items must be found
      */
     public static <T> org.hamcrest.Matcher<T> in(T[] elements) {
-        return org.hamcrest.collection.IsIn.<T>in(elements);
+        return org.hamcrest.collection.IsIn.in(elements);
     }
 
     /**
@@ -1094,8 +1109,9 @@ public class Matchers {
      * @param collection the collection in which matching items must be found
      * @deprecated use is(in(...)) instead
      */
+    @SuppressWarnings("deprecation")
     public static <T> org.hamcrest.Matcher<T> isIn(java.util.Collection<T> collection) {
-        return org.hamcrest.collection.IsIn.<T>isIn(collection);
+        return org.hamcrest.collection.IsIn.isIn(collection);
     }
 
     /**
@@ -1107,8 +1123,9 @@ public class Matchers {
      * @param elements the array in which matching items must be found
      * @deprecated use is(in(...)) instead
      */
+    @SuppressWarnings("deprecation")
     public static <T> org.hamcrest.Matcher<T> isIn(T[] elements) {
-        return org.hamcrest.collection.IsIn.<T>isIn(elements);
+        return org.hamcrest.collection.IsIn.isIn(elements);
     }
 
     /**
@@ -1120,8 +1137,10 @@ public class Matchers {
      * @param elements the elements amongst which matching items will be found
      * @deprecated use is(oneOf(...)) instead
      */
+    @SuppressWarnings("deprecation")
+    @SafeVarargs
     public static <T> org.hamcrest.Matcher<T> isOneOf(T... elements) {
-        return org.hamcrest.collection.IsIn.<T>isOneOf(elements);
+        return org.hamcrest.collection.IsIn.isOneOf(elements);
     }
 
     /**
@@ -1132,8 +1151,9 @@ public class Matchers {
      *
      * @param elements the elements amongst which matching items will be found
      */
+    @SafeVarargs
     public static <T> org.hamcrest.Matcher<T> oneOf(T... elements) {
-        return org.hamcrest.collection.IsIn.<T>oneOf(elements);
+        return org.hamcrest.collection.IsIn.oneOf(elements);
     }
 
     /**
@@ -1182,7 +1202,7 @@ public class Matchers {
      * @param value the value which, when passed to the compareTo method of the examined object, should return zero
      */
     public static <T extends java.lang.Comparable<T>> org.hamcrest.Matcher<T> comparesEqualTo(T value) {
-        return org.hamcrest.number.OrderingComparison.<T>comparesEqualTo(value);
+        return org.hamcrest.number.OrderingComparison.comparesEqualTo(value);
     }
 
     /**
@@ -1196,7 +1216,7 @@ public class Matchers {
      *              than zero
      */
     public static <T extends java.lang.Comparable<T>> org.hamcrest.Matcher<T> greaterThan(T value) {
-        return org.hamcrest.number.OrderingComparison.<T>greaterThan(value);
+        return org.hamcrest.number.OrderingComparison.greaterThan(value);
     }
 
     /**
@@ -1210,7 +1230,7 @@ public class Matchers {
      *              than or equal to zero
      */
     public static <T extends java.lang.Comparable<T>> org.hamcrest.Matcher<T> greaterThanOrEqualTo(T value) {
-        return org.hamcrest.number.OrderingComparison.<T>greaterThanOrEqualTo(value);
+        return org.hamcrest.number.OrderingComparison.greaterThanOrEqualTo(value);
     }
 
     /**
@@ -1224,7 +1244,7 @@ public class Matchers {
      *              than zero
      */
     public static <T extends java.lang.Comparable<T>> org.hamcrest.Matcher<T> lessThan(T value) {
-        return org.hamcrest.number.OrderingComparison.<T>lessThan(value);
+        return org.hamcrest.number.OrderingComparison.lessThan(value);
     }
 
     /**
@@ -1238,7 +1258,7 @@ public class Matchers {
      *              than or equal to zero
      */
     public static <T extends java.lang.Comparable<T>> org.hamcrest.Matcher<T> lessThanOrEqualTo(T value) {
-        return org.hamcrest.number.OrderingComparison.<T>lessThanOrEqualTo(value);
+        return org.hamcrest.number.OrderingComparison.lessThanOrEqualTo(value);
     }
 
     /**
@@ -1297,6 +1317,7 @@ public class Matchers {
      *
      * @deprecated use is(emptyOrNullString()) instead
      */
+    @SuppressWarnings("deprecation")
     public static org.hamcrest.Matcher<java.lang.String> isEmptyOrNullString() {
         return org.hamcrest.text.IsEmptyString.isEmptyOrNullString();
     }
@@ -1308,6 +1329,7 @@ public class Matchers {
      *
      * @deprecated use is(emptyString()) instead
      */
+    @SuppressWarnings("deprecation")
     public static org.hamcrest.Matcher<java.lang.String> isEmptyString() {
         return org.hamcrest.text.IsEmptyString.isEmptyString();
     }
@@ -1383,7 +1405,7 @@ public class Matchers {
      * @param toStringMatcher the matcher used to verify the toString result
      */
     public static <T> org.hamcrest.Matcher<T> hasToString(org.hamcrest.Matcher<? super java.lang.String> toStringMatcher) {
-        return org.hamcrest.object.HasToString.<T>hasToString(toStringMatcher);
+        return org.hamcrest.object.HasToString.hasToString(toStringMatcher);
     }
 
     /**
@@ -1395,7 +1417,7 @@ public class Matchers {
      * @param expectedToString the expected toString result
      */
     public static <T> org.hamcrest.Matcher<T> hasToString(java.lang.String expectedToString) {
-        return org.hamcrest.object.HasToString.<T>hasToString(expectedToString);
+        return org.hamcrest.object.HasToString.hasToString(expectedToString);
     }
 
     /**
@@ -1407,7 +1429,7 @@ public class Matchers {
      * @param baseType the base class to examine classes against
      */
     public static <T> org.hamcrest.Matcher<java.lang.Class<?>> typeCompatibleWith(java.lang.Class<T> baseType) {
-        return org.hamcrest.object.IsCompatibleType.<T>typeCompatibleWith(baseType);
+        return org.hamcrest.object.IsCompatibleType.typeCompatibleWith(baseType);
     }
 
     /**
@@ -1444,7 +1466,7 @@ public class Matchers {
      * @param propertyName the name of the JavaBean property that examined beans should possess
      */
     public static <T> org.hamcrest.Matcher<T> hasProperty(java.lang.String propertyName) {
-        return org.hamcrest.beans.HasProperty.<T>hasProperty(propertyName);
+        return org.hamcrest.beans.HasProperty.hasProperty(propertyName);
     }
 
     /**
@@ -1457,7 +1479,7 @@ public class Matchers {
      * @param valueMatcher a matcher for the value of the specified property of the examined bean
      */
     public static <T> org.hamcrest.Matcher<T> hasProperty(java.lang.String propertyName, org.hamcrest.Matcher<?> valueMatcher) {
-        return org.hamcrest.beans.HasPropertyWithValue.<T>hasProperty(propertyName, valueMatcher);
+        return org.hamcrest.beans.HasPropertyWithValue.hasProperty(propertyName, valueMatcher);
     }
 
     /**
@@ -1470,7 +1492,7 @@ public class Matchers {
      * @param expectedBean the bean against which examined beans are compared
      */
     public static <T> org.hamcrest.Matcher<T> samePropertyValuesAs(T expectedBean) {
-        return org.hamcrest.beans.SamePropertyValuesAs.<T>samePropertyValuesAs(expectedBean);
+        return org.hamcrest.beans.SamePropertyValuesAs.samePropertyValuesAs(expectedBean);
     }
 
     /**
@@ -1527,7 +1549,7 @@ public class Matchers {
     }
 
     public static <T> Matcher<Iterable<? extends T>> hasSubsequence(List<Matcher<? super T>> matchers) {
-        return new HasSubsequence<T>(matchers);
+        return new HasSubsequence<>(matchers);
     }
 
     @SafeVarargs
@@ -1536,11 +1558,11 @@ public class Matchers {
     }
 
     public static <T> Matcher<Iterable<? extends T>> hasSubsequence(Iterable<? extends T> items) {
-        List<Matcher<? super T>> matchers = new ArrayList<Matcher<? super T>>();
+        List<Matcher<? super T>> matchers = new ArrayList<>();
         for (Object item : items) {
             matchers.add(equalTo(item));
         }
-        return new HasSubsequence<T>(matchers);
+        return new HasSubsequence<>(matchers);
     }
 
     @SafeVarargs
