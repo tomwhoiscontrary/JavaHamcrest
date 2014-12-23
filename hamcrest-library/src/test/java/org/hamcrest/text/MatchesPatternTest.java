@@ -1,12 +1,12 @@
-package org.hamcrest.object;
+package org.hamcrest.text;
 
 import org.hamcrest.Matcher;
-import org.hamcrest.text.MatchesPattern;
 import org.junit.Test;
 
 import java.util.regex.Pattern;
 
 import static org.hamcrest.AbstractMatcherTest.*;
+import static org.hamcrest.text.MatchStrings.matchesPattern;
 import static org.junit.Assert.assertThat;
 
 public class MatchesPatternTest {
@@ -35,25 +35,25 @@ public class MatchesPatternTest {
 
     @Test
     public void hasAReadableDescription() {
-        Matcher<?> m = new MatchesPattern(Pattern.compile("a[bc](d|e)"));
+        Matcher<?> m = matchesPattern(Pattern.compile("a[bc](d|e)"));
         assertDescription("a string matching the pattern 'a[bc](d|e)'", m );
     }
 
     @Test
     public void describesAMismatch() {
-        final Matcher<String> matcher = new MatchesPattern(Pattern.compile("a"));
+        final Matcher<String> matcher = matchesPattern(Pattern.compile("a"));
         assertMismatchDescription("was \"Cheese\"", matcher, "Cheese");
     }
 
     @Test
     public void factoryMethodAllowsCreationWithPattern() {
-        Matcher<?> m = MatchesPattern.matchesPattern(Pattern.compile("a[bc](d|e)"));
+        Matcher<?> m = matchesPattern(Pattern.compile("a[bc](d|e)"));
         assertDescription("a string matching the pattern 'a[bc](d|e)'", m );
     }
 
     @Test
     public void factoryMethodAllowsCreationWithString() {
-        Matcher<?> m = MatchesPattern.matchesPattern("a[bc](d|e)");
+        Matcher<?> m = matchesPattern(Pattern.compile("a[bc](d|e)"));
         assertDescription("a string matching the pattern 'a[bc](d|e)'", m );
     }
 }

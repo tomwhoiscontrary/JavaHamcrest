@@ -1,15 +1,9 @@
 package org.hamcrest;
 
-import org.hamcrest.collection.HasSubsequence;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static java.util.Arrays.asList;
+import org.hamcrest.text.MatchStrings;
 
 @SuppressWarnings("UnusedDeclaration")
 public class Matchers {
-
     /**
      * Creates a matcher that matches if the examined object matches <b>ALL</b> of the specified matchers.
      * For example:
@@ -27,51 +21,6 @@ public class Matchers {
     @SafeVarargs
     public static <T> org.hamcrest.Matcher<T> allOf(org.hamcrest.Matcher<? super T>... matchers) {
         return org.hamcrest.core.AllOf.allOf(matchers);
-    }
-
-    /**
-     * Creates a matcher that matches if the examined object matches <b>ALL</b> of the specified matchers.
-     * For example:
-     * <pre>assertThat("myValue", allOf(startsWith("my"), containsString("Val")))</pre>
-     */
-    public static <T> org.hamcrest.Matcher<T> allOf(org.hamcrest.Matcher<? super T> first, org.hamcrest.Matcher<? super T> second) {
-        return org.hamcrest.core.AllOf.allOf(first, second);
-    }
-
-    /**
-     * Creates a matcher that matches if the examined object matches <b>ALL</b> of the specified matchers.
-     * For example:
-     * <pre>assertThat("myValue", allOf(startsWith("my"), containsString("Val")))</pre>
-     */
-    public static <T> org.hamcrest.Matcher<T> allOf(org.hamcrest.Matcher<? super T> first, org.hamcrest.Matcher<? super T> second, org.hamcrest.Matcher<? super T> third) {
-        return org.hamcrest.core.AllOf.allOf(first, second, third);
-    }
-
-    /**
-     * Creates a matcher that matches if the examined object matches <b>ALL</b> of the specified matchers.
-     * For example:
-     * <pre>assertThat("myValue", allOf(startsWith("my"), containsString("Val")))</pre>
-     */
-    public static <T> org.hamcrest.Matcher<T> allOf(org.hamcrest.Matcher<? super T> first, org.hamcrest.Matcher<? super T> second, org.hamcrest.Matcher<? super T> third, org.hamcrest.Matcher<? super T> fourth) {
-        return org.hamcrest.core.AllOf.allOf(first, second, third, fourth);
-    }
-
-    /**
-     * Creates a matcher that matches if the examined object matches <b>ALL</b> of the specified matchers.
-     * For example:
-     * <pre>assertThat("myValue", allOf(startsWith("my"), containsString("Val")))</pre>
-     */
-    public static <T> org.hamcrest.Matcher<T> allOf(org.hamcrest.Matcher<? super T> first, org.hamcrest.Matcher<? super T> second, org.hamcrest.Matcher<? super T> third, org.hamcrest.Matcher<? super T> fourth, org.hamcrest.Matcher<? super T> fifth) {
-        return org.hamcrest.core.AllOf.allOf(first, second, third, fourth, fifth);
-    }
-
-    /**
-     * Creates a matcher that matches if the examined object matches <b>ALL</b> of the specified matchers.
-     * For example:
-     * <pre>assertThat("myValue", allOf(startsWith("my"), containsString("Val")))</pre>
-     */
-    public static <T> org.hamcrest.Matcher<T> allOf(org.hamcrest.Matcher<? super T> first, org.hamcrest.Matcher<? super T> second, org.hamcrest.Matcher<? super T> third, org.hamcrest.Matcher<? super T> fourth, org.hamcrest.Matcher<? super T> fifth, org.hamcrest.Matcher<? super T> sixth) {
-        return org.hamcrest.core.AllOf.allOf(first, second, third, fourth, fifth, sixth);
     }
 
     /**
@@ -1359,7 +1308,7 @@ public class Matchers {
      * exactly matches the given {@link java.util.regex.Pattern}.
      */
     public static org.hamcrest.Matcher<java.lang.String> matchesPattern(java.util.regex.Pattern pattern) {
-        return org.hamcrest.text.MatchesPattern.matchesPattern(pattern);
+        return MatchStrings.matchesPattern(pattern);
     }
 
     /**
@@ -1367,7 +1316,7 @@ public class Matchers {
      * exactly matches the given regular expression, treated as a {@link java.util.regex.Pattern}.
      */
     public static org.hamcrest.Matcher<java.lang.String> matchesPattern(java.lang.String regex) {
-        return org.hamcrest.text.MatchesPattern.matchesPattern(regex);
+        return MatchStrings.matchesPattern(regex);
     }
 
     /**
@@ -1548,25 +1497,4 @@ public class Matchers {
         return org.hamcrest.xml.HasXPath.hasXPath(xPath, namespaceContext);
     }
 
-    public static <T> Matcher<Iterable<? extends T>> hasSubsequence(List<Matcher<? super T>> matchers) {
-        return new HasSubsequence<>(matchers);
-    }
-
-    @SafeVarargs
-    public static <T> Matcher<Iterable<? extends T>> hasSubsequence(Matcher<? super T>... matchers) {
-        return hasSubsequence(asList(matchers));
-    }
-
-    public static <T> Matcher<Iterable<? extends T>> hasSubsequence(Iterable<? extends T> items) {
-        List<Matcher<? super T>> matchers = new ArrayList<>();
-        for (Object item : items) {
-            matchers.add(equalTo(item));
-        }
-        return new HasSubsequence<>(matchers);
-    }
-
-    @SafeVarargs
-    public static <T> Matcher<Iterable<? extends T>> hasSubsequence(T... elements) {
-        return hasSubsequence(asList(elements));
-    }
 }

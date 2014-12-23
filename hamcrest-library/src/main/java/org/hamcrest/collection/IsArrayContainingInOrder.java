@@ -3,7 +3,7 @@ package org.hamcrest.collection;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
-import org.hamcrest.internal.NullSafety;
+import org.hamcrest.internal.Wrapping;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -67,11 +67,7 @@ public class IsArrayContainingInOrder<E> extends TypeSafeMatcher<E[]> {
      */
     @SafeVarargs
     public static <E> Matcher<E[]> arrayContaining(Matcher<? super E>... itemMatchers) {
-        //required for JDK 1.6
-        //noinspection RedundantTypeArguments
-        final List<Matcher<? super E>> nullSafeWithExplicitTypeMatchers = NullSafety.<E>nullSafe(itemMatchers);
-
-        return arrayContaining(nullSafeWithExplicitTypeMatchers);
+        return arrayContaining(Wrapping.<E>nullSafe(itemMatchers));
     }
 
     /**

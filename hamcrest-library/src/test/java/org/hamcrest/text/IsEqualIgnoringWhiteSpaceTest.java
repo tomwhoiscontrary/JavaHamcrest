@@ -6,8 +6,8 @@ import org.hamcrest.AbstractMatcherTest;
 import org.hamcrest.Matcher;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.IsNot.not;
-import static org.hamcrest.text.IsEqualIgnoringWhiteSpace.equalToIgnoringWhiteSpace;
+import static org.hamcrest.Matchers.not;
+import static org.hamcrest.text.MatchStrings.equalToIgnoringWhiteSpace;
 
 public class IsEqualIgnoringWhiteSpaceTest extends AbstractMatcherTest {
 

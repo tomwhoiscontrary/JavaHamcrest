@@ -3,7 +3,7 @@ package org.hamcrest.collection;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeDiagnosingMatcher;
-import org.hamcrest.internal.NullSafety;
+import org.hamcrest.internal.Wrapping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -133,7 +133,7 @@ public class IsIterableContainingInOrder<E> extends TypeSafeDiagnosingMatcher<It
     public static <E> Matcher<Iterable<? extends E>> contains(Matcher<? super E>... itemMatchers) {
         // required for JDK 1.6
         //noinspection RedundantTypeArguments
-        final List<Matcher<? super E>> nullSafeWithExplicitTypeMatchers = NullSafety.<E>nullSafe(itemMatchers);
+        final List<Matcher<? super E>> nullSafeWithExplicitTypeMatchers = Wrapping.<E>nullSafe(itemMatchers);
     	return contains(nullSafeWithExplicitTypeMatchers);
     }
 

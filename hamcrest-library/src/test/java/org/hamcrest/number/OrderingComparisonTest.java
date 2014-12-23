@@ -8,8 +8,8 @@ import org.hamcrest.Matcher;
 import java.math.BigDecimal;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.IsNot.not;
-import static org.hamcrest.number.OrderingComparison.*;
+import static org.hamcrest.Matchers.not;
+import static org.hamcrest.object.MatchObjects.*;
 
 public class OrderingComparisonTest extends AbstractMatcherTest {
 

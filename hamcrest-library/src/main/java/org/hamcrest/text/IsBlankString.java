@@ -14,9 +14,9 @@ import static org.hamcrest.core.IsNull.nullValue;
  * Matches blank Strings (and null).
  */
 public final class IsBlankString extends TypeSafeMatcher<String> {
-    private static final IsBlankString BLANK_INSTANCE = new IsBlankString();
+    static final IsBlankString INSTANCE = new IsBlankString();
     @SuppressWarnings("unchecked")
-    private static final Matcher<String> NULL_OR_BLANK_INSTANCE = anyOf(nullValue(), BLANK_INSTANCE);
+    static final Matcher<String> NULL_OR_BLANK_INSTANCE = anyOf(nullValue(), INSTANCE);
 
     private static final Pattern REGEX_WHITESPACE = Pattern.compile("\\s*");
 
@@ -39,7 +39,7 @@ public final class IsBlankString extends TypeSafeMatcher<String> {
      * <pre>assertThat("  ", is(blankString()))</pre>
      */
     public static Matcher<String> blankString() {
-        return BLANK_INSTANCE;
+        return INSTANCE;
     }
 
     /**

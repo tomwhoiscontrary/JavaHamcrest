@@ -3,11 +3,11 @@ package org.hamcrest.text;
 import org.hamcrest.AbstractMatcherTest;
 import org.hamcrest.Matcher;
 
-import static java.util.Arrays.asList;
+import static org.hamcrest.text.MatchStrings.stringContainsInOrder;
 
 
 public class StringContainsInOrderTest extends AbstractMatcherTest {
-    StringContainsInOrder m = new StringContainsInOrder(asList("a", "b", "c"));
+    Matcher<String> m = stringContainsInOrder("a", "b", "c");
 
     @Override
     protected Matcher<?> createMatcher() {

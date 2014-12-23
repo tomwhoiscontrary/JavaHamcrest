@@ -11,8 +11,7 @@ import org.hamcrest.TypeSafeMatcher;
  * Is the value a number actually not a number (NaN)?
  */
 public final class IsNaN extends TypeSafeMatcher<Double> {
-
-    private IsNaN() { }
+    IsNaN() { }
 
     @Override
     public boolean matchesSafely(Double item) {

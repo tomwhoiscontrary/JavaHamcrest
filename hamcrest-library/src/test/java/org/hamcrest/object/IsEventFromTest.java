@@ -15,7 +15,7 @@ public class IsEventFromTest extends AbstractMatcherTest {
 
     @Override
     protected Matcher<?> createMatcher() {
-        return eventFrom(null);
+        return MatchObjects.eventFrom(EventObject.class, null);
     }
 
     public void testEvaluatesToTrueIfArgumentIsAnEventObjectFiredByASpecifiedSource() {
