@@ -10,7 +10,7 @@ import static java.lang.Integer.signum;
 
 public final class ComparatorMatcherBuilder<T> {
 
-    private final Comparator<T> comparator;
+    private final Comparator<? super T> comparator;
     private final boolean includeComparatorInDescription;
 
     /**
@@ -18,7 +18,7 @@ public final class ComparatorMatcherBuilder<T> {
      * For example:
      * <pre>assertThat(1, ComparatorMatcherBuilder.&lt;Integer&gt;usingNaturalOrdering().lessThanOrEqualTo(1))</pre>
      */
-    public static <T extends Comparable<T>> ComparatorMatcherBuilder<T> usingNaturalOrdering() {
+    public static <T extends Comparable<? super T>> ComparatorMatcherBuilder<T> usingNaturalOrdering() {
         return new ComparatorMatcherBuilder<>(new Comparator<T>() {
             @Override
             public int compare(T o1, T o2) {
@@ -36,11 +36,11 @@ public final class ComparatorMatcherBuilder<T> {
      * }
      * }).lessThan(4))</pre>
      */
-    public static <T> ComparatorMatcherBuilder<T> comparedBy(Comparator<T> comparator) {
+    public static <T> ComparatorMatcherBuilder<T> comparedBy(Comparator<? super T> comparator) {
         return new ComparatorMatcherBuilder<>(comparator, true);
     }
 
-    private ComparatorMatcherBuilder(Comparator<T> comparator, boolean includeComparatorInDescription) {
+    private ComparatorMatcherBuilder(Comparator<? super T> comparator, boolean includeComparatorInDescription) {
         this.comparator = comparator;
         this.includeComparatorInDescription = includeComparatorInDescription;
     }
@@ -50,7 +50,7 @@ public final class ComparatorMatcherBuilder<T> {
         private static final int GREATER_THAN = 1;
         private static final int EQUAL = 0;
 
-        private final Comparator<T> comparator;
+        private final Comparator<? super T> comparator;
         private final T expected;
         private final int minCompare;
         private final int maxCompare;
@@ -62,7 +62,7 @@ public final class ComparatorMatcherBuilder<T> {
                 "greater than"
         };
 
-        private ComparatorMatcher(Comparator<T> comparator, T expected, int minCompare, int maxCompare, boolean includeComparatorInDescription) {
+        private ComparatorMatcher(Comparator<? super T> comparator, T expected, int minCompare, int maxCompare, boolean includeComparatorInDescription) {
             this.comparator = comparator;
             this.expected = expected;
             this.minCompare = minCompare;
