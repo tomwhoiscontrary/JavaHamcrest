@@ -35,28 +35,28 @@ public class HasSubsequenceTest extends AbstractMatcherTest {
 
     public void testMismatchesIfItemsMissing() throws Exception {
         assertMismatchDescription(
-            "could not find subsequence in [<WithValue 3>]",
+            "subsequence not in [<WithValue 3>] because no match for value with <4>",
             hasSubsequence(value(4)), asList(withValue(3)));
         assertMismatchDescription(
-            "could not find subsequence in [<WithValue 1>, <WithValue 2>, <WithValue 4>]",
+            "subsequence not in [<WithValue 1>, <WithValue 2>, <WithValue 4>] because no match for value with <3>",
             contains123, asList(withValue(1), withValue(2), withValue(4)));
     }
 
 
     public void testMismatchesForAdditionalIntermediateItems() throws Exception {
-        assertMismatchDescription("could not find subsequence in [<1>, <2>, <3>]",
-                hasSubsequence(1, 3), asList(1, 2, 3));
+        assertMismatchDescription("subsequence not in [<1>, <2>] because no match for <3>",
+                hasSubsequence(1, 3), asList(1, 2, 4));
     }
 
 
     public void testMismatchesWhenTooFewItems() throws Exception {
         assertMismatchDescription(
-            "could not find subsequence in [<WithValue 1>, <WithValue 2>]",
+            "subsequence not in [<WithValue 1>, <WithValue 2>] because no match for value with <3>",
                 contains123, asList(withValue(1), withValue(2)));
     }
 
     public void testDoesNotMatchEmptyCollection() throws Exception {
-        assertMismatchDescription("could not find subsequence in []",
+        assertMismatchDescription("subsequence not in [] because no match for value with <4>",
                 hasSubsequence(value(4)), new ArrayList<WithValue>());
     }
 

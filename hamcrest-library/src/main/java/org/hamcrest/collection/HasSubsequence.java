@@ -5,6 +5,7 @@ import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeDiagnosingMatcher;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -19,32 +20,13 @@ public class HasSubsequence<T> extends TypeSafeDiagnosingMatcher<Iterable<? exte
     }
 
     @Override
-    public boolean matchesSafely(Iterable<? extends T> subsequenceToMatch,
-                                 Description mismatchDescription)
-    {
-        List<T> subsequenceToMatchList = new ArrayList<>();
-        for (T e : subsequenceToMatch) {
-            subsequenceToMatchList.add(e);
-        }
+    public boolean matchesSafely(Iterable<? extends T> actual,
+                                 Description mismatchDescription) {
+        final Cursor<T> cursor = new Cursor<>(actual.iterator(), matchers.iterator());
 
-        for (int i = 0; i <= subsequenceToMatchList.size() - matchers.size(); i++) {
-            boolean allMatchersMatched = true;
-            for (int j = 0; j < matchers.size(); j++) {
-                Matcher<? super T> matcher = matchers.get(j);
-                if (!matcher.matches(subsequenceToMatchList.get(i + j))) {
-                    allMatchersMatched = false;
-                    break;
-                }
-            }
-            if (allMatchersMatched) {
-                return true;
-            }
-        }
-
-        mismatchDescription
-                .appendText("could not find subsequence in ")
-                .appendValueList("[", ", ", "]", subsequenceToMatch);
-        return false;
+        final boolean matched = cursor.foundFirst() && cursor.foundRemainder();
+        if (!matched) cursor.describeNotFound(mismatchDescription);
+        return matched;
     }
 
     @Override
@@ -52,5 +34,61 @@ public class HasSubsequence<T> extends TypeSafeDiagnosingMatcher<Iterable<? exte
         description
                 .appendText("iterable contains subsequence matching ")
                 .appendList("[", ", ", "]", matchers);
+    }
+
+    static private class Cursor<T> {
+        private final List<T> viewedItems = new ArrayList<>();
+        private Matcher<? super T> currentMatcher;
+        private final Iterator<? extends T> items;
+        private final Iterator<Matcher<? super T>> remainingMatchers;
+
+        public Cursor(Iterator<? extends T> items, Iterator<Matcher<? super T>> remainingMatchers) {
+            this.items = items;
+            this.remainingMatchers = remainingMatchers;
+        }
+
+        boolean foundFirst() {
+            final Matcher<? super T> firstMatcher = nextMatcher();
+            while (items.hasNext()) {
+                if (firstMatcher.matches(nextItem())) return true;
+            }
+            return false;
+        }
+
+
+        boolean foundRemainder() {
+            while (remainingMatchers.hasNext()) {
+                if (! nextItemMatches(nextMatcher())) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private boolean nextItemMatches(Matcher<? super T> matcher) {
+            return items.hasNext() && matcher.matches(nextItem());
+        }
+
+        private T nextItem() {
+            final T next = items.next();
+            viewedItems.add(next);
+            return next;
+        }
+
+        private Matcher<? super T> nextMatcher() {
+            final Matcher<? super T> matcher = remainingMatchers.next();
+            currentMatcher = matcher;
+            return matcher;
+        }
+
+        private void describeNotFound(Description mismatch) {
+            mismatch.appendText("subsequence not in ")
+                .appendValueList("[", ", ", "]", viewedItems);
+
+            if (null != currentMatcher) {
+                mismatch.appendText(" because no match for ");
+                mismatch.appendDescriptionOf(currentMatcher);
+            }
+        }
     }
 }

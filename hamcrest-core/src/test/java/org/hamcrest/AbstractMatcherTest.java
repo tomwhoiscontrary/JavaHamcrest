@@ -37,8 +37,8 @@ public abstract class AbstractMatcherTest extends TestCase {
   }
 
   public static <T> void assertMismatchDescription(String expected, Matcher<? super T> matcher, T arg) {
-    Assert.assertFalse("Precondition: Matcher should not match item.", matcher.matches(arg));
-    Assert.assertEquals("Expected mismatch description", expected, mismatchDescription(matcher, arg));
+    Assert.assertFalse("Precondition for (" + expected + "): Matcher should not match item.", matcher.matches(arg));
+    Assert.assertEquals("Mismatch description", expected, mismatchDescription(matcher, arg));
   }
   
   public static void assertNullSafe(Matcher<?> matcher) {
