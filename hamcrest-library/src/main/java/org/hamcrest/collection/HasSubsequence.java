@@ -76,9 +76,8 @@ public class HasSubsequence<T> extends TypeSafeDiagnosingMatcher<Iterable<? exte
         }
 
         private Matcher<? super T> nextMatcher() {
-            final Matcher<? super T> matcher = remainingMatchers.next();
-            currentMatcher = matcher;
-            return matcher;
+            currentMatcher = remainingMatchers.next();
+            return currentMatcher;
         }
 
         private void describeNotFound(Description mismatch) {
