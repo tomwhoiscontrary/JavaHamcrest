@@ -19,7 +19,7 @@ public class StringContainsInOrder extends TypeSafeMatcher<String> {
         
         for (String substring : substrings) {
             fromIndex = s.indexOf(substring, fromIndex);
-            if (fromIndex == -1) {
+            if (fromIndex++ == -1) {
                 return false;
             }
         }
