@@ -59,8 +59,7 @@ public final class BaseDescriptionTest {
         assertEquals("[\"2\", \"3\"]", result.toString());
     }
 
-    @Test
-    public void
+    @Test public void
     describesAppendedIterableValue() {
         baseDescription.appendValue(new Iterable<String>() {
             @Override

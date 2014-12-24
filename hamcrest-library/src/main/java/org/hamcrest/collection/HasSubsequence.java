@@ -42,7 +42,7 @@ public class HasSubsequence<T> extends TypeSafeDiagnosingMatcher<Iterable<? exte
         }
 
         mismatchDescription
-                .appendText("could not find subsequence inside collection ")
+                .appendText("could not find subsequence in ")
                 .appendValueList("[", ", ", "]", subsequenceToMatch);
         return false;
     }
@@ -50,7 +50,7 @@ public class HasSubsequence<T> extends TypeSafeDiagnosingMatcher<Iterable<? exte
     @Override
     public void describeTo(Description description) {
         description
-                .appendText("collection contains subsequence matching ")
+                .appendText("iterable contains subsequence matching ")
                 .appendList("[", ", ", "]", matchers);
     }
 }

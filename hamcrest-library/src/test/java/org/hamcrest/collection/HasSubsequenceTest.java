@@ -5,7 +5,6 @@ import org.hamcrest.FeatureMatcher;
 import org.hamcrest.Matcher;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import static java.util.Arrays.asList;
 import static org.hamcrest.collection.MatchIterables.hasSubsequence;
@@ -19,58 +18,50 @@ public class HasSubsequenceTest extends AbstractMatcherTest {
         return hasSubsequence(1, 2);
     }
 
-    public void testMatchingSingleItemCollection() throws Exception {
-        assertMatches("Single item iterable",
-                hasSubsequence(1), asList(1));
-    }
-
-    public void testMatchingMultipleItemCollection() throws Exception {
-        assertMatches("Multiple item iterable",
+    public void testMatchesIterableWithSameValues() throws Exception {
+        assertMatches("Actual with single item",
+            hasSubsequence(1), asList(1));
+        assertMatches("Actual with multiple items",
                 hasSubsequence(1, 2, 3), asList(1, 2, 3));
     }
 
-    public void testMatchesWithMoreElementsThanExpectedAtBeginning() throws Exception {
+    public void testMatchesIterableWithExcessElements() throws Exception {
         assertMatches("More elements at beginning",
                 hasSubsequence(2, 3, 4), asList(1, 2, 3, 4));
-    }
-
-    public void testMatchesWithMoreElementsThanExpectedAtEnd() throws Exception {
+        assertMatches("Sub section of actual", hasSubsequence(2, 3), asList(1, 2, 3, 4));
         assertMatches("More elements at end",
-                hasSubsequence(1, 2, 3), asList(1, 2, 3, 4));
+            hasSubsequence(1, 2, 3), asList(1, 2, 3, 4));
     }
 
-    public void testDoesNotMatchWithMoreElementsThanExpectedInBetween() throws Exception {
-        assertMismatchDescription("could not find subsequence inside collection [<1>, <2>, <3>]",
+    public void testMismatchesIfItemsMissing() throws Exception {
+        assertMismatchDescription(
+            "could not find subsequence in [<WithValue 3>]",
+            hasSubsequence(value(4)), asList(withValue(3)));
+        assertMismatchDescription(
+            "could not find subsequence in [<WithValue 1>, <WithValue 2>, <WithValue 4>]",
+            contains123, asList(withValue(1), withValue(2), withValue(4)));
+    }
+
+
+    public void testMismatchesForAdditionalIntermediateItems() throws Exception {
+        assertMismatchDescription("could not find subsequence in [<1>, <2>, <3>]",
                 hasSubsequence(1, 3), asList(1, 2, 3));
     }
 
-    public void testMatchesSubSection() throws Exception {
-        assertMatches("Sub section of iterable", hasSubsequence(2, 3), asList(1, 2, 3, 4));
-    }
 
-    public void testDoesNotMatchWithFewerElementsThanExpected() throws Exception {
-        List<WithValue> valueList = asList(make(1), make(2));
-        assertMismatchDescription("could not find subsequence inside collection [<WithValue 1>, <WithValue 2>]",
-                contains123, valueList);
-    }
-
-    public void testDoesNotMatchIfSingleItemNotFound() throws Exception {
-        assertMismatchDescription("could not find subsequence inside collection [<WithValue 3>]",
-                hasSubsequence(value(4)), asList(make(3)));
-    }
-
-    public void testDoesNotMatchIfOneOfMultipleItemsNotFound() throws Exception {
-        assertMismatchDescription("could not find subsequence inside collection [<WithValue 1>, <WithValue 2>, <WithValue 4>]",
-                contains123, asList(make(1), make(2), make(4)));
+    public void testMismatchesWhenTooFewItems() throws Exception {
+        assertMismatchDescription(
+            "could not find subsequence in [<WithValue 1>, <WithValue 2>]",
+                contains123, asList(withValue(1), withValue(2)));
     }
 
     public void testDoesNotMatchEmptyCollection() throws Exception {
-        assertMismatchDescription("could not find subsequence inside collection []",
+        assertMismatchDescription("could not find subsequence in []",
                 hasSubsequence(value(4)), new ArrayList<WithValue>());
     }
 
     public void testHasAReadableDescription() {
-        assertDescription("collection contains subsequence matching [<1>, <2>]", hasSubsequence(1, 2));
+        assertDescription("iterable contains subsequence matching [<1>, <2>]", hasSubsequence(1, 2));
     }
 
     public static class WithValue {
@@ -90,7 +81,7 @@ public class HasSubsequenceTest extends AbstractMatcherTest {
         }
     }
 
-    public static WithValue make(int value) {
+    public static WithValue withValue(int value) {
         return new WithValue(value);
     }
 
