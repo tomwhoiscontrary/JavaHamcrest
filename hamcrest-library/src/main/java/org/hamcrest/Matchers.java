@@ -634,7 +634,7 @@ public class Matchers {
      * @param sizeMatcher a matcher for the length of an examined array
      */
     public static <E> org.hamcrest.Matcher<E[]> arrayWithSize(org.hamcrest.Matcher<? super java.lang.Integer> sizeMatcher) {
-        return org.hamcrest.collection.IsArrayWithSize.arrayWithSize(sizeMatcher);
+        return MatchArrays.arrayWithSize(sizeMatcher);
     }
 
     /**

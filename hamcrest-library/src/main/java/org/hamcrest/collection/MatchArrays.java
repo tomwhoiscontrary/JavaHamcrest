@@ -1,10 +1,12 @@
 package org.hamcrest.collection;
 
+import org.hamcrest.FeatureMatcher;
 import org.hamcrest.Matcher;
 
 import java.util.Collection;
 
 import static org.hamcrest.core.DescribedAs.describedAs;
+import static org.hamcrest.core.IsEqual.equalTo;
 
 public class MatchArrays {
     /**
@@ -166,7 +168,9 @@ public class MatchArrays {
      * @param sizeMatcher a matcher for the length of an examined array
      */
     public static <E> Matcher<E[]> arrayWithSize(Matcher<? super Integer> sizeMatcher) {
-        return IsArrayWithSize.arrayWithSize(sizeMatcher);
+        return new FeatureMatcher<E[], Integer> (sizeMatcher, "an array with size","array size") {
+            @Override protected Integer featureValueOf(E[] actual) { return actual.length; }
+        };
     }
 
     /**
@@ -178,7 +182,7 @@ public class MatchArrays {
      * @param size the length that an examined array must have for a positive match
      */
     public static <E> Matcher<E[]> arrayWithSize(int size) {
-        return IsArrayWithSize.arrayWithSize(size);
+        return arrayWithSize(equalTo(size));
     }
 
     /**
@@ -188,7 +192,7 @@ public class MatchArrays {
      * <pre>assertThat(new String[0], emptyArray())</pre>
      */
     public static <E> Matcher<E[]> emptyArray() {
-        return describedAs("an empty array", IsArrayWithSize.<E>arrayWithSize(0));
+        return describedAs("an empty array", MatchArrays.<E>arrayWithSize(0));
     }
 
 }
