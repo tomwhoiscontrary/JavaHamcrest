@@ -1,5 +1,6 @@
 package org.hamcrest;
 
+import org.hamcrest.object.MatchObjects;
 import org.hamcrest.text.MatchStrings;
 import org.hamcrest.xml.MatchXml;
 
@@ -1355,7 +1356,7 @@ public class Matchers {
      * @param toStringMatcher the matcher used to verify the toString result
      */
     public static <T> org.hamcrest.Matcher<T> hasToString(org.hamcrest.Matcher<? super java.lang.String> toStringMatcher) {
-        return org.hamcrest.object.HasToString.hasToString(toStringMatcher);
+        return MatchObjects.hasToString(toStringMatcher);
     }
 
     /**
@@ -1367,7 +1368,7 @@ public class Matchers {
      * @param expectedToString the expected toString result
      */
     public static <T> org.hamcrest.Matcher<T> hasToString(java.lang.String expectedToString) {
-        return org.hamcrest.object.HasToString.hasToString(expectedToString);
+        return MatchObjects.hasToString(expectedToString);
     }
 
     /**

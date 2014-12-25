@@ -1,5 +1,6 @@
 package org.hamcrest.object;
 
+import org.hamcrest.FeatureMatcher;
 import org.hamcrest.Matcher;
 import org.hamcrest.collection.IsIn;
 import org.hamcrest.comparator.ComparatorMatcherBuilder;
@@ -134,6 +135,7 @@ public class MatchObjects {
      *
      * @param type dummy parameter used to infer the generic type of the returned matcher
      */
+    @SuppressWarnings("UnusedParameters")
     public static <T> Matcher<T> nullValue(Class<T> type) {
         return new IsNull<>();
     }
@@ -264,9 +266,10 @@ public class MatchObjects {
      * @param toStringMatcher the matcher used to verify the toString result
      */
     public static <T> Matcher<T> hasToString(org.hamcrest.Matcher<? super String> toStringMatcher) {
-        return org.hamcrest.object.HasToString.hasToString(toStringMatcher);
+        return new FeatureMatcher<T, String>(toStringMatcher, "with toString()", "toString()") {
+            @Override protected String featureValueOf(T actual) { return String.valueOf(actual); }
+        };
     }
-
     /**
      * Creates a matcher that matches any examined object whose <code>toString</code> method
      * returns a value equalTo the specified string.
@@ -276,7 +279,7 @@ public class MatchObjects {
      * @param expectedToString the expected toString result
      */
     public static <T> Matcher<T> hasToString(String expectedToString) {
-        return org.hamcrest.object.HasToString.hasToString(expectedToString);
+        return hasToString(equalTo(expectedToString));
     }
 
     /**
