@@ -1,14 +1,26 @@
 package org.hamcrest.text;
 
+import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
 
 import java.util.Arrays;
 import java.util.regex.Pattern;
 
+import static org.hamcrest.core.AnyOf.anyOf;
 import static org.hamcrest.core.IsNull.nullValue;
+import static org.hamcrest.text.IsEmptyString.IS_EMPTY_STRING;
 
 public class MatchStrings {
+    private static final Pattern REGEX_WHITESPACE = Pattern.compile("\\s*");
+    public static final Matcher<String> IS_BLANK_STRING = new MatchesPattern(REGEX_WHITESPACE) {
+        @Override
+        public void describeTo(Description description) {
+            description.appendText("a blank string");
+        }
+    };
+    public static final Matcher<String> IS_BLANK_OR_NULL_STRING = anyOf(IS_BLANK_STRING, nullValue());
+
     /**
      * Creates a matcher of {@link String} that matches when the examined string is equal to
      * the specified expectedString, ignoring case.
@@ -45,7 +57,7 @@ public class MatchStrings {
      * <pre>assertThat(((String)null), is(emptyOrNullString()))</pre>
      */
     public static Matcher<java.lang.String> emptyOrNullString() {
-        return Matchers.anyOf(nullValue(), IsEmptyString.INSTANCE);
+        return Matchers.anyOf(nullValue(), IS_EMPTY_STRING);
     }
 
     /**
@@ -54,7 +66,7 @@ public class MatchStrings {
      * <pre>assertThat("", is(emptyString()))</pre>
      */
     public static Matcher<java.lang.String> emptyString() {
-        return IsEmptyString.INSTANCE;
+        return IS_EMPTY_STRING;
     }
 
     /**
@@ -64,7 +76,7 @@ public class MatchStrings {
      * <pre>assertThat(((String)null), is(blankOrNullString()))</pre>
      */
     public static Matcher<java.lang.String> blankOrNullString() {
-        return Matchers.anyOf(nullValue(), IsBlankString.INSTANCE);
+        return IS_BLANK_OR_NULL_STRING;
     }
 
     /**
@@ -74,7 +86,7 @@ public class MatchStrings {
      * <pre>assertThat("  ", is(blankString()))</pre>
      */
     public static Matcher<java.lang.String> blankString() {
-        return IsBlankString.INSTANCE;
+        return IS_BLANK_STRING;
     }
 
     /**

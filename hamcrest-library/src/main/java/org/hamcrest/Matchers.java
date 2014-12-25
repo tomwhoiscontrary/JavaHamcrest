@@ -1290,7 +1290,7 @@ public class Matchers {
      * <pre>assertThat(((String)null), is(blankOrNullString()))</pre>
      */
     public static org.hamcrest.Matcher<java.lang.String> blankOrNullString() {
-        return org.hamcrest.text.IsBlankString.blankOrNullString();
+        return MatchStrings.blankOrNullString();
     }
 
     /**
@@ -1300,7 +1300,7 @@ public class Matchers {
      * <pre>assertThat("  ", is(blankString()))</pre>
      */
     public static org.hamcrest.Matcher<java.lang.String> blankString() {
-        return org.hamcrest.text.IsBlankString.blankString();
+        return MatchStrings.blankString();
     }
 
     /**

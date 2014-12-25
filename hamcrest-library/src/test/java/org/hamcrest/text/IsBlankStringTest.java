@@ -44,7 +44,7 @@ public final class IsBlankStringTest {
     @Test public void
     describesItself() {
         assertDescription("a blank string", blankString());
-        assertDescription("(null or a blank string)", blankOrNullString());
+        assertDescription("(a blank string or null)", blankOrNullString());
     }
 
     @Test public void

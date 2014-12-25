@@ -5,15 +5,15 @@ import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
-import static org.hamcrest.core.AnyOf.anyOf;
+import static org.hamcrest.core.CombinableMatcher.either;
 import static org.hamcrest.core.IsNull.nullValue;
 
 /**
  * Matches empty Strings (and null).
  */
 public final class IsEmptyString extends TypeSafeMatcher<String> {
-    public static final IsEmptyString INSTANCE = new IsEmptyString();
-    public static final Matcher<String> NULL_OR_EMPTY_INSTANCE = anyOf(nullValue(), INSTANCE);
+    public static final IsEmptyString IS_EMPTY_STRING = new IsEmptyString();
+    public static final Matcher<String> IS_NULL_OR_EMPTY_STRING = either(IS_EMPTY_STRING).or(nullValue());
 
     private IsEmptyString() { }
 
@@ -32,7 +32,7 @@ public final class IsEmptyString extends TypeSafeMatcher<String> {
      * For example:
      * <pre>assertThat("", isEmptyString())</pre>
      * 
-     * @deprecated use is(emptyString()) instead
+     * @deprecated see {@link org.hamcrest.text.MatchStrings.emptyString() }
      */
     @Deprecated
     public static Matcher<String> isEmptyString() {
@@ -46,7 +46,7 @@ public final class IsEmptyString extends TypeSafeMatcher<String> {
      * 
      */
     public static Matcher<String> emptyString() {
-        return INSTANCE;
+        return IS_EMPTY_STRING;
     }
 
     /**
@@ -71,6 +71,6 @@ public final class IsEmptyString extends TypeSafeMatcher<String> {
      * 
      */
     public static Matcher<String> emptyOrNullString() {
-        return NULL_OR_EMPTY_INSTANCE;
+        return IS_NULL_OR_EMPTY_STRING;
     }
 }

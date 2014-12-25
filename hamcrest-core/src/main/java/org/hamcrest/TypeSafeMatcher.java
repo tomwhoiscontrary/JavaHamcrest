@@ -43,12 +43,16 @@ public abstract class TypeSafeMatcher<T> extends BaseMatcher<T> {
     /**
      * Subclasses should implement this. The item will already have been checked for
      * the specific type and will never be null.
+     * @param item the actual item to match
+     * @return whether the item has been matched
      */
     protected abstract boolean matchesSafely(T item);
     
     /**
      * Subclasses should override this. The item will already have been checked for
      * the specific type and will never be null.
+     * @param item the actual item to match
+     * @param mismatchDescription where to describe the mismatch
      */
     protected void describeMismatchSafely(T item, Description mismatchDescription) {
         super.describeMismatch(item, mismatchDescription);
