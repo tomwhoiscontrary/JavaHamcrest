@@ -3,7 +3,6 @@
 package org.hamcrest.text;
 
 import org.hamcrest.Description;
-import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
 /**
@@ -34,18 +33,4 @@ public class IsEqualIgnoringCase extends TypeSafeMatcher<String> {
                 .appendValue(string)
                 .appendText(")");
     }
-
-    /**
-     * Creates a matcher of {@link String} that matches when the examined string is equal to
-     * the specified expectedString, ignoring case.
-     * For example:
-     * <pre>assertThat("Foo", equalToIgnoringCase("FOO"))</pre>
-     * 
-     * @param expectedString
-     *     the expected value of matched strings
-     */
-    public static Matcher<String> equalToIgnoringCase(String expectedString) {
-        return new IsEqualIgnoringCase(expectedString);
-    }
-
 }

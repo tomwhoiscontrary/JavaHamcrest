@@ -1219,7 +1219,7 @@ public class Matchers {
      * @param expectedString the expected value of matched strings
      */
     public static org.hamcrest.Matcher<java.lang.String> equalToIgnoringCase(java.lang.String expectedString) {
-        return org.hamcrest.text.IsEqualIgnoringCase.equalToIgnoringCase(expectedString);
+        return MatchStrings.equalToIgnoringCase(expectedString);
     }
 
     /**
@@ -1236,7 +1236,7 @@ public class Matchers {
      * @param expectedString the expected value of matched strings
      */
     public static org.hamcrest.Matcher<java.lang.String> equalToIgnoringWhiteSpace(java.lang.String expectedString) {
-        return org.hamcrest.text.IsEqualIgnoringWhiteSpace.equalToIgnoringWhiteSpace(expectedString);
+        return MatchStrings.equalToIgnoringWhiteSpace(expectedString);
     }
 
     /**
