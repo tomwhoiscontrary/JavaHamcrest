@@ -13,10 +13,10 @@ import java.util.HashSet;
 import java.util.Iterator;
 
 import static org.hamcrest.AbstractMatcherTest.*;
+import static org.hamcrest.Matchers.hasXPath;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsNot.not;
 import static org.hamcrest.core.StringContains.containsString;
-import static org.hamcrest.xml.HasXPath.hasXPath;
 import static org.junit.Assert.fail;
 
 /**

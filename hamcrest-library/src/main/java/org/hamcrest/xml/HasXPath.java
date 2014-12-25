@@ -9,7 +9,10 @@ import org.w3c.dom.Node;
 
 import javax.xml.namespace.NamespaceContext;
 import javax.xml.namespace.QName;
-import javax.xml.xpath.*;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
 
 import static javax.xml.xpath.XPathConstants.STRING;
 import static org.hamcrest.Condition.matched;
@@ -23,7 +26,7 @@ import static org.hamcrest.Condition.notMatched;
  */
 public class HasXPath extends TypeSafeDiagnosingMatcher<Node> {
     public static final NamespaceContext NO_NAMESPACE_CONTEXT = null;
-    private static final IsAnything<String> WITH_ANY_CONTENT = new IsAnything<>("");
+    public static final IsAnything<String> WITH_ANY_CONTENT = new IsAnything<>("");
     private static final Condition.Step<Object,String> NODE_EXISTS = nodeExists();
     private final Matcher<String> valueMatcher;
     private final XPathExpression compiledXPath;
@@ -49,7 +52,7 @@ public class HasXPath extends TypeSafeDiagnosingMatcher<Node> {
         this(xPathExpression, namespaceContext, valueMatcher, STRING);
     }
 
-    private HasXPath(String xPathExpression, NamespaceContext namespaceContext, Matcher<String> valueMatcher, QName mode) {
+    public HasXPath(String xPathExpression, NamespaceContext namespaceContext, Matcher<String> valueMatcher, QName mode) {
         this.compiledXPath = compiledXPath(xPathExpression, namespaceContext);
         this.xpathString = xPathExpression;
         this.valueMatcher = valueMatcher;
@@ -103,67 +106,5 @@ public class HasXPath extends TypeSafeDiagnosingMatcher<Node> {
         } catch (XPathExpressionException e) {
             throw new IllegalArgumentException("Invalid XPath : " + xPathExpression, e);
         }
-    }
-
-
-    /**
-     * Creates a matcher of {@link org.w3c.dom.Node}s that matches when the examined node has a value at the
-     * specified <code>xPath</code> that satisfies the specified <code>valueMatcher</code>.
-     * For example:
-     * <pre>assertThat(xml, hasXPath("/root/something[2]/cheese", equalTo("Cheddar")))</pre>
-     * 
-     * @param xPath
-     *     the target xpath
-     * @param valueMatcher
-     *     matcher for the value at the specified xpath
-     */
-    public static Matcher<Node> hasXPath(String xPath, Matcher<String> valueMatcher) {
-        return hasXPath(xPath, NO_NAMESPACE_CONTEXT, valueMatcher);
-    }
-
-    /**
-     * Creates a matcher of {@link org.w3c.dom.Node}s that matches when the examined node has a value at the
-     * specified <code>xPath</code>, within the specified <code>namespaceContext</code>, that satisfies
-     * the specified <code>valueMatcher</code>.
-     * For example:
-     * <pre>assertThat(xml, hasXPath("/root/something[2]/cheese", myNs, equalTo("Cheddar")))</pre>
-     * 
-     * @param xPath
-     *     the target xpath
-     * @param namespaceContext
-     *     the namespace for matching nodes
-     * @param valueMatcher
-     *     matcher for the value at the specified xpath
-     */
-    public static Matcher<Node> hasXPath(String xPath, NamespaceContext namespaceContext, Matcher<String> valueMatcher) {
-        return new HasXPath(xPath, namespaceContext, valueMatcher, STRING);
-    }
-
-    /**
-     * Creates a matcher of {@link org.w3c.dom.Node}s that matches when the examined node contains a node
-     * at the specified <code>xPath</code>, with any content.
-     * For example:
-     * <pre>assertThat(xml, hasXPath("/root/something[2]/cheese"))</pre>
-     * 
-     * @param xPath
-     *     the target xpath
-     */
-    public static Matcher<Node> hasXPath(String xPath) {
-        return hasXPath(xPath, NO_NAMESPACE_CONTEXT);
-    }
-
-    /**
-     * Creates a matcher of {@link org.w3c.dom.Node}s that matches when the examined node contains a node
-     * at the specified <code>xPath</code> within the specified namespace context, with any content.
-     * For example:
-     * <pre>assertThat(xml, hasXPath("/root/something[2]/cheese", myNs))</pre>
-     * 
-     * @param xPath
-     *     the target xpath
-     * @param namespaceContext
-     *     the namespace for matching nodes
-     */
-    public static Matcher<Node> hasXPath(String xPath, NamespaceContext namespaceContext) {
-        return new HasXPath(xPath, namespaceContext, WITH_ANY_CONTENT, XPathConstants.NODE);
     }
 }

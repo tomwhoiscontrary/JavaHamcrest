@@ -1,5 +1,10 @@
 package org.hamcrest.xml;
 
+import javax.xml.xpath.XPathConstants;
+
+import static javax.xml.xpath.XPathConstants.STRING;
+import static org.hamcrest.xml.HasXPath.NO_NAMESPACE_CONTEXT;
+
 public class MatchXml {
     /**
      * Creates a matcher of {@link org.w3c.dom.Node}s that matches when the examined node has a value at the
@@ -11,7 +16,7 @@ public class MatchXml {
      * @param valueMatcher matcher for the value at the specified xpath
      */
     public static org.hamcrest.Matcher<org.w3c.dom.Node> hasXPath(java.lang.String xPath, org.hamcrest.Matcher<java.lang.String> valueMatcher) {
-        return org.hamcrest.xml.HasXPath.hasXPath(xPath, valueMatcher);
+        return new HasXPath(xPath, NO_NAMESPACE_CONTEXT, valueMatcher, STRING);
     }
 
     /**
@@ -26,7 +31,7 @@ public class MatchXml {
      * @param valueMatcher     matcher for the value at the specified xpath
      */
     public static org.hamcrest.Matcher<org.w3c.dom.Node> hasXPath(java.lang.String xPath, javax.xml.namespace.NamespaceContext namespaceContext, org.hamcrest.Matcher<java.lang.String> valueMatcher) {
-        return org.hamcrest.xml.HasXPath.hasXPath(xPath, namespaceContext, valueMatcher);
+        return new HasXPath(xPath, namespaceContext, valueMatcher, STRING);
     }
 
     /**
@@ -38,7 +43,7 @@ public class MatchXml {
      * @param xPath the target xpath
      */
     public static org.hamcrest.Matcher<org.w3c.dom.Node> hasXPath(java.lang.String xPath) {
-        return org.hamcrest.xml.HasXPath.hasXPath(xPath);
+        return new HasXPath(xPath, NO_NAMESPACE_CONTEXT, HasXPath.WITH_ANY_CONTENT, XPathConstants.NODE);
     }
 
     /**
@@ -51,7 +56,7 @@ public class MatchXml {
      * @param namespaceContext the namespace for matching nodes
      */
     public static org.hamcrest.Matcher<org.w3c.dom.Node> hasXPath(java.lang.String xPath, javax.xml.namespace.NamespaceContext namespaceContext) {
-        return org.hamcrest.xml.HasXPath.hasXPath(xPath, namespaceContext);
+        return new HasXPath(xPath, namespaceContext, HasXPath.WITH_ANY_CONTENT, XPathConstants.NODE);
     }
 
 }

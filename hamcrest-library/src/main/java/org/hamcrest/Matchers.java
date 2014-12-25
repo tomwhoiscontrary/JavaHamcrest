@@ -1,6 +1,7 @@
 package org.hamcrest;
 
 import org.hamcrest.text.MatchStrings;
+import org.hamcrest.xml.MatchXml;
 
 @SuppressWarnings("UnusedDeclaration")
 public class Matchers {
@@ -1454,7 +1455,7 @@ public class Matchers {
      * @param valueMatcher matcher for the value at the specified xpath
      */
     public static org.hamcrest.Matcher<org.w3c.dom.Node> hasXPath(java.lang.String xPath, org.hamcrest.Matcher<java.lang.String> valueMatcher) {
-        return org.hamcrest.xml.HasXPath.hasXPath(xPath, valueMatcher);
+        return MatchXml.hasXPath(xPath, valueMatcher);
     }
 
     /**
@@ -1469,7 +1470,7 @@ public class Matchers {
      * @param valueMatcher     matcher for the value at the specified xpath
      */
     public static org.hamcrest.Matcher<org.w3c.dom.Node> hasXPath(java.lang.String xPath, javax.xml.namespace.NamespaceContext namespaceContext, org.hamcrest.Matcher<java.lang.String> valueMatcher) {
-        return org.hamcrest.xml.HasXPath.hasXPath(xPath, namespaceContext, valueMatcher);
+        return MatchXml.hasXPath(xPath, namespaceContext, valueMatcher);
     }
 
     /**
@@ -1481,7 +1482,7 @@ public class Matchers {
      * @param xPath the target xpath
      */
     public static org.hamcrest.Matcher<org.w3c.dom.Node> hasXPath(java.lang.String xPath) {
-        return org.hamcrest.xml.HasXPath.hasXPath(xPath);
+        return MatchXml.hasXPath(xPath);
     }
 
     /**
@@ -1494,7 +1495,7 @@ public class Matchers {
      * @param namespaceContext the namespace for matching nodes
      */
     public static org.hamcrest.Matcher<org.w3c.dom.Node> hasXPath(java.lang.String xPath, javax.xml.namespace.NamespaceContext namespaceContext) {
-        return org.hamcrest.xml.HasXPath.hasXPath(xPath, namespaceContext);
+        return MatchXml.hasXPath(xPath, namespaceContext);
     }
 
 }
