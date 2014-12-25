@@ -67,7 +67,7 @@ public class IsArrayContainingInOrder<E> extends TypeSafeMatcher<E[]> {
      */
     @SafeVarargs
     public static <E> Matcher<E[]> arrayContaining(Matcher<? super E>... itemMatchers) {
-        return arrayContaining(Wrapping.<E>nullSafe(itemMatchers));
+        return arrayContaining(Wrapping.nullSafe(itemMatchers));
     }
 
     /**

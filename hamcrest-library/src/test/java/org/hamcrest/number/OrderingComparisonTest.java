@@ -79,6 +79,7 @@ public class OrderingComparisonTest extends AbstractMatcherTest {
             this.value = value;
         }
 
+        @SuppressWarnings("NullableProblems")
         public int compareTo(CustomInt other) {
             return value - other.value;
         }

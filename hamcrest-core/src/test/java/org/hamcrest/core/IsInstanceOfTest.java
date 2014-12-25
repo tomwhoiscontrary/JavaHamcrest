@@ -51,12 +51,14 @@ public final class IsInstanceOfTest {
         assertMatches(any(short.class), (short)1);
     }
 
+    @SuppressWarnings("UnusedAssignment")
     @Test public void
     instanceOfRequiresACastToReturnTheCorrectTypeForUseInJMock() {
         @SuppressWarnings("unused")
         Integer anInteger = (Integer)with(instanceOf(Integer.class));
     }
 
+    @SuppressWarnings("UnusedAssignment")
     @Test public void
     anyWillReturnTheCorrectTypeForUseInJMock() {
         @SuppressWarnings("unused")

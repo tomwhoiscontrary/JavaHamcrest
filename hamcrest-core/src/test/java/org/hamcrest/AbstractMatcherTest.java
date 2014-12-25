@@ -73,7 +73,7 @@ public abstract class AbstractMatcherTest extends TestCase {
     assertUnknownTypeSafe(createMatcher());
   }
 
-  public static class UnknownType {
+  private static class UnknownType {
   }
 
 }

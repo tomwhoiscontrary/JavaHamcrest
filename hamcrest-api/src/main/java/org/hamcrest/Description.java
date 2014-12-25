@@ -69,8 +69,8 @@ public interface Description {
         return this;
       }
 
-      @Override
-      public <T> Description appendValueList(String start, String separator,
+      @Override @SafeVarargs
+      public final <T> Description appendValueList(String start, String separator,
           String end, T... values) {
         return this;
       }

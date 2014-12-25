@@ -46,7 +46,7 @@ public class Is<T> extends BaseMatcher<T> {
      * 
      */
     public static <T> Matcher<T> is(Matcher<T> matcher) {
-        return new Is<T>(matcher);
+        return new Is<>(matcher);
     }
 
     /**

@@ -30,7 +30,7 @@ public final class IsMapWithSize<K, V> extends FeatureMatcher<Map<? extends K, ?
      *     a matcher for the size of an examined {@link java.util.Map}
      */
     public static <K, V> Matcher<Map<? extends K, ? extends V>> aMapWithSize(Matcher<? super Integer> sizeMatcher) {
-        return new IsMapWithSize<K, V>(sizeMatcher);
+        return new IsMapWithSize<>(sizeMatcher);
     }
 
     /**

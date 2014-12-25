@@ -52,7 +52,7 @@ public final class FeatureMatcherTest {
         }
     }
 
-    public static class ShouldNotMatch {
+    private static class ShouldNotMatch {
         @Override public String toString() { return "ShouldNotMatch"; }
     } 
 

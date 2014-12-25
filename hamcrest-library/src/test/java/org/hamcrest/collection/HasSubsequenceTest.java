@@ -81,11 +81,11 @@ public class HasSubsequenceTest extends AbstractMatcherTest {
         }
     }
 
-    public static WithValue withValue(int value) {
+    private static WithValue withValue(int value) {
         return new WithValue(value);
     }
 
-    public static Matcher<WithValue> value(int value) {
+    private static Matcher<WithValue> value(int value) {
         return new FeatureMatcher<WithValue, Integer>(equalTo(value), "value with", "value") {
             @Override
             protected Integer featureValueOf(WithValue actual) {

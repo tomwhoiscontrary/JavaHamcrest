@@ -60,6 +60,7 @@ public final class CombinableTest {
         assertMismatchDescription("was <6>", EITHER_3_OR_4, 6);
     }
 
+    @SuppressWarnings("UnusedAssignment")
     @Test public void
     picksUpTypeFromLeftHandSideOfExpression() {
         @SuppressWarnings("unused")
