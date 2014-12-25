@@ -1246,7 +1246,7 @@ public class Matchers {
      * <pre>assertThat(((String)null), is(emptyOrNullString()))</pre>
      */
     public static org.hamcrest.Matcher<java.lang.String> emptyOrNullString() {
-        return org.hamcrest.text.IsEmptyString.emptyOrNullString();
+        return MatchStrings.emptyOrNullString();
     }
 
     /**
@@ -1255,7 +1255,7 @@ public class Matchers {
      * <pre>assertThat("", is(emptyString()))</pre>
      */
     public static org.hamcrest.Matcher<java.lang.String> emptyString() {
-        return org.hamcrest.text.IsEmptyString.emptyString();
+        return MatchStrings.emptyString();
     }
 
     /**
@@ -1268,7 +1268,7 @@ public class Matchers {
      */
     @SuppressWarnings("deprecation")
     public static org.hamcrest.Matcher<java.lang.String> isEmptyOrNullString() {
-        return org.hamcrest.text.IsEmptyString.isEmptyOrNullString();
+        return MatchStrings.emptyOrNullString();
     }
 
     /**
@@ -1280,7 +1280,7 @@ public class Matchers {
      */
     @SuppressWarnings("deprecation")
     public static org.hamcrest.Matcher<java.lang.String> isEmptyString() {
-        return org.hamcrest.text.IsEmptyString.isEmptyString();
+        return MatchStrings.emptyString();
     }
 
     /**

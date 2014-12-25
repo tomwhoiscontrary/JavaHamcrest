@@ -2,16 +2,22 @@ package org.hamcrest.text;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
-import org.hamcrest.Matchers;
+import org.hamcrest.TypeSafeMatcher;
 
 import java.util.Arrays;
 import java.util.regex.Pattern;
 
 import static org.hamcrest.core.AnyOf.anyOf;
 import static org.hamcrest.core.IsNull.nullValue;
-import static org.hamcrest.text.IsEmptyString.IS_EMPTY_STRING;
 
 public class MatchStrings {
+    public static final Matcher<String> IS_EMPTY_STRING = new TypeSafeMatcher<String>() {
+        @Override public void describeTo(Description description) { description.appendText("an empty string"); }
+        @Override protected boolean matchesSafely(String item) { return item.isEmpty(); }
+    };
+    public static final Matcher<String> IS_NULL_OR_EMPTY_STRING = anyOf(IS_EMPTY_STRING, nullValue());
+
+
     private static final Pattern REGEX_WHITESPACE = Pattern.compile("\\s*");
     public static final Matcher<String> IS_BLANK_STRING = new MatchesPattern(REGEX_WHITESPACE) {
         @Override
@@ -29,7 +35,7 @@ public class MatchStrings {
      *
      * @param expectedString the expected value of matched strings
      */
-    public static Matcher<String> equalToIgnoringCase(java.lang.String expectedString) {
+    public static Matcher<String> equalToIgnoringCase(String expectedString) {
         return new IsEqualIgnoringCase(expectedString);
     }
 
@@ -46,7 +52,7 @@ public class MatchStrings {
      *
      * @param expectedString the expected value of matched strings
      */
-    public static Matcher<java.lang.String> equalToIgnoringWhiteSpace(java.lang.String expectedString) {
+    public static Matcher<String> equalToIgnoringWhiteSpace(String expectedString) {
         return new IsEqualIgnoringWhiteSpace(expectedString);
     }
 
@@ -56,16 +62,14 @@ public class MatchStrings {
      * For example:
      * <pre>assertThat(((String)null), is(emptyOrNullString()))</pre>
      */
-    public static Matcher<java.lang.String> emptyOrNullString() {
-        return Matchers.anyOf(nullValue(), IS_EMPTY_STRING);
-    }
+    public static Matcher<String> emptyOrNullString() { return IS_NULL_OR_EMPTY_STRING; }
 
     /**
      * Creates a matcher of {@link String} that matches when the examined string has zero length.
      * For example:
      * <pre>assertThat("", is(emptyString()))</pre>
      */
-    public static Matcher<java.lang.String> emptyString() {
+    public static Matcher<String> emptyString() {
         return IS_EMPTY_STRING;
     }
 
@@ -75,9 +79,7 @@ public class MatchStrings {
      * For example:
      * <pre>assertThat(((String)null), is(blankOrNullString()))</pre>
      */
-    public static Matcher<java.lang.String> blankOrNullString() {
-        return IS_BLANK_OR_NULL_STRING;
-    }
+    public static Matcher<String> blankOrNullString() { return IS_BLANK_OR_NULL_STRING; }
 
     /**
      * Creates a matcher of {@link String} that matches when the examined string contains
@@ -85,23 +87,23 @@ public class MatchStrings {
      * For example:
      * <pre>assertThat("  ", is(blankString()))</pre>
      */
-    public static Matcher<java.lang.String> blankString() {
+    public static Matcher<String> blankString() {
         return IS_BLANK_STRING;
     }
 
     /**
-     * Creates a matcher of {@link java.lang.String} that matches when the examined string
-     * exactly matches the given {@link java.util.regex.Pattern}.
+     * Creates a matcher of {@link String} that matches when the examined string
+     * exactly matches the given {@link Pattern}.
      */
-    public static Matcher<java.lang.String> matchesPattern(java.util.regex.Pattern pattern) {
+    public static Matcher<String> matchesPattern(Pattern pattern) {
         return new MatchesPattern(pattern);
     }
 
     /**
-     * Creates a matcher of {@link java.lang.String} that matches when the examined string
-     * exactly matches the given regular expression, treated as a {@link java.util.regex.Pattern}.
+     * Creates a matcher of {@link String} that matches when the examined string
+     * exactly matches the given regular expression, treated as a {@link Pattern}.
      */
-    public static Matcher<java.lang.String> matchesPattern(java.lang.String regex) {
+    public static Matcher<String> matchesPattern(String regex) {
         return new MatchesPattern(Pattern.compile(regex));
     }
 
@@ -114,7 +116,7 @@ public class MatchStrings {
      *
      * @param substrings the substrings that must be contained within matching strings
      */
-    public static Matcher<java.lang.String> stringContainsInOrder(java.lang.Iterable<java.lang.String> substrings) {
+    public static Matcher<String> stringContainsInOrder(Iterable<String> substrings) {
         return new StringContainsInOrder(substrings);
     }
 
@@ -127,7 +129,7 @@ public class MatchStrings {
      *
      * @param substrings the substrings that must be contained within matching strings
      */
-    public static Matcher<java.lang.String> stringContainsInOrder(java.lang.String... substrings) {
+    public static Matcher<String> stringContainsInOrder(String... substrings) {
         return new StringContainsInOrder(Arrays.asList(substrings));
     }
 }

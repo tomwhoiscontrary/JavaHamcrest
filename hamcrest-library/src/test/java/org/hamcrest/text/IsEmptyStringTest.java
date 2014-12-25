@@ -44,7 +44,7 @@ public final class IsEmptyStringTest {
     @Test public void
     describesItself() {
         assertDescription("an empty string", emptyString());
-        assertDescription("(null or an empty string)", emptyOrNullString());
+        assertDescription("(an empty string or null)", emptyOrNullString());
     }
 
     @Test public void
