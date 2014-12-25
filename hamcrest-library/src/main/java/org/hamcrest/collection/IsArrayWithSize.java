@@ -3,7 +3,6 @@ package org.hamcrest.collection;
 import org.hamcrest.FeatureMatcher;
 import org.hamcrest.Matcher;
 
-import static org.hamcrest.core.DescribedAs.describedAs;
 import static org.hamcrest.core.IsEqual.equalTo;
 
 /**
@@ -45,15 +44,4 @@ public class IsArrayWithSize<E> extends FeatureMatcher<E[], Integer> {
         return arrayWithSize(equalTo(size));
     }
 
-    /**
-     * Creates a matcher for arrays that matches when the <code>length</code> of the array
-     * is zero.
-     * For example:
-     * <pre>assertThat(new String[0], emptyArray())</pre>
-     * 
-     */
-    public static <E> Matcher<E[]> emptyArray() {
-        Matcher<E[]> isEmpty = arrayWithSize(0);
-        return describedAs("an empty array", isEmpty);
-    }
 }

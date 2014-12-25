@@ -1,5 +1,11 @@
 package org.hamcrest.collection;
 
+import org.hamcrest.Matcher;
+
+import java.util.Collection;
+
+import static org.hamcrest.core.DescribedAs.describedAs;
+
 public class MatchArrays {
     /**
      * Creates a matcher that matches arrays whose elements are satisfied by the specified matchers.  Matches
@@ -11,8 +17,8 @@ public class MatchArrays {
      * @param elementMatchers the matchers that the elements of examined arrays should satisfy
      */
     @SafeVarargs
-    public static <T> org.hamcrest.collection.IsArray<T> array(org.hamcrest.Matcher<? super T>... elementMatchers) {
-        return org.hamcrest.collection.IsArray.array(elementMatchers);
+    public static <T> IsArray<T> array(Matcher<? super T>... elementMatchers) {
+        return IsArray.array(elementMatchers);
     }
 
     /**
@@ -24,8 +30,8 @@ public class MatchArrays {
      *
      * @param elementMatcher the matcher to apply to elements in examined arrays
      */
-    public static <T> org.hamcrest.Matcher<T[]> hasItemInArray(org.hamcrest.Matcher<? super T> elementMatcher) {
-        return org.hamcrest.collection.IsArrayContaining.hasItemInArray(elementMatcher);
+    public static <T> Matcher<T[]> hasItemInArray(Matcher<? super T> elementMatcher) {
+        return IsArrayContaining.hasItemInArray(elementMatcher);
     }
 
     /**
@@ -37,8 +43,8 @@ public class MatchArrays {
      *
      * @param element the element that should be present in examined arrays
      */
-    public static <T> org.hamcrest.Matcher<T[]> hasItemInArray(T element) {
-        return org.hamcrest.collection.IsArrayContaining.hasItemInArray(element);
+    public static <T> Matcher<T[]> hasItemInArray(T element) {
+        return IsArrayContaining.hasItemInArray(element);
     }
 
     /**
@@ -51,8 +57,8 @@ public class MatchArrays {
      * @param items the items that must equal the items within an examined array
      */
     @SafeVarargs
-    public static <E> org.hamcrest.Matcher<E[]> arrayContaining(E... items) {
-        return org.hamcrest.collection.IsArrayContainingInOrder.arrayContaining(items);
+    public static <E> Matcher<E[]> arrayContaining(E... items) {
+        return IsArrayContainingInOrder.arrayContaining(items);
     }
 
     /**
@@ -65,8 +71,8 @@ public class MatchArrays {
      * @param itemMatchers the matchers that must be satisfied by the items in the examined array
      */
     @SafeVarargs
-    public static <E> org.hamcrest.Matcher<E[]> arrayContaining(org.hamcrest.Matcher<? super E>... itemMatchers) {
-        return org.hamcrest.collection.IsArrayContainingInOrder.arrayContaining(itemMatchers);
+    public static <E> Matcher<E[]> arrayContaining(Matcher<? super E>... itemMatchers) {
+        return IsArrayContainingInOrder.arrayContaining(itemMatchers);
     }
 
     /**
@@ -78,8 +84,8 @@ public class MatchArrays {
      *
      * @param itemMatchers a list of matchers, each of which must be satisfied by the corresponding item in an examined array
      */
-    public static <E> org.hamcrest.Matcher<E[]> arrayContaining(java.util.List<org.hamcrest.Matcher<? super E>> itemMatchers) {
-        return org.hamcrest.collection.IsArrayContainingInOrder.arrayContaining(itemMatchers);
+    public static <E> Matcher<E[]> arrayContaining(java.util.List<Matcher<? super E>> itemMatchers) {
+        return IsArrayContainingInOrder.arrayContaining(itemMatchers);
     }
 
     /**
@@ -102,8 +108,8 @@ public class MatchArrays {
      * @param itemMatchers a list of matchers, each of which must be satisfied by an entry in an examined array
      */
     @SafeVarargs
-    public static <E> org.hamcrest.Matcher<E[]> arrayContainingInAnyOrder(org.hamcrest.Matcher<? super E>... itemMatchers) {
-        return org.hamcrest.collection.IsArrayContainingInAnyOrder.arrayContainingInAnyOrder(itemMatchers);
+    public static <E> Matcher<E[]> arrayContainingInAnyOrder(Matcher<? super E>... itemMatchers) {
+        return IsArrayContainingInAnyOrder.arrayContainingInAnyOrder(itemMatchers);
     }
 
     /**
@@ -125,8 +131,8 @@ public class MatchArrays {
      *
      * @param itemMatchers a list of matchers, each of which must be satisfied by an item provided by an examined array
      */
-    public static <E> org.hamcrest.Matcher<E[]> arrayContainingInAnyOrder(java.util.Collection<org.hamcrest.Matcher<? super E>> itemMatchers) {
-        return org.hamcrest.collection.IsArrayContainingInAnyOrder.arrayContainingInAnyOrder(itemMatchers);
+    public static <E> Matcher<E[]> arrayContainingInAnyOrder(Collection<Matcher<? super E>> itemMatchers) {
+        return IsArrayContainingInAnyOrder.arrayContainingInAnyOrder(itemMatchers);
     }
 
     /**
@@ -147,8 +153,8 @@ public class MatchArrays {
      * @param items the items that must equal the entries of an examined array, in any order
      */
     @SafeVarargs
-    public static <E> org.hamcrest.Matcher<E[]> arrayContainingInAnyOrder(E... items) {
-        return org.hamcrest.collection.IsArrayContainingInAnyOrder.arrayContainingInAnyOrder(items);
+    public static <E> Matcher<E[]> arrayContainingInAnyOrder(E... items) {
+        return IsArrayContainingInAnyOrder.arrayContainingInAnyOrder(items);
     }
 
     /**
@@ -159,8 +165,8 @@ public class MatchArrays {
      *
      * @param sizeMatcher a matcher for the length of an examined array
      */
-    public static <E> org.hamcrest.Matcher<E[]> arrayWithSize(org.hamcrest.Matcher<? super java.lang.Integer> sizeMatcher) {
-        return org.hamcrest.collection.IsArrayWithSize.arrayWithSize(sizeMatcher);
+    public static <E> Matcher<E[]> arrayWithSize(Matcher<? super Integer> sizeMatcher) {
+        return IsArrayWithSize.arrayWithSize(sizeMatcher);
     }
 
     /**
@@ -171,8 +177,8 @@ public class MatchArrays {
      *
      * @param size the length that an examined array must have for a positive match
      */
-    public static <E> org.hamcrest.Matcher<E[]> arrayWithSize(int size) {
-        return org.hamcrest.collection.IsArrayWithSize.arrayWithSize(size);
+    public static <E> Matcher<E[]> arrayWithSize(int size) {
+        return IsArrayWithSize.arrayWithSize(size);
     }
 
     /**
@@ -181,8 +187,8 @@ public class MatchArrays {
      * For example:
      * <pre>assertThat(new String[0], emptyArray())</pre>
      */
-    public static <E> org.hamcrest.Matcher<E[]> emptyArray() {
-        return org.hamcrest.collection.IsArrayWithSize.emptyArray();
+    public static <E> Matcher<E[]> emptyArray() {
+        return describedAs("an empty array", IsArrayWithSize.<E>arrayWithSize(0));
     }
 
 }

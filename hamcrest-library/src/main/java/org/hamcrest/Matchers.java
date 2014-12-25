@@ -1,5 +1,6 @@
 package org.hamcrest;
 
+import org.hamcrest.collection.MatchArrays;
 import org.hamcrest.number.MatchNumbers;
 import org.hamcrest.object.MatchObjects;
 import org.hamcrest.text.MatchStrings;
@@ -645,7 +646,7 @@ public class Matchers {
      * @param size the length that an examined array must have for a positive match
      */
     public static <E> org.hamcrest.Matcher<E[]> arrayWithSize(int size) {
-        return org.hamcrest.collection.IsArrayWithSize.arrayWithSize(size);
+        return MatchArrays.arrayWithSize(size);
     }
 
     /**
@@ -655,7 +656,7 @@ public class Matchers {
      * <pre>assertThat(new String[0], emptyArray())</pre>
      */
     public static <E> org.hamcrest.Matcher<E[]> emptyArray() {
-        return org.hamcrest.collection.IsArrayWithSize.emptyArray();
+        return MatchArrays.emptyArray();
     }
 
     /**
