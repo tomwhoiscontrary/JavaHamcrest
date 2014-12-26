@@ -1,5 +1,11 @@
 package org.hamcrest.collection;
 
+import org.hamcrest.Matcher;
+
+import java.util.Map;
+
+import static org.hamcrest.core.IsEqual.equalTo;
+
 public class MatchingMaps {
     /**
      * Creates a matcher for {@link java.util.Map}s that matches when the <code>size()</code> method returns
@@ -9,8 +15,8 @@ public class MatchingMaps {
      *
      * @param sizeMatcher a matcher for the size of an examined {@link java.util.Map}
      */
-    public static <K, V> org.hamcrest.Matcher<java.util.Map<? extends K, ? extends V>> aMapWithSize(org.hamcrest.Matcher<? super java.lang.Integer> sizeMatcher) {
-        return org.hamcrest.collection.IsMapWithSize.aMapWithSize(sizeMatcher);
+    public static <K, V> Matcher<Map<? extends K, ? extends V>> aMapWithSize(Matcher<? super Integer> sizeMatcher) {
+        return new IsMapWithSize<>(sizeMatcher);
     }
 
     /**
@@ -21,8 +27,8 @@ public class MatchingMaps {
      *
      * @param size the expected size of an examined {@link java.util.Map}
      */
-    public static <K, V> org.hamcrest.Matcher<java.util.Map<? extends K, ? extends V>> aMapWithSize(int size) {
-        return org.hamcrest.collection.IsMapWithSize.aMapWithSize(size);
+    public static <K, V> Matcher<Map<? extends K, ? extends V>> aMapWithSize(int size) {
+        return aMapWithSize(equalTo(size));
     }
 
     /**
@@ -31,8 +37,8 @@ public class MatchingMaps {
      * For example:
      * <pre>assertThat(myMap, is(anEmptyMap()))</pre>
      */
-    public static <K, V> org.hamcrest.Matcher<java.util.Map<? extends K, ? extends V>> anEmptyMap() {
-        return org.hamcrest.collection.IsMapWithSize.anEmptyMap();
+    public static <K, V> Matcher<Map<? extends K, ? extends V>> anEmptyMap() {
+        return aMapWithSize(equalTo(0));
     }
 
     /**
@@ -45,8 +51,8 @@ public class MatchingMaps {
      * @param keyMatcher   the key matcher that, in combination with the valueMatcher, must be satisfied by at least one entry
      * @param valueMatcher the value matcher that, in combination with the keyMatcher, must be satisfied by at least one entry
      */
-    public static <K, V> org.hamcrest.Matcher<java.util.Map<? extends K, ? extends V>> hasEntry(org.hamcrest.Matcher<? super K> keyMatcher, org.hamcrest.Matcher<? super V> valueMatcher) {
-        return org.hamcrest.collection.IsMapContaining.hasEntry(keyMatcher, valueMatcher);
+    public static <K, V> Matcher<Map<? extends K, ? extends V>> hasEntry(Matcher<? super K> keyMatcher, Matcher<? super V> valueMatcher) {
+        return IsMapContaining.hasEntry(keyMatcher, valueMatcher);
     }
 
     /**
@@ -59,8 +65,8 @@ public class MatchingMaps {
      * @param key   the key that, in combination with the value, must be describe at least one entry
      * @param value the value that, in combination with the key, must be describe at least one entry
      */
-    public static <K, V> org.hamcrest.Matcher<java.util.Map<? extends K, ? extends V>> hasEntry(K key, V value) {
-        return org.hamcrest.collection.IsMapContaining.hasEntry(key, value);
+    public static <K, V> Matcher<Map<? extends K, ? extends V>> hasEntry(K key, V value) {
+        return IsMapContaining.hasEntry(key, value);
     }
 
     /**
@@ -71,8 +77,8 @@ public class MatchingMaps {
      *
      * @param keyMatcher the matcher that must be satisfied by at least one key
      */
-    public static <K> org.hamcrest.Matcher<java.util.Map<? extends K, ?>> hasKey(org.hamcrest.Matcher<? super K> keyMatcher) {
-        return org.hamcrest.collection.IsMapContaining.hasKey(keyMatcher);
+    public static <K> org.hamcrest.Matcher<Map<? extends K, ?>> hasKey(Matcher<? super K> keyMatcher) {
+        return IsMapContaining.hasKey(keyMatcher);
     }
 
     /**
@@ -83,8 +89,8 @@ public class MatchingMaps {
      *
      * @param key the key that satisfying maps must contain
      */
-    public static <K> org.hamcrest.Matcher<java.util.Map<? extends K, ?>> hasKey(K key) {
-        return org.hamcrest.collection.IsMapContaining.hasKey(key);
+    public static <K> org.hamcrest.Matcher<Map<? extends K, ?>> hasKey(K key) {
+        return IsMapContaining.hasKey(key);
     }
 
     /**
@@ -95,8 +101,8 @@ public class MatchingMaps {
      *
      * @param valueMatcher the matcher that must be satisfied by at least one value
      */
-    public static <V> org.hamcrest.Matcher<java.util.Map<?, ? extends V>> hasValue(org.hamcrest.Matcher<? super V> valueMatcher) {
-        return org.hamcrest.collection.IsMapContaining.hasValue(valueMatcher);
+    public static <V> org.hamcrest.Matcher<Map<?, ? extends V>> hasValue(Matcher<? super V> valueMatcher) {
+        return IsMapContaining.hasValue(valueMatcher);
     }
 
     /**
@@ -107,8 +113,8 @@ public class MatchingMaps {
      *
      * @param value the value that satisfying maps must contain
      */
-    public static <V> org.hamcrest.Matcher<java.util.Map<?, ? extends V>> hasValue(V value) {
-        return org.hamcrest.collection.IsMapContaining.hasValue(value);
+    public static <V> org.hamcrest.Matcher<Map<?, ? extends V>> hasValue(V value) {
+        return IsMapContaining.hasValue(value);
     }
 
 }

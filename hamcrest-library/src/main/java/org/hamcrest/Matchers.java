@@ -3,6 +3,7 @@ package org.hamcrest;
 import org.hamcrest.collection.MatchingArrays;
 import org.hamcrest.collection.MatchingCollections;
 import org.hamcrest.collection.MatchingIterables;
+import org.hamcrest.collection.MatchingMaps;
 import org.hamcrest.number.MatchingNumbers;
 import org.hamcrest.object.MatchingObjects;
 import org.hamcrest.text.MatchingStrings;
@@ -669,8 +670,8 @@ public class Matchers {
      *
      * @param sizeMatcher a matcher for the size of an examined {@link java.util.Map}
      */
-    public static <K, V> org.hamcrest.Matcher<java.util.Map<? extends K, ? extends V>> aMapWithSize(org.hamcrest.Matcher<? super java.lang.Integer> sizeMatcher) {
-        return org.hamcrest.collection.IsMapWithSize.aMapWithSize(sizeMatcher);
+    public static <K, V> Matcher<java.util.Map<? extends K, ? extends V>> aMapWithSize(org.hamcrest.Matcher<? super java.lang.Integer> sizeMatcher) {
+        return MatchingMaps.aMapWithSize(sizeMatcher);
     }
 
     /**
@@ -681,8 +682,8 @@ public class Matchers {
      *
      * @param size the expected size of an examined {@link java.util.Map}
      */
-    public static <K, V> org.hamcrest.Matcher<java.util.Map<? extends K, ? extends V>> aMapWithSize(int size) {
-        return org.hamcrest.collection.IsMapWithSize.aMapWithSize(size);
+    public static <K, V> Matcher<java.util.Map<? extends K, ? extends V>> aMapWithSize(int size) {
+        return MatchingMaps.aMapWithSize(size);
     }
 
     /**
@@ -691,8 +692,8 @@ public class Matchers {
      * For example:
      * <pre>assertThat(myMap, is(anEmptyMap()))</pre>
      */
-    public static <K, V> org.hamcrest.Matcher<java.util.Map<? extends K, ? extends V>> anEmptyMap() {
-        return org.hamcrest.collection.IsMapWithSize.anEmptyMap();
+    public static <K, V> Matcher<java.util.Map<? extends K, ? extends V>> anEmptyMap() {
+        return MatchingMaps.anEmptyMap();
     }
 
     /**
@@ -716,7 +717,7 @@ public class Matchers {
      * @param size the expected size of an examined {@link java.util.Collection}
      */
     public static <E> org.hamcrest.Matcher<java.util.Collection<? extends E>> hasSize(int size) {
-        return org.hamcrest.collection.IsCollectionWithSize.hasSize(size);
+        return MatchingCollections.hasSize(size);
     }
 
     /**
@@ -967,7 +968,7 @@ public class Matchers {
      * @param keyMatcher   the key matcher that, in combination with the valueMatcher, must be satisfied by at least one entry
      * @param valueMatcher the value matcher that, in combination with the keyMatcher, must be satisfied by at least one entry
      */
-    public static <K, V> org.hamcrest.Matcher<java.util.Map<? extends K, ? extends V>> hasEntry(org.hamcrest.Matcher<? super K> keyMatcher, org.hamcrest.Matcher<? super V> valueMatcher) {
+    public static <K, V> Matcher<java.util.Map<? extends K, ? extends V>> hasEntry(org.hamcrest.Matcher<? super K> keyMatcher, org.hamcrest.Matcher<? super V> valueMatcher) {
         return org.hamcrest.collection.IsMapContaining.hasEntry(keyMatcher, valueMatcher);
     }
 
@@ -981,7 +982,7 @@ public class Matchers {
      * @param key   the key that, in combination with the value, must be describe at least one entry
      * @param value the value that, in combination with the key, must be describe at least one entry
      */
-    public static <K, V> org.hamcrest.Matcher<java.util.Map<? extends K, ? extends V>> hasEntry(K key, V value) {
+    public static <K, V> Matcher<java.util.Map<? extends K, ? extends V>> hasEntry(K key, V value) {
         return org.hamcrest.collection.IsMapContaining.hasEntry(key, value);
     }
 

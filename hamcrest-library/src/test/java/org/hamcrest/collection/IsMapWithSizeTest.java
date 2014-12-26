@@ -7,8 +7,8 @@ import org.hamcrest.MatcherAssert;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.hamcrest.collection.IsMapWithSize.aMapWithSize;
-import static org.hamcrest.core.IsEqual.equalTo;
+import static org.hamcrest.collection.MatchingMaps.aMapWithSize;
+import static org.hamcrest.object.MatchingObjects.equalTo;
 
 public final class IsMapWithSizeTest extends AbstractMatcherTest {
 
