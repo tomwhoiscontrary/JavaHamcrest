@@ -3,13 +3,12 @@ package org.hamcrest.collection;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeDiagnosingMatcher;
+import org.hamcrest.internal.Wrapping;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
-import static org.hamcrest.core.IsEqual.equalTo;
+import static java.util.Arrays.asList;
 
 public class IsIterableContainingInAnyOrder<T> extends TypeSafeDiagnosingMatcher<Iterable<? extends T>> {
     private final Collection<Matcher<? super T>> matchers;
@@ -98,7 +97,7 @@ public class IsIterableContainingInAnyOrder<T> extends TypeSafeDiagnosingMatcher
      */
     @SafeVarargs
     public static <T> Matcher<Iterable<? extends T>> containsInAnyOrder(Matcher<? super T>... itemMatchers) {
-        return containsInAnyOrder(Arrays.asList(itemMatchers));
+        return containsInAnyOrder(asList(itemMatchers));
     }
 
     /**
@@ -123,12 +122,7 @@ public class IsIterableContainingInAnyOrder<T> extends TypeSafeDiagnosingMatcher
      */
     @SafeVarargs
     public static <T> Matcher<Iterable<? extends T>> containsInAnyOrder(T... items) {
-        List<Matcher<? super T>> matchers = new ArrayList<>();
-        for (T item : items) {
-            matchers.add(equalTo(item));
-        }
-        
-        return new IsIterableContainingInAnyOrder<>(matchers);
+        return new IsIterableContainingInAnyOrder<>(Wrapping.asEqualToMatchers(items));
     }
 
     /**

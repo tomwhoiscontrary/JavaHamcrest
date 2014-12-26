@@ -541,7 +541,7 @@ public class Matchers {
      * @param itemMatchers the matchers that must be satisfied by the items in the examined array
      */
     @SafeVarargs
-    public static <E> org.hamcrest.Matcher<E[]> arrayContaining(org.hamcrest.Matcher<? super E>... itemMatchers) {
+    public static <E> org.hamcrest.Matcher<E[]> arrayContaining(Matcher<? super E>... itemMatchers) {
         return MatchArrays.arrayContaining(itemMatchers);
     }
 
@@ -554,7 +554,7 @@ public class Matchers {
      *
      * @param itemMatchers a list of matchers, each of which must be satisfied by the corresponding item in an examined array
      */
-    public static <E> org.hamcrest.Matcher<E[]> arrayContaining(java.util.List<org.hamcrest.Matcher<? super E>> itemMatchers) {
+    public static <E> org.hamcrest.Matcher<E[]> arrayContaining(java.util.List<Matcher<? super E>> itemMatchers) {
         return MatchArrays.arrayContaining(itemMatchers);
     }
 
@@ -578,7 +578,7 @@ public class Matchers {
      * @param itemMatchers a list of matchers, each of which must be satisfied by an entry in an examined array
      */
     @SafeVarargs
-    public static <E> org.hamcrest.Matcher<E[]> arrayContainingInAnyOrder(org.hamcrest.Matcher<? super E>... itemMatchers) {
+    public static <E> org.hamcrest.Matcher<E[]> arrayContainingInAnyOrder(Matcher<? super E>... itemMatchers) {
         return MatchArrays.arrayContainingInAnyOrder(itemMatchers);
     }
 
@@ -601,7 +601,7 @@ public class Matchers {
      *
      * @param itemMatchers a list of matchers, each of which must be satisfied by an item provided by an examined array
      */
-    public static <E> org.hamcrest.Matcher<E[]> arrayContainingInAnyOrder(java.util.Collection<org.hamcrest.Matcher<? super E>> itemMatchers) {
+    public static <E> org.hamcrest.Matcher<E[]> arrayContainingInAnyOrder(java.util.Collection<Matcher<? super E>> itemMatchers) {
         return MatchArrays.arrayContainingInAnyOrder(itemMatchers);
     }
 
@@ -773,7 +773,7 @@ public class Matchers {
      */
     @SafeVarargs
     public static <E> org.hamcrest.Matcher<java.lang.Iterable<? extends E>> contains(E... items) {
-        return MatchCollections.contains(items);
+        return MatchIterables.contains(items);
     }
 
     /**
@@ -786,8 +786,8 @@ public class Matchers {
      * @param itemMatcher the matcher that must be satisfied by the single item provided by an
      *                    examined {@link Iterable}
      */
-    public static <E> org.hamcrest.Matcher<java.lang.Iterable<? extends E>> contains(org.hamcrest.Matcher<? super E> itemMatcher) {
-        return MatchCollections.contains(itemMatcher);
+    public static <E> org.hamcrest.Matcher<java.lang.Iterable<? extends E>> contains(Matcher<? super E> itemMatcher) {
+        return MatchIterables.contains(itemMatcher);
     }
 
     /**
@@ -801,8 +801,8 @@ public class Matchers {
      * @param itemMatchers the matchers that must be satisfied by the items provided by an examined {@link Iterable}
      */
     @SafeVarargs
-    public static <E> org.hamcrest.Matcher<java.lang.Iterable<? extends E>> contains(org.hamcrest.Matcher<? super E>... itemMatchers) {
-        return MatchCollections.contains(itemMatchers);
+    public static <E> org.hamcrest.Matcher<java.lang.Iterable<? extends E>> contains(Matcher<? super E>... itemMatchers) {
+        return MatchIterables.contains(itemMatchers);
     }
 
     /**
@@ -816,8 +816,8 @@ public class Matchers {
      * @param itemMatchers a list of matchers, each of which must be satisfied by the corresponding item provided by
      *                     an examined {@link Iterable}
      */
-    public static <E> org.hamcrest.Matcher<java.lang.Iterable<? extends E>> contains(java.util.List<org.hamcrest.Matcher<? super E>> itemMatchers) {
-        return MatchCollections.contains(itemMatchers);
+    public static <E> org.hamcrest.Matcher<java.lang.Iterable<? extends E>> contains(java.util.List<Matcher<? super E>> itemMatchers) {
+        return MatchIterables.contains(itemMatchers);
     }
 
     /**
@@ -913,7 +913,7 @@ public class Matchers {
      * @param itemMatchers the matchers that must be satisfied by the items provided by an examined {@link Iterable} in the same relative order
      */
     @SafeVarargs
-    public static <E> org.hamcrest.Matcher<java.lang.Iterable<? extends E>> containsInRelativeOrder(org.hamcrest.Matcher<? super E>... itemMatchers) {
+    public static <E> org.hamcrest.Matcher<java.lang.Iterable<? extends E>> containsInRelativeOrder(Matcher<? super E>... itemMatchers) {
         return org.hamcrest.collection.IsIterableContainingInRelativeOrder.containsInRelativeOrder(itemMatchers);
     }
 
@@ -927,7 +927,7 @@ public class Matchers {
      * @param itemMatchers a list of matchers, each of which must be satisfied by the items provided by
      *                     an examined {@link Iterable} in the same relative order
      */
-    public static <E> org.hamcrest.Matcher<java.lang.Iterable<? extends E>> containsInRelativeOrder(java.util.List<org.hamcrest.Matcher<? super E>> itemMatchers) {
+    public static <E> org.hamcrest.Matcher<java.lang.Iterable<? extends E>> containsInRelativeOrder(java.util.List<Matcher<? super E>> itemMatchers) {
         return org.hamcrest.collection.IsIterableContainingInRelativeOrder.containsInRelativeOrder(itemMatchers);
     }
 

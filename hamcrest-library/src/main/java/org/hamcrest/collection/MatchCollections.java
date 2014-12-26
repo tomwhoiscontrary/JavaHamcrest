@@ -1,10 +1,8 @@
 package org.hamcrest.collection;
 
 import org.hamcrest.Matcher;
-import org.hamcrest.internal.Wrapping;
 
 import java.util.Collection;
-import java.util.List;
 
 import static org.hamcrest.object.MatchObjects.equalTo;
 
@@ -57,53 +55,5 @@ public class MatchCollections {
   @SuppressWarnings({"unchecked", "UnusedParameters"})
   public static <E> Matcher<Collection<E>> emptyCollectionOf(Class<E> unusedToForceReturnType) {
       return (Matcher)empty();
-  }
-
-  /**
-   * Creates a matcher for {@link Iterable}s that matches when a single pass over the
-   * examined {@link Iterable} yields a series of items, each logically equal to the
-   * corresponding item in the specified items.  For a positive match, the examined iterable
-   * must be of the same length as the number of specified items.
-   * For example:
-   * <pre>assertThat(Arrays.asList("foo", "bar"), contains("foo", "bar"))</pre>
-   *
-   * @param items
-   *     the items that must equal the items provided by an examined {@link Iterable}
-   */
-  @SafeVarargs
-  public static <E> Matcher<Iterable<? extends E>> contains(E... items) {
-      return contains(Wrapping.asEqualToMatchers(items));
-  }
-
-  /**
-   * Creates a matcher for {@link Iterable}s that matches when a single pass over the
-   * examined {@link Iterable} yields a series of items, each satisfying the corresponding
-   * matcher in the specified matchers.  For a positive match, the examined iterable
-   * must be of the same length as the number of specified matchers.
-   * For example:
-   * <pre>assertThat(Arrays.asList("foo", "bar"), contains(equalTo("foo"), equalTo("bar")))</pre>
-   *
-   * @param itemMatchers
-   *     the matchers that must be satisfied by the items provided by an examined {@link Iterable}
-   */
-  @SafeVarargs
-  public static <E> Matcher<Iterable<? extends E>> contains(Matcher<? super E>... itemMatchers) {
-      return contains(Wrapping.nullSafe(itemMatchers));
-  }
-
-  /**
-   * Creates a matcher for {@link Iterable}s that matches when a single pass over the
-   * examined {@link Iterable} yields a series of items, each satisfying the corresponding
-   * matcher in the specified list of matchers.  For a positive match, the examined iterable
-   * must be of the same length as the specified list of matchers.
-   * For example:
-   * <pre>assertThat(Arrays.asList("foo", "bar"), contains(Arrays.asList(equalTo("foo"), equalTo("bar"))))</pre>
-   *
-   * @param itemMatchers
-   *     a list of matchers, each of which must be satisfied by the corresponding item provided by
-   *     an examined {@link Iterable}
-   */
-  public static <E> Matcher<Iterable<? extends E>> contains(List<Matcher<? super E>> itemMatchers) {
-      return new IsIterableContainingInOrder<>(itemMatchers);
   }
 }
