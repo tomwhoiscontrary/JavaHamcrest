@@ -1,7 +1,8 @@
 package org.hamcrest.io;
 
 import org.hamcrest.Description;
-import org.hamcrest.FeatureMatcher;
+import org.hamcrest.FunctionMatcher;
+import org.hamcrest.FunctionMatcher.Feature;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeDiagnosingMatcher;
 
@@ -37,33 +38,20 @@ public final class FileMatchers {
     }
 
     public static Matcher<File> aFileWithSize(final Matcher<Long> expected) {
-        return new FeatureMatcher<File, Long>(expected, "A file with size", "size") {
-            @Override protected Long featureValueOf(File actual) { return actual.length(); }
-        };
+        return new FunctionMatcher<>("A file with size", "size", expected, LENGTH);
     }
 
     public static Matcher<File> aFileNamed(final Matcher<String> expected) {
-        return new FeatureMatcher<File, String>(expected, "A file with name", "name") {
-            @Override protected String featureValueOf(File actual) { return actual.getName(); }
-        };
+        return new FunctionMatcher<>("A file with name", "name", expected, NAME);
     }
 
     public static Matcher<File> aFileWithCanonicalPath(final Matcher<String> expected) {
-        return new FeatureMatcher<File, String>(expected, "A file with canonical path", "path") {
-            @Override protected String featureValueOf(File actual) {
-                try {
-                    return actual.getCanonicalPath();
-                } catch (IOException e) {
-                    return "Exception: " + e.getMessage();
-                }
-            }
-        };
+        return new FunctionMatcher<>("A file with canonical path", "path", expected, CANONICAL_PATH);
     }
 
+
     public static Matcher<File> aFileWithAbsolutePath(final Matcher<String> expected) {
-        return new FeatureMatcher<File, String>(expected, "A file with absolute path", "path") {
-            @Override protected String featureValueOf(File actual) { return actual.getAbsolutePath(); }
-        };
+        return new FunctionMatcher<>("A file with absolute path", "path", expected, ABSOLUTE_PATH);
     }
 
     public static interface FileStatus {
@@ -104,4 +92,25 @@ public final class FileMatchers {
             }
         };
     }
+
+    private static final Feature<File, String> ABSOLUTE_PATH = new Feature<File, String>() {
+        @Override public String from(File actual) { return actual.getAbsolutePath(); }
+    };
+    public static final Feature<File, Long> LENGTH = new Feature<File, Long>() {
+        @Override public Long from(File actual) { return actual.length(); }
+    };
+
+    public static final Feature<File, String> NAME = new Feature<File, String>() {
+        @Override public String from(File actual) { return actual.getName(); }
+    };
+
+    public static final Feature<File, String> CANONICAL_PATH = new Feature<File, String>() {
+        @Override public String from(File actual) {
+            try {
+                return actual.getCanonicalPath();
+            } catch (IOException e) {
+                return "Exception: " + e.getMessage();
+            }
+        }
+    };
 }

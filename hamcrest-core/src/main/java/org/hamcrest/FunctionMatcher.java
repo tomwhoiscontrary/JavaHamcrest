@@ -11,8 +11,8 @@ import org.hamcrest.internal.ReflectiveTypeFinder;
  * @param <U> The type of the feature to be matched
  */
 public class FunctionMatcher<T, U> extends TypeSafeDiagnosingMatcher<T> {
-  public static interface Feature<T, U> {
-    U from(T actual);
+  public static interface Feature<ActualType, FeatureType> {
+    FeatureType from(ActualType actual);
   }
 
 
@@ -30,8 +30,8 @@ public class FunctionMatcher<T, U> extends TypeSafeDiagnosingMatcher<T> {
    * @param feature A function to extra the value to be matched against.
    */
   public FunctionMatcher(String featureDescription, String featureName,
-      Matcher<? super U> subMatcher,
-      Feature<T, U> feature) {
+      Matcher<? super U> subMatcher, Feature<T, U> feature)
+  {
     super(TYPE_FINDER.findExpectedType(feature.getClass()));
     this.subMatcher = subMatcher;
     this.featureDescription = featureDescription;
