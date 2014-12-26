@@ -3,11 +3,9 @@ package org.hamcrest.collection;
 import org.hamcrest.Matcher;
 import org.hamcrest.internal.Wrapping;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import static java.util.Arrays.asList;
 import static org.hamcrest.object.MatchObjects.equalTo;
 
 /**
@@ -56,7 +54,7 @@ public class MatchCollections {
    *
    * @param unusedToForceReturnType the type of the collection's content
    */
-  @SuppressWarnings("unchecked")
+  @SuppressWarnings({"unchecked", "UnusedParameters"})
   public static <E> Matcher<Collection<E>> emptyCollectionOf(Class<E> unusedToForceReturnType) {
       return (Matcher)empty();
   }
@@ -75,22 +73,6 @@ public class MatchCollections {
   @SafeVarargs
   public static <E> Matcher<Iterable<? extends E>> contains(E... items) {
       return contains(Wrapping.asEqualToMatchers(items));
-  }
-
-  /**
-   * Creates a matcher for {@link Iterable}s that matches when a single pass over the
-   * examined {@link Iterable} yields a single item that satisfies the specified matcher.
-   * For a positive match, the examined iterable must only yield one item.
-   * For example:
-   * <pre>assertThat(Arrays.asList("foo"), contains(equalTo("foo")))</pre>
-   *
-   * @param itemMatcher
-   *     the matcher that must be satisfied by the single item provided by an
-   *     examined {@link Iterable}
-   */
-  @SuppressWarnings("unchecked")
-  public static <E> Matcher<Iterable<? extends E>> contains(final Matcher<? super E> itemMatcher) {
-      return contains(new ArrayList<Matcher<? super E>>(asList(itemMatcher)));
   }
 
   /**
