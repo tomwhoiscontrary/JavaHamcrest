@@ -10,7 +10,7 @@ public class MatchingBeans {
      * @param propertyName the name of the JavaBean property that examined beans should possess
      */
     public static <T> org.hamcrest.Matcher<T> hasProperty(java.lang.String propertyName) {
-        return org.hamcrest.beans.HasProperty.hasProperty(propertyName);
+        return new HasProperty<>(propertyName);
     }
 
     /**
@@ -23,7 +23,7 @@ public class MatchingBeans {
      * @param valueMatcher a matcher for the value of the specified property of the examined bean
      */
     public static <T> org.hamcrest.Matcher<T> hasProperty(java.lang.String propertyName, org.hamcrest.Matcher<?> valueMatcher) {
-        return org.hamcrest.beans.HasPropertyWithValue.hasProperty(propertyName, valueMatcher);
+        return new HasPropertyWithValue<>(propertyName, valueMatcher);
     }
 
     /**

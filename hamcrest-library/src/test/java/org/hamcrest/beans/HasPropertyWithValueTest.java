@@ -13,9 +13,9 @@ import java.beans.PropertyDescriptor;
 import java.beans.SimpleBeanInfo;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.beans.HasPropertyWithValue.hasProperty;
-import static org.hamcrest.core.IsAnything.anything;
-import static org.hamcrest.core.IsEqual.equalTo;
+import static org.hamcrest.beans.MatchingBeans.hasProperty;
+import static org.hamcrest.object.MatchingObjects.anything;
+import static org.hamcrest.object.MatchingObjects.equalTo;
 
 /**
  * @author Iain McGinniss
@@ -83,7 +83,7 @@ public class HasPropertyWithValueTest extends AbstractMatcherTest {
       }
     }
 
-    assertThat(new X(), HasPropertyWithValue.hasProperty("test", IsEqual.equalTo(1)));
+    assertThat(new X(), MatchingBeans.hasProperty("test", IsEqual.equalTo(1)));
   }
 
   interface IX {

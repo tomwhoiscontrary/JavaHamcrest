@@ -1,5 +1,6 @@
 package org.hamcrest;
 
+import org.hamcrest.beans.MatchingBeans;
 import org.hamcrest.collection.MatchingArrays;
 import org.hamcrest.collection.MatchingCollections;
 import org.hamcrest.collection.MatchingIterables;
@@ -1424,7 +1425,7 @@ public class Matchers {
      * @param propertyName the name of the JavaBean property that examined beans should possess
      */
     public static <T> Matcher<T> hasProperty(java.lang.String propertyName) {
-        return org.hamcrest.beans.HasProperty.hasProperty(propertyName);
+        return MatchingBeans.hasProperty(propertyName);
     }
 
     /**
@@ -1437,7 +1438,7 @@ public class Matchers {
      * @param valueMatcher a matcher for the value of the specified property of the examined bean
      */
     public static <T> Matcher<T> hasProperty(java.lang.String propertyName, org.hamcrest.Matcher<?> valueMatcher) {
-        return org.hamcrest.beans.HasPropertyWithValue.hasProperty(propertyName, valueMatcher);
+        return MatchingBeans.hasProperty(propertyName, valueMatcher);
     }
 
     /**

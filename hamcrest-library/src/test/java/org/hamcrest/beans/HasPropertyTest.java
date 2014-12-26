@@ -6,7 +6,7 @@ import org.hamcrest.Matcher;
 import org.junit.Test;
 
 import static org.hamcrest.AbstractMatcherTest.*;
-import static org.hamcrest.beans.HasProperty.hasProperty;
+import static org.hamcrest.beans.MatchingBeans.hasProperty;
 
 /**
  * @author Iain McGinniss

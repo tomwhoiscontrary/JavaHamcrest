@@ -3,7 +3,6 @@
 package org.hamcrest.beans;
 
 import org.hamcrest.Description;
-import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
 /**
@@ -40,19 +39,6 @@ public class HasProperty<T> extends TypeSafeMatcher<T> {
     @Override
     public void describeTo(Description description) {
         description.appendText("hasProperty(").appendValue(propertyName).appendText(")");
-    }
-
-    /**
-     * Creates a matcher that matches when the examined object has a JavaBean property
-     * with the specified name.
-     * For example:
-     * <pre>assertThat(myBean, hasProperty("foo"))</pre>
-     * 
-     * @param propertyName
-     *     the name of the JavaBean property that examined beans should possess
-     */
-    public static <T> Matcher<T> hasProperty(String propertyName) {
-        return new HasProperty<>(propertyName);
     }
 
 }
