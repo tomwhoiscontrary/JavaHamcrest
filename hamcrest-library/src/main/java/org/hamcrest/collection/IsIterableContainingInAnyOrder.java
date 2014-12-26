@@ -20,14 +20,14 @@ public class IsIterableContainingInAnyOrder<T> extends TypeSafeDiagnosingMatcher
     
     @Override
     protected boolean matchesSafely(Iterable<? extends T> items, Description mismatchDescription) {
-      final Matching<T> matching = new Matching<>(matchers, mismatchDescription);
+      final Containing<T> containing = new Containing<>(matchers, mismatchDescription);
       for (T item : items) {
-        if (! matching.matches(item)) {
+        if (! containing.matches(item)) {
           return false;
         }
       }
       
-      return matching.isFinished(items);
+      return containing.isFinished(items);
     }
     
     @Override
@@ -37,11 +37,11 @@ public class IsIterableContainingInAnyOrder<T> extends TypeSafeDiagnosingMatcher
           .appendText(" in any order");
     }
 
-    private static class Matching<S> {
+    private static class Containing<S> {
       private final Collection<Matcher<? super S>> matchers;
       private final Description mismatchDescription;
 
-      public Matching(Collection<Matcher<? super S>> matchers, Description mismatchDescription) {
+      public Containing(Collection<Matcher<? super S>> matchers, Description mismatchDescription) {
         this.matchers = new ArrayList<>(matchers);
         this.mismatchDescription = mismatchDescription;
       }

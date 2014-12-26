@@ -746,7 +746,7 @@ public class Matchers {
      * <pre>assertThat(new ArrayList&lt;String&gt;(), is(emptyIterable()))</pre>
      */
     public static <E> org.hamcrest.Matcher<java.lang.Iterable<? extends E>> emptyIterable() {
-        return org.hamcrest.collection.IsEmptyIterable.emptyIterable();
+        return MatchIterables.emptyIterable();
     }
 
     /**
@@ -757,7 +757,7 @@ public class Matchers {
      * @param unusedToForceReturnType the type of the iterable's content
      */
     public static <E> org.hamcrest.Matcher<java.lang.Iterable<E>> emptyIterableOf(java.lang.Class<E> unusedToForceReturnType) {
-        return org.hamcrest.collection.IsEmptyIterable.emptyIterableOf(unusedToForceReturnType);
+        return MatchIterables.emptyIterableOf(unusedToForceReturnType);
     }
 
     /**
