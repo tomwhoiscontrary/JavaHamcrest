@@ -16,7 +16,7 @@ public class FunctionMatcher<T, U> extends TypeSafeDiagnosingMatcher<T> {
   }
 
 
-  private static final ReflectiveTypeFinder TYPE_FINDER = new ReflectiveTypeFinder("featureValueOf", 1, 0);
+  private static final ReflectiveTypeFinder TYPE_FINDER = new ReflectiveTypeFinder("from", 1, 0);
   private final Matcher<? super U> subMatcher;
   private final String featureDescription;
   private final String featureName;
@@ -32,7 +32,7 @@ public class FunctionMatcher<T, U> extends TypeSafeDiagnosingMatcher<T> {
   public FunctionMatcher(String featureDescription, String featureName,
       Matcher<? super U> subMatcher,
       Feature<T, U> feature) {
-    super(TYPE_FINDER);
+    super(TYPE_FINDER.findExpectedType(feature.getClass()));
     this.subMatcher = subMatcher;
     this.featureDescription = featureDescription;
     this.featureName = featureName;
