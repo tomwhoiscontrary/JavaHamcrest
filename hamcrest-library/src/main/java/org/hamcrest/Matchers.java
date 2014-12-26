@@ -577,7 +577,7 @@ public class Matchers {
      */
     @SafeVarargs
     public static <E> org.hamcrest.Matcher<E[]> arrayContainingInAnyOrder(org.hamcrest.Matcher<? super E>... itemMatchers) {
-        return org.hamcrest.collection.IsArrayContainingInAnyOrder.arrayContainingInAnyOrder(itemMatchers);
+        return MatchArrays.arrayContainingInAnyOrder(itemMatchers);
     }
 
     /**
@@ -600,7 +600,7 @@ public class Matchers {
      * @param itemMatchers a list of matchers, each of which must be satisfied by an item provided by an examined array
      */
     public static <E> org.hamcrest.Matcher<E[]> arrayContainingInAnyOrder(java.util.Collection<org.hamcrest.Matcher<? super E>> itemMatchers) {
-        return org.hamcrest.collection.IsArrayContainingInAnyOrder.arrayContainingInAnyOrder(itemMatchers);
+        return MatchArrays.arrayContainingInAnyOrder(itemMatchers);
     }
 
     /**
@@ -622,7 +622,7 @@ public class Matchers {
      */
     @SafeVarargs
     public static <E> org.hamcrest.Matcher<E[]> arrayContainingInAnyOrder(E... items) {
-        return org.hamcrest.collection.IsArrayContainingInAnyOrder.arrayContainingInAnyOrder(items);
+        return MatchArrays.arrayContainingInAnyOrder(items);
     }
 
     /**

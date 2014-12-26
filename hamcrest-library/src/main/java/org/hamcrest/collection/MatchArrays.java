@@ -1,6 +1,7 @@
 package org.hamcrest.collection;
 
-import org.hamcrest.FeatureMatcher;
+import org.hamcrest.FunctionMatcher;
+import org.hamcrest.FunctionMatcher.Feature;
 import org.hamcrest.Matcher;
 
 import java.util.Collection;
@@ -168,9 +169,12 @@ public class MatchArrays {
      * @param sizeMatcher a matcher for the length of an examined array
      */
     public static <E> Matcher<E[]> arrayWithSize(Matcher<? super Integer> sizeMatcher) {
-        return new FeatureMatcher<E[], Integer> (sizeMatcher, "an array with size","array size") {
-            @Override protected Integer featureValueOf(E[] actual) { return actual.length; }
-        };
+        return new FunctionMatcher<>(
+            "an array with size", "array size",
+            sizeMatcher,
+            new Feature<E[], Integer>() {
+                @Override public Integer from(E[] actual) { return actual.length; }
+            });
     }
 
     /**
