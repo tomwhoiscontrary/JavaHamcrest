@@ -7,7 +7,7 @@ targetCompatibility=1.7
 
 group = "org.hamcrest"
 archivesBaseName = "java-hamcrest"
-version=7.0
+version=2.0
 
 
 repositories {

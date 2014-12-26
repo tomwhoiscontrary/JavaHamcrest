@@ -19,12 +19,6 @@ Extensions
 
 For Hamcrest extension projects see the [hamcrest extensions page][].
 
-Dependencies
-------------
-All libraries in the `lib` directory are used at build time, or are optional extras used for tighter integration with third party libraries.
-
-ALL OF THE DEPENDENCIES ARE OPTIONAL.
-
 Documentation
 -------------
 Documentation can be found on the [Hamcrest site](http://hamcrest.org).
