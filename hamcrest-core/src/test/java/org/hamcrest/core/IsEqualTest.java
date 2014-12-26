@@ -6,8 +6,8 @@ import org.hamcrest.Matcher;
 import org.junit.Test;
 
 import static org.hamcrest.AbstractMatcherTest.*;
-import static org.hamcrest.object.MatchObjects.equalTo;
-import static org.hamcrest.object.MatchObjects.equalToObject;
+import static org.hamcrest.object.MatchingObjects.equalTo;
+import static org.hamcrest.object.MatchingObjects.equalToObject;
 
 public final class IsEqualTest {
 

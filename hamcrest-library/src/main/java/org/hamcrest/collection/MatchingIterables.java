@@ -4,7 +4,7 @@ import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
 import org.hamcrest.core.Every;
 import org.hamcrest.core.IsCollectionContaining;
-import org.hamcrest.object.MatchObjects;
+import org.hamcrest.object.MatchingObjects;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -14,9 +14,9 @@ import java.util.List;
 import static java.util.Arrays.asList;
 import static org.hamcrest.internal.Wrapping.asEqualToMatchers;
 import static org.hamcrest.internal.Wrapping.nullSafe;
-import static org.hamcrest.object.MatchObjects.equalTo;
+import static org.hamcrest.object.MatchingObjects.equalTo;
 
-public class MatchIterables {
+public class MatchingIterables {
     /**
      * Creates a matcher for {@link Iterable}s that only matches when a single pass over the
      * examined {@link Iterable} yields items that are all matched by the specified
@@ -328,7 +328,7 @@ public class MatchIterables {
     public static <T> Matcher<Iterable<? extends T>> hasSubsequence(Iterable<? extends T> items) {
         List<Matcher<? super T>> matchers = new ArrayList<>();
         for (Object item : items) {
-            matchers.add(MatchObjects.equalTo(item));
+            matchers.add(MatchingObjects.equalTo(item));
         }
         return new HasSubsequence<>(matchers);
     }

@@ -4,8 +4,8 @@ import org.hamcrest.Matcher;
 import org.junit.Test;
 
 import static org.hamcrest.AbstractMatcherTest.*;
-import static org.hamcrest.text.MatchStrings.blankOrNullString;
-import static org.hamcrest.text.MatchStrings.blankString;
+import static org.hamcrest.text.MatchingStrings.blankOrNullString;
+import static org.hamcrest.text.MatchingStrings.blankString;
 
 public final class IsBlankStringTest {
 

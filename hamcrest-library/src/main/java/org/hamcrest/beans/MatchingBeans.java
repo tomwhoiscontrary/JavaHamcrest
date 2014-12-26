@@ -1,6 +1,6 @@
 package org.hamcrest.beans;
 
-public class MatchBeans {
+public class MatchingBeans {
     /**
      * Creates a matcher that matches when the examined object has a JavaBean property
      * with the specified name.

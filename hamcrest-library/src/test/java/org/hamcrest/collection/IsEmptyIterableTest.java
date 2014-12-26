@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import static java.util.Arrays.asList;
-import static org.hamcrest.collection.MatchIterables.emptyIterable;
+import static org.hamcrest.collection.MatchingIterables.emptyIterable;
 
 public class IsEmptyIterableTest extends AbstractMatcherTest {
 
@@ -29,7 +29,7 @@ public class IsEmptyIterableTest extends AbstractMatcherTest {
     }
 
     public void testCompiles() {
-        needs(MatchIterables.emptyIterableOf(String.class));
+        needs(MatchingIterables.emptyIterableOf(String.class));
     }
 
     private void needs(@SuppressWarnings("unused") Matcher<Iterable<String>> bar) { }

@@ -11,7 +11,7 @@ import java.util.List;
 import static org.hamcrest.core.DescribedAs.describedAs;
 import static org.hamcrest.core.IsEqual.equalTo;
 
-public class MatchArrays {
+public class MatchingArrays {
     /**
      * Creates a matcher that matches arrays whose elements are satisfied by the specified matchers.  Matches
      * positively only if the number of matchers specified is equal to the length of the examined array and
@@ -196,7 +196,7 @@ public class MatchArrays {
      * <pre>assertThat(new String[0], emptyArray())</pre>
      */
     public static <E> Matcher<E[]> emptyArray() {
-        return describedAs("an empty array", MatchArrays.<E>arrayWithSize(0));
+        return describedAs("an empty array", MatchingArrays.<E>arrayWithSize(0));
     }
 
 }

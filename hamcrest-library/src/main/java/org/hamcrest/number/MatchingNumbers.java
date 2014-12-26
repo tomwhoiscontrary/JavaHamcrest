@@ -4,7 +4,7 @@ import org.hamcrest.Matcher;
 
 import java.math.BigDecimal;
 
-public class MatchNumbers {
+public class MatchingNumbers {
     /**
      * Creates a matcher of {@link Double}s that matches when an examined double is equal
      * to the specified <code>operand</code>, within a range of +/- <code>error</code>.

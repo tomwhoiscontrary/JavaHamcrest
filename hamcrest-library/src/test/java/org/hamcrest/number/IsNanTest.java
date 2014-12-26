@@ -4,7 +4,7 @@ import org.hamcrest.Matcher;
 import org.junit.Test;
 
 import static org.hamcrest.AbstractMatcherTest.*;
-import static org.hamcrest.number.MatchNumbers.notANumber;
+import static org.hamcrest.number.MatchingNumbers.notANumber;
 
 public final class IsNanTest {
 

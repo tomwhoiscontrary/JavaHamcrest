@@ -24,7 +24,7 @@ public class IsCompatibleTypeTest extends AbstractMatcherTest {
 
     @Override
     protected Matcher<?> createMatcher() {
-        return MatchObjects.typeCompatibleWith(BaseClass.class);
+        return MatchingObjects.typeCompatibleWith(BaseClass.class);
     }
 
     public void testMatchesSameClass() {

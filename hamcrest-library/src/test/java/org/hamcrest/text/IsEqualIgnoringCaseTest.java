@@ -6,7 +6,7 @@ import org.hamcrest.Matcher;
 import org.junit.Test;
 
 import static org.hamcrest.AbstractMatcherTest.*;
-import static org.hamcrest.text.MatchStrings.equalToIgnoringCase;
+import static org.hamcrest.text.MatchingStrings.equalToIgnoringCase;
 
 public final class IsEqualIgnoringCaseTest {
 

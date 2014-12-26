@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 import static org.hamcrest.core.AnyOf.anyOf;
 import static org.hamcrest.core.IsNull.nullValue;
 
-public class MatchStrings {
+public class MatchingStrings {
     public static final Matcher<String> IS_EMPTY_STRING = new TypeSafeMatcher<String>() {
         @Override public void describeTo(Description description) { description.appendText("an empty string"); }
         @Override protected boolean matchesSafely(String item) { return item.isEmpty(); }

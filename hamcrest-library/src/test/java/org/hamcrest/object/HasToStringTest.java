@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import static org.hamcrest.AbstractMatcherTest.*;
 import static org.hamcrest.core.IsEqual.equalTo;
-import static org.hamcrest.object.MatchObjects.hasToString;
+import static org.hamcrest.object.MatchingObjects.hasToString;
 
 public final class HasToStringTest {
     private static final String TO_STRING_RESULT = "toString result";

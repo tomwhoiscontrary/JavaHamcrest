@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import static java.util.Arrays.asList;
-import static org.hamcrest.collection.MatchCollections.empty;
+import static org.hamcrest.collection.MatchingCollections.empty;
 import static org.hamcrest.core.Is.is;
 
 public class IsEmptyCollectionTest extends AbstractMatcherTest {
@@ -30,7 +30,7 @@ public class IsEmptyCollectionTest extends AbstractMatcherTest {
     }
 
     public void testCompiles() {
-        needs(MatchCollections.emptyCollectionOf(String.class));
+        needs(MatchingCollections.emptyCollectionOf(String.class));
     }
 
     private void needs(@SuppressWarnings("unused") Matcher<Collection<String>> bar) { }

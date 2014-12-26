@@ -4,12 +4,12 @@ import org.hamcrest.Matcher;
 
 import java.util.Collection;
 
-import static org.hamcrest.object.MatchObjects.equalTo;
+import static org.hamcrest.object.MatchingObjects.equalTo;
 
 /**
  * @since 2.0
  */
-public class MatchCollections {
+public class MatchingCollections {
   /**
    * Creates a matcher for {@link java.util.Collection}s that matches when the <code>size()</code> method returns
    * a value that satisfies the specified matcher.

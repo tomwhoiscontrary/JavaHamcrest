@@ -5,7 +5,7 @@ import javax.xml.xpath.XPathConstants;
 import static javax.xml.xpath.XPathConstants.STRING;
 import static org.hamcrest.xml.HasXPath.NO_NAMESPACE_CONTEXT;
 
-public class MatchXml {
+public class MatchingXml {
     /**
      * Creates a matcher of {@link org.w3c.dom.Node}s that matches when the examined node has a value at the
      * specified <code>xPath</code> that satisfies the specified <code>valueMatcher</code>.

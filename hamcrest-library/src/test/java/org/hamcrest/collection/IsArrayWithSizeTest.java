@@ -3,8 +3,8 @@ package org.hamcrest.collection;
 import org.hamcrest.AbstractMatcherTest;
 import org.hamcrest.Matcher;
 
-import static org.hamcrest.collection.MatchArrays.arrayWithSize;
-import static org.hamcrest.collection.MatchArrays.emptyArray;
+import static org.hamcrest.collection.MatchingArrays.arrayWithSize;
+import static org.hamcrest.collection.MatchingArrays.emptyArray;
 import static org.hamcrest.core.IsEqual.equalTo;
 
 public class IsArrayWithSizeTest extends AbstractMatcherTest {

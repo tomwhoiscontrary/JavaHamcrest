@@ -3,7 +3,7 @@ package org.junit.matchers;
 import org.junit.Test;
 
 import static org.hamcrest.core.StringContains.containsString;
-import static org.hamcrest.object.MatchObjects.*;
+import static org.hamcrest.object.MatchingObjects.*;
 import static org.junit.Assert.*;
 import static org.junit.matchers.MatchThrowables.isException;
 import static org.junit.matchers.MatchThrowables.isThrowable;

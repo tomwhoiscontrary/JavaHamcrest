@@ -1,6 +1,6 @@
 package org.hamcrest.collection;
 
-public class MatchMaps {
+public class MatchingMaps {
     /**
      * Creates a matcher for {@link java.util.Map}s that matches when the <code>size()</code> method returns
      * a value that satisfies the specified matcher.

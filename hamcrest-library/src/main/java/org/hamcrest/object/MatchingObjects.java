@@ -11,7 +11,7 @@ import java.util.EventObject;
 
 import static org.hamcrest.core.IsNot.not;
 
-public class MatchObjects {
+public class MatchingObjects {
     /**
      * Creates a matcher that always matches, regardless of the examined object.
      */

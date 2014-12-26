@@ -5,8 +5,8 @@ import org.hamcrest.BaseMatcher;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 
-import static org.hamcrest.collection.MatchArrays.array;
-import static org.hamcrest.object.MatchObjects.equalTo;
+import static org.hamcrest.collection.MatchingArrays.array;
+import static org.hamcrest.object.MatchingObjects.equalTo;
 
 @SuppressWarnings("unchecked")
 public class IsArrayTest extends AbstractMatcherTest {

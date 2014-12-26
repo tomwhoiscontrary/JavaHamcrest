@@ -7,7 +7,7 @@ import org.hamcrest.Matcher;
 import java.util.ArrayList;
 
 import static java.util.Arrays.asList;
-import static org.hamcrest.collection.MatchIterables.hasSubsequence;
+import static org.hamcrest.collection.MatchingIterables.hasSubsequence;
 import static org.hamcrest.core.IsEqual.equalTo;
 
 public class HasSubsequenceTest extends AbstractMatcherTest {

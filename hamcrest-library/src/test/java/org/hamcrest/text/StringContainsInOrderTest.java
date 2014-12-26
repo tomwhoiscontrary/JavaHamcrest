@@ -3,7 +3,7 @@ package org.hamcrest.text;
 import org.hamcrest.AbstractMatcherTest;
 import org.hamcrest.Matcher;
 
-import static org.hamcrest.text.MatchStrings.stringContainsInOrder;
+import static org.hamcrest.text.MatchingStrings.stringContainsInOrder;
 
 
 public class StringContainsInOrderTest extends AbstractMatcherTest {

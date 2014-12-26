@@ -5,7 +5,7 @@ package org.hamcrest.number;
 import org.hamcrest.AbstractMatcherTest;
 import org.hamcrest.Matcher;
 
-import static org.hamcrest.number.MatchNumbers.closeTo;
+import static org.hamcrest.number.MatchingNumbers.closeTo;
 
 public class IsCloseToTest extends AbstractMatcherTest {
   private final Matcher<Double> matcher = closeTo(1.0d, 0.5d);

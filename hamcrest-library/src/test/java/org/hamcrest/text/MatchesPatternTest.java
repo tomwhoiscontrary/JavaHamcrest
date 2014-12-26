@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.util.regex.Pattern;
 
 import static org.hamcrest.AbstractMatcherTest.*;
-import static org.hamcrest.text.MatchStrings.matchesPattern;
+import static org.hamcrest.text.MatchingStrings.matchesPattern;
 import static org.junit.Assert.assertThat;
 
 public class MatchesPatternTest {

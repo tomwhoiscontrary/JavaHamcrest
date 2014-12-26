@@ -2,7 +2,7 @@ package org.junit.matchers;
 
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.Matcher;
-import org.hamcrest.collection.MatchIterables;
+import org.hamcrest.collection.MatchingIterables;
 import org.hamcrest.core.CombinableMatcher.CombinableBothMatcher;
 import org.hamcrest.core.CombinableMatcher.CombinableEitherMatcher;
 
@@ -16,49 +16,49 @@ import org.hamcrest.core.CombinableMatcher.CombinableEitherMatcher;
 public class JUnitMatchers {
   /**
    * @return A matcher matching any collection containing element
-   * @deprecated Please use {@link MatchIterables#hasItem(Object)} instead.
+   * @deprecated Please use {@link org.hamcrest.collection.MatchingIterables#hasItem(Object)} instead.
    */
   @Deprecated
   public static <T> Matcher<Iterable<? super T>> hasItem(T element) {
-    return MatchIterables.hasItem(element);
+    return MatchingIterables.hasItem(element);
   }
 
   /**
    * @return A matcher matching any collection containing an element matching elementMatcher
-   * @deprecated Please use {@link MatchIterables#hasItem(Matcher)} instead.
+   * @deprecated Please use {@link org.hamcrest.collection.MatchingIterables#hasItem(Matcher)} instead.
    */
   @Deprecated
   public static <T> Matcher<Iterable<? super T>> hasItem(Matcher<? super T> elementMatcher) {
-    return MatchIterables.hasItem(elementMatcher);
+    return MatchingIterables.hasItem(elementMatcher);
   }
 
   /**
    * @return A matcher matching any collection containing every element in elements
-   * @deprecated Please use {@link MatchIterables#hasItems(Object...)} instead.
+   * @deprecated Please use {@link org.hamcrest.collection.MatchingIterables#hasItems(Object...)} instead.
    */
   @Deprecated
   public static <T> Matcher<Iterable<T>> hasItems(T... elements) {
-    return MatchIterables.hasItems(elements);
+    return MatchingIterables.hasItems(elements);
   }
 
   /**
    * @return A matcher matching any collection containing at least one element that matches
    *         each matcher in elementMatcher (this may be one element matching all matchers,
    *         or different elements matching each matcher)
-   * @deprecated Please use {@link MatchIterables#hasItems(Matcher...)} instead.
+   * @deprecated Please use {@link org.hamcrest.collection.MatchingIterables#hasItems(Matcher...)} instead.
    */
   @Deprecated
   public static <T> Matcher<Iterable<T>> hasItems(Matcher<? super T>... elementMatchers) {
-    return MatchIterables.hasItems(elementMatchers);
+    return MatchingIterables.hasItems(elementMatchers);
   }
 
   /**
    * @return A matcher matching any collection in which every element matches elementMatcher
-   * @deprecated Please use {@link MatchIterables#everyItem(Matcher)} instead.
+   * @deprecated Please use {@link org.hamcrest.collection.MatchingIterables#everyItem(Matcher)} instead.
    */
   @Deprecated
   public static <T> Matcher<Iterable<? extends T>> everyItem(final Matcher<T> elementMatcher) {
-    return MatchIterables.everyItem(elementMatcher);
+    return MatchingIterables.everyItem(elementMatcher);
   }
 
   /**

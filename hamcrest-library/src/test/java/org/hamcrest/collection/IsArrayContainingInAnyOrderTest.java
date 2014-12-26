@@ -3,8 +3,8 @@ package org.hamcrest.collection;
 import org.hamcrest.AbstractMatcherTest;
 import org.hamcrest.Matcher;
 
-import static org.hamcrest.collection.MatchArrays.arrayContainingInAnyOrder;
-import static org.hamcrest.object.MatchObjects.equalTo;
+import static org.hamcrest.collection.MatchingArrays.arrayContainingInAnyOrder;
+import static org.hamcrest.object.MatchingObjects.equalTo;
 
 public class IsArrayContainingInAnyOrderTest extends AbstractMatcherTest {
 

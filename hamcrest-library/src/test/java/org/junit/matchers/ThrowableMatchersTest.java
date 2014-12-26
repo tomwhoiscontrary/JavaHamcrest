@@ -3,7 +3,7 @@ package org.junit.matchers;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.sameInstance;
-import static org.hamcrest.object.MatchObjects.equalTo;
+import static org.hamcrest.object.MatchingObjects.equalTo;
 import static org.junit.Assert.assertThat;
 import static org.junit.matchers.MatchThrowables.hasCause;
 import static org.junit.matchers.MatchThrowables.hasMessage;
