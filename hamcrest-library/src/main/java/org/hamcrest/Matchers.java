@@ -900,7 +900,7 @@ public class Matchers {
      */
     @SafeVarargs
     public static <E> org.hamcrest.Matcher<java.lang.Iterable<? extends E>> containsInRelativeOrder(E... items) {
-        return org.hamcrest.collection.IsIterableContainingInRelativeOrder.containsInRelativeOrder(items);
+        return MatchIterables.containsInRelativeOrder(items);
     }
 
     /**
@@ -914,7 +914,7 @@ public class Matchers {
      */
     @SafeVarargs
     public static <E> org.hamcrest.Matcher<java.lang.Iterable<? extends E>> containsInRelativeOrder(Matcher<? super E>... itemMatchers) {
-        return org.hamcrest.collection.IsIterableContainingInRelativeOrder.containsInRelativeOrder(itemMatchers);
+        return MatchIterables.containsInRelativeOrder(itemMatchers);
     }
 
     /**
@@ -928,7 +928,7 @@ public class Matchers {
      *                     an examined {@link Iterable} in the same relative order
      */
     public static <E> org.hamcrest.Matcher<java.lang.Iterable<? extends E>> containsInRelativeOrder(java.util.List<Matcher<? super E>> itemMatchers) {
-        return org.hamcrest.collection.IsIterableContainingInRelativeOrder.containsInRelativeOrder(itemMatchers);
+        return MatchIterables.containsInRelativeOrder(itemMatchers);
     }
 
     /**
