@@ -7,9 +7,9 @@ import org.hamcrest.collection.IsIterableContainingInOrderTest.WithValue;
 import java.util.Collections;
 
 import static java.util.Arrays.asList;
-import static org.hamcrest.collection.IsIterableContainingInAnyOrder.containsInAnyOrder;
 import static org.hamcrest.collection.IsIterableContainingInOrderTest.make;
 import static org.hamcrest.collection.IsIterableContainingInOrderTest.value;
+import static org.hamcrest.collection.MatchIterables.containsInAnyOrder;
 
 public class IsIterableContainingInAnyOrderTest extends AbstractMatcherTest {
 

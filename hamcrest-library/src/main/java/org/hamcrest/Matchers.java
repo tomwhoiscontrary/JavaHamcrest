@@ -841,7 +841,7 @@ public class Matchers {
      */
     @SafeVarargs
     public static <T> org.hamcrest.Matcher<java.lang.Iterable<? extends T>> containsInAnyOrder(org.hamcrest.Matcher<? super T>... itemMatchers) {
-        return org.hamcrest.collection.IsIterableContainingInAnyOrder.containsInAnyOrder(itemMatchers);
+        return MatchIterables.containsInAnyOrder(itemMatchers);
     }
 
     /**
@@ -865,7 +865,7 @@ public class Matchers {
      */
     @SafeVarargs
     public static <T> org.hamcrest.Matcher<java.lang.Iterable<? extends T>> containsInAnyOrder(T... items) {
-        return org.hamcrest.collection.IsIterableContainingInAnyOrder.containsInAnyOrder(items);
+        return MatchIterables.containsInAnyOrder(items);
     }
 
     /**
@@ -886,7 +886,7 @@ public class Matchers {
      * @param itemMatchers a list of matchers, each of which must be satisfied by an item provided by an examined {@link Iterable}
      */
     public static <T> org.hamcrest.Matcher<java.lang.Iterable<? extends T>> containsInAnyOrder(java.util.Collection<org.hamcrest.Matcher<? super T>> itemMatchers) {
-        return org.hamcrest.collection.IsIterableContainingInAnyOrder.containsInAnyOrder(itemMatchers);
+        return MatchIterables.containsInAnyOrder(itemMatchers);
     }
 
     /**
