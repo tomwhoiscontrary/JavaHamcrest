@@ -114,7 +114,7 @@ public class MatchArrays {
      */
     @SafeVarargs
     public static <E> Matcher<E[]> arrayContainingInAnyOrder(Matcher<? super E>... itemMatchers) {
-        return IsArrayContainingInAnyOrder.arrayContainingInAnyOrder(itemMatchers);
+        return arrayContainingInAnyOrder(Wrapping.nullSafe(itemMatchers));
     }
 
     /**
@@ -137,7 +137,7 @@ public class MatchArrays {
      * @param itemMatchers a list of matchers, each of which must be satisfied by an item provided by an examined array
      */
     public static <E> Matcher<E[]> arrayContainingInAnyOrder(Collection<Matcher<? super E>> itemMatchers) {
-        return IsArrayContainingInAnyOrder.arrayContainingInAnyOrder(itemMatchers);
+        return new IsArrayContainingInAnyOrder<>(itemMatchers);
     }
 
     /**
@@ -159,7 +159,7 @@ public class MatchArrays {
      */
     @SafeVarargs
     public static <E> Matcher<E[]> arrayContainingInAnyOrder(E... items) {
-        return IsArrayContainingInAnyOrder.arrayContainingInAnyOrder(items);
+        return arrayContainingInAnyOrder(Wrapping.asEqualToMatchers(items));
     }
 
     /**
