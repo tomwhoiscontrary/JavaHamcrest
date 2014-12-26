@@ -773,7 +773,7 @@ public class Matchers {
      */
     @SafeVarargs
     public static <E> org.hamcrest.Matcher<java.lang.Iterable<? extends E>> contains(E... items) {
-        return org.hamcrest.collection.IsIterableContainingInOrder.contains(items);
+        return MatchCollections.contains(items);
     }
 
     /**
@@ -787,7 +787,7 @@ public class Matchers {
      *                    examined {@link Iterable}
      */
     public static <E> org.hamcrest.Matcher<java.lang.Iterable<? extends E>> contains(org.hamcrest.Matcher<? super E> itemMatcher) {
-        return org.hamcrest.collection.IsIterableContainingInOrder.contains(itemMatcher);
+        return MatchCollections.contains(itemMatcher);
     }
 
     /**
@@ -802,7 +802,7 @@ public class Matchers {
      */
     @SafeVarargs
     public static <E> org.hamcrest.Matcher<java.lang.Iterable<? extends E>> contains(org.hamcrest.Matcher<? super E>... itemMatchers) {
-        return org.hamcrest.collection.IsIterableContainingInOrder.contains(itemMatchers);
+        return MatchCollections.contains(itemMatchers);
     }
 
     /**
@@ -817,7 +817,7 @@ public class Matchers {
      *                     an examined {@link Iterable}
      */
     public static <E> org.hamcrest.Matcher<java.lang.Iterable<? extends E>> contains(java.util.List<org.hamcrest.Matcher<? super E>> itemMatchers) {
-        return org.hamcrest.collection.IsIterableContainingInOrder.contains(itemMatchers);
+        return MatchCollections.contains(itemMatchers);
     }
 
     /**

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.Arrays.asList;
-import static org.hamcrest.collection.IsIterableContainingInOrder.contains;
+import static org.hamcrest.collection.MatchIterables.contains;
 import static org.hamcrest.core.IsEqual.equalTo;
 
 @SuppressWarnings("unchecked")
