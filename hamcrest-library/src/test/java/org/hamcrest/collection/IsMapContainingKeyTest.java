@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.collection.IsMapContaining.hasKey;
+import static org.hamcrest.collection.MatchingMaps.hasKey;
 
 public class IsMapContainingKeyTest extends AbstractMatcherTest {
 

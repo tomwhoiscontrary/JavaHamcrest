@@ -7,9 +7,6 @@ import org.hamcrest.TypeSafeMatcher;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import static org.hamcrest.core.IsAnything.anything;
-import static org.hamcrest.core.IsEqual.equalTo;
-
 public class IsMapContaining<K,V> extends TypeSafeMatcher<Map<? extends K, ? extends V>> {
     private final Matcher<? super K> keyMatcher;
     private final Matcher<? super V> valueMatcher;
@@ -43,55 +40,4 @@ public class IsMapContaining<K,V> extends TypeSafeMatcher<Map<? extends K, ? ext
                    .appendText("]");
     }
 
-    /**
-     * Creates a matcher for {@link java.util.Map}s matching when the examined {@link java.util.Map} contains
-     * at least one key that satisfies the specified matcher.
-     * For example:
-     * <pre>assertThat(myMap, hasKey(equalTo("bar")))</pre>
-     * 
-     * @param keyMatcher
-     *     the matcher that must be satisfied by at least one key
-     */
-    public static <K> Matcher<Map<? extends K, ?>> hasKey(Matcher<? super K> keyMatcher) {
-        return new IsMapContaining<>(keyMatcher, anything());
-    }
-
-    /**
-     * Creates a matcher for {@link java.util.Map}s matching when the examined {@link java.util.Map} contains
-     * at least one key that is equal to the specified key.
-     * For example:
-     * <pre>assertThat(myMap, hasKey("bar"))</pre>
-     * 
-     * @param key
-     *     the key that satisfying maps must contain
-     */
-    public static <K> Matcher<Map<? extends K, ?>> hasKey(K key) {
-        return new IsMapContaining<>(equalTo(key), anything());
-    }
-
-    /**
-     * Creates a matcher for {@link java.util.Map}s matching when the examined {@link java.util.Map} contains
-     * at least one value that satisfies the specified valueMatcher.
-     * For example:
-     * <pre>assertThat(myMap, hasValue(equalTo("foo")))</pre>
-     * 
-     * @param valueMatcher
-     *     the matcher that must be satisfied by at least one value
-     */
-    public static <V> Matcher<Map<?, ? extends V>> hasValue(Matcher<? super V> valueMatcher) {
-        return new IsMapContaining<>(anything(), valueMatcher);
-    }
-
-    /**
-     * Creates a matcher for {@link java.util.Map}s matching when the examined {@link java.util.Map} contains
-     * at least one value that is equal to the specified value.
-     * For example:
-     * <pre>assertThat(myMap, hasValue("foo"))</pre>
-     * 
-     * @param value
-     *     the value that satisfying maps must contain
-     */
-    public static <V> Matcher<Map<?, ? extends V>> hasValue(V value) {
-        return new IsMapContaining<>(anything(), equalTo(value));
-    }
 }

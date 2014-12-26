@@ -4,6 +4,7 @@ import org.hamcrest.Matcher;
 
 import java.util.Map;
 
+import static org.hamcrest.core.IsAnything.anything;
 import static org.hamcrest.core.IsEqual.equalTo;
 
 public class MatchingMaps {
@@ -78,7 +79,7 @@ public class MatchingMaps {
      * @param keyMatcher the matcher that must be satisfied by at least one key
      */
     public static <K> org.hamcrest.Matcher<Map<? extends K, ?>> hasKey(Matcher<? super K> keyMatcher) {
-        return IsMapContaining.hasKey(keyMatcher);
+        return new IsMapContaining<>(keyMatcher, anything());
     }
 
     /**
@@ -89,9 +90,7 @@ public class MatchingMaps {
      *
      * @param key the key that satisfying maps must contain
      */
-    public static <K> org.hamcrest.Matcher<Map<? extends K, ?>> hasKey(K key) {
-        return IsMapContaining.hasKey(key);
-    }
+    public static <K> org.hamcrest.Matcher<Map<? extends K, ?>> hasKey(K key) { return hasKey(equalTo(key)); }
 
     /**
      * Creates a matcher for {@link java.util.Map}s matching when the examined {@link java.util.Map} contains
@@ -102,7 +101,7 @@ public class MatchingMaps {
      * @param valueMatcher the matcher that must be satisfied by at least one value
      */
     public static <V> org.hamcrest.Matcher<Map<?, ? extends V>> hasValue(Matcher<? super V> valueMatcher) {
-        return IsMapContaining.hasValue(valueMatcher);
+        return new IsMapContaining<>(anything(), valueMatcher);
     }
 
     /**
@@ -114,7 +113,7 @@ public class MatchingMaps {
      * @param value the value that satisfying maps must contain
      */
     public static <V> org.hamcrest.Matcher<Map<?, ? extends V>> hasValue(V value) {
-        return IsMapContaining.hasValue(value);
+        return hasValue(equalTo(value));
     }
 
 }

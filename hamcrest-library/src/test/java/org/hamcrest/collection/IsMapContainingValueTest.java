@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
-import static org.hamcrest.collection.IsMapContaining.hasValue;
+import static org.hamcrest.collection.MatchingMaps.hasValue;
 
 public class IsMapContainingValueTest extends AbstractMatcherTest {
 
