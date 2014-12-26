@@ -3,8 +3,10 @@ package org.hamcrest.collection;
 import org.hamcrest.FunctionMatcher;
 import org.hamcrest.FunctionMatcher.Feature;
 import org.hamcrest.Matcher;
+import org.hamcrest.internal.Wrapping;
 
 import java.util.Collection;
+import java.util.List;
 
 import static org.hamcrest.core.DescribedAs.describedAs;
 import static org.hamcrest.core.IsEqual.equalTo;
@@ -61,7 +63,7 @@ public class MatchArrays {
      */
     @SafeVarargs
     public static <E> Matcher<E[]> arrayContaining(E... items) {
-        return IsArrayContainingInOrder.arrayContaining(items);
+        return arrayContaining(Wrapping.asEqualToMatchers(items));
     }
 
     /**
@@ -75,7 +77,7 @@ public class MatchArrays {
      */
     @SafeVarargs
     public static <E> Matcher<E[]> arrayContaining(Matcher<? super E>... itemMatchers) {
-        return IsArrayContainingInOrder.arrayContaining(itemMatchers);
+        return arrayContaining(Wrapping.nullSafe(itemMatchers));
     }
 
     /**
@@ -87,8 +89,8 @@ public class MatchArrays {
      *
      * @param itemMatchers a list of matchers, each of which must be satisfied by the corresponding item in an examined array
      */
-    public static <E> Matcher<E[]> arrayContaining(java.util.List<Matcher<? super E>> itemMatchers) {
-        return IsArrayContainingInOrder.arrayContaining(itemMatchers);
+    public static <E> Matcher<E[]> arrayContaining(List<Matcher<? super E>> itemMatchers) {
+        return new IsArrayContainingInOrder<>(itemMatchers);
     }
 
     /**
@@ -172,9 +174,7 @@ public class MatchArrays {
         return new FunctionMatcher<>(
             "an array with size", "array size",
             sizeMatcher,
-            new Feature<E[], Integer>() {
-                @Override public Integer from(E[] actual) { return actual.length; }
-            });
+            new Feature<E[], Integer>() { @Override public Integer from(E[] actual) { return actual.length; } });
     }
 
     /**
