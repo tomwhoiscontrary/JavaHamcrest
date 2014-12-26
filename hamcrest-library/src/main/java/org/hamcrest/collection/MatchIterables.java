@@ -115,7 +115,7 @@ public class MatchIterables {
      *
      * @param unusedToForceReturnType the type of the iterable's content
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({"unchecked", "UnusedParameters"})
     public static <E> Matcher<Iterable<E>> emptyIterableOf(Class<E> unusedToForceReturnType) {
         return (Matcher)new IsEmptyIterable<>();
     }
