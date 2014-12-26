@@ -969,7 +969,7 @@ public class Matchers {
      * @param valueMatcher the value matcher that, in combination with the keyMatcher, must be satisfied by at least one entry
      */
     public static <K, V> Matcher<java.util.Map<? extends K, ? extends V>> hasEntry(org.hamcrest.Matcher<? super K> keyMatcher, org.hamcrest.Matcher<? super V> valueMatcher) {
-        return org.hamcrest.collection.IsMapContaining.hasEntry(keyMatcher, valueMatcher);
+        return MatchingMaps.hasEntry(keyMatcher, valueMatcher);
     }
 
     /**
@@ -983,7 +983,7 @@ public class Matchers {
      * @param value the value that, in combination with the key, must be describe at least one entry
      */
     public static <K, V> Matcher<java.util.Map<? extends K, ? extends V>> hasEntry(K key, V value) {
-        return org.hamcrest.collection.IsMapContaining.hasEntry(key, value);
+        return MatchingMaps.hasEntry(key, value);
     }
 
     /**
@@ -995,7 +995,7 @@ public class Matchers {
      * @param keyMatcher the matcher that must be satisfied by at least one key
      */
     public static <K> org.hamcrest.Matcher<java.util.Map<? extends K, ?>> hasKey(org.hamcrest.Matcher<? super K> keyMatcher) {
-        return org.hamcrest.collection.IsMapContaining.hasKey(keyMatcher);
+        return MatchingMaps.hasKey(keyMatcher);
     }
 
     /**
@@ -1007,7 +1007,7 @@ public class Matchers {
      * @param key the key that satisfying maps must contain
      */
     public static <K> org.hamcrest.Matcher<java.util.Map<? extends K, ?>> hasKey(K key) {
-        return org.hamcrest.collection.IsMapContaining.hasKey(key);
+        return MatchingMaps.hasKey(key);
     }
 
     /**
@@ -1019,7 +1019,7 @@ public class Matchers {
      * @param valueMatcher the matcher that must be satisfied by at least one value
      */
     public static <V> org.hamcrest.Matcher<java.util.Map<?, ? extends V>> hasValue(org.hamcrest.Matcher<? super V> valueMatcher) {
-        return org.hamcrest.collection.IsMapContaining.hasValue(valueMatcher);
+        return MatchingMaps.hasValue(valueMatcher);
     }
 
     /**
@@ -1031,7 +1031,7 @@ public class Matchers {
      * @param value the value that satisfying maps must contain
      */
     public static <V> org.hamcrest.Matcher<java.util.Map<?, ? extends V>> hasValue(V value) {
-        return org.hamcrest.collection.IsMapContaining.hasValue(value);
+        return MatchingMaps.hasValue(value);
     }
 
     /**

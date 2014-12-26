@@ -52,7 +52,7 @@ public class MatchingMaps {
      * @param valueMatcher the value matcher that, in combination with the keyMatcher, must be satisfied by at least one entry
      */
     public static <K, V> Matcher<Map<? extends K, ? extends V>> hasEntry(Matcher<? super K> keyMatcher, Matcher<? super V> valueMatcher) {
-        return IsMapContaining.hasEntry(keyMatcher, valueMatcher);
+        return new IsMapContaining<>(keyMatcher, valueMatcher);
     }
 
     /**
@@ -66,7 +66,7 @@ public class MatchingMaps {
      * @param value the value that, in combination with the key, must be describe at least one entry
      */
     public static <K, V> Matcher<Map<? extends K, ? extends V>> hasEntry(K key, V value) {
-        return IsMapContaining.hasEntry(key, value);
+        return hasEntry(equalTo(key), equalTo(value));
     }
 
     /**

@@ -6,15 +6,15 @@ import org.hamcrest.Matcher;
 import java.util.Map;
 import java.util.TreeMap;
 
-import static org.hamcrest.collection.IsMapContaining.hasEntry;
-import static org.hamcrest.core.IsAnything.anything;
-import static org.hamcrest.core.IsEqual.equalTo;
+import static org.hamcrest.collection.MatchingMaps.hasEntry;
+import static org.hamcrest.object.MatchingObjects.anything;
+import static org.hamcrest.object.MatchingObjects.equalTo;
 
 public class IsMapContainingTest extends AbstractMatcherTest {
 
     @Override
     protected Matcher<?> createMatcher() {
-        return IsMapContaining.hasEntry("irrelevant", "irrelevant");
+        return hasEntry("irrelevant", "irrelevant");
     }
 
     public void testMatchesMapContainingMatchingKeyAndValue() {
