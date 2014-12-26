@@ -52,7 +52,8 @@ public class MatchCollections {
    *
    * @param unusedToForceReturnType the type of the collection's content
    */
-  public static <E> Matcher<Collection<? extends E>> emptyCollectionOf(Class<E> unusedToForceReturnType) {
-      return new IsEmptyCollection<>();
+  @SuppressWarnings("unchecked")
+  public static <E> Matcher<Collection<E>> emptyCollectionOf(Class<E> unusedToForceReturnType) {
+      return (Matcher)empty();
   }
 }

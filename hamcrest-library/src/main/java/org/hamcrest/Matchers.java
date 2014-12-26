@@ -1,6 +1,7 @@
 package org.hamcrest;
 
 import org.hamcrest.collection.MatchArrays;
+import org.hamcrest.collection.MatchCollections;
 import org.hamcrest.collection.MatchIterables;
 import org.hamcrest.number.MatchNumbers;
 import org.hamcrest.object.MatchObjects;
@@ -725,7 +726,7 @@ public class Matchers {
      * <pre>assertThat(new ArrayList&lt;String&gt;(), is(empty()))</pre>
      */
     public static <E> org.hamcrest.Matcher<java.util.Collection<? extends E>> empty() {
-        return org.hamcrest.collection.IsEmptyCollection.empty();
+        return MatchCollections.empty();
     }
 
     /**
@@ -737,7 +738,7 @@ public class Matchers {
      * @param unusedToForceReturnType the type of the collection's content
      */
     public static <E> org.hamcrest.Matcher<java.util.Collection<E>> emptyCollectionOf(java.lang.Class<E> unusedToForceReturnType) {
-        return org.hamcrest.collection.IsEmptyCollection.emptyCollectionOf(unusedToForceReturnType);
+        return MatchCollections.emptyCollectionOf(unusedToForceReturnType);
     }
 
     /**
