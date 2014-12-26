@@ -4,8 +4,9 @@ import org.hamcrest.Matcher;
 
 import java.util.Map;
 
-import static org.hamcrest.core.IsAnything.anything;
-import static org.hamcrest.core.IsEqual.equalTo;
+import static org.hamcrest.object.MatchingObjects.anything;
+import static org.hamcrest.object.MatchingObjects.equalTo;
+
 
 public class MatchingMaps {
     /**

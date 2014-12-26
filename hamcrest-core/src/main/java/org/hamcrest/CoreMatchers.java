@@ -1,5 +1,8 @@
 package org.hamcrest;
 
+import org.hamcrest.collection.MatchingIterables;
+import org.hamcrest.object.MatchingObjects;
+
 @SuppressWarnings("UnusedDeclaration")
 public class CoreMatchers {
 
@@ -88,7 +91,7 @@ public class CoreMatchers {
    *     the matcher to apply to every item provided by the examined {@link Iterable}
    */
   public static <U> org.hamcrest.Matcher<java.lang.Iterable<? extends U>> everyItem(org.hamcrest.Matcher<U> itemMatcher) {
-    return org.hamcrest.core.Every.everyItem(itemMatcher);
+    return MatchingIterables.everyItem(itemMatcher);
   }
 
   /**
@@ -129,7 +132,7 @@ public class CoreMatchers {
    * Creates a matcher that always matches, regardless of the examined object.
    */
   public static org.hamcrest.Matcher<java.lang.Object> anything() {
-    return org.hamcrest.core.IsAnything.anything();
+    return MatchingObjects.anything();
   }
 
   /**
@@ -140,7 +143,7 @@ public class CoreMatchers {
    *     a meaningful {@link String} used when describing itself
    */
   public static org.hamcrest.Matcher<java.lang.Object> anything(java.lang.String description) {
-    return org.hamcrest.core.IsAnything.anything(description);
+    return MatchingObjects.anything(description);
   }
 
   /**

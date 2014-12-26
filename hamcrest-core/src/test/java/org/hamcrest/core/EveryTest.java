@@ -1,6 +1,7 @@
 package org.hamcrest.core;
 
 import org.hamcrest.Matcher;
+import org.hamcrest.collection.MatchingIterables;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ import static org.hamcrest.core.StringContains.containsString;
 
 public final class EveryTest {
 
-    private final Matcher<Iterable<? extends String>> matcher = Every.everyItem(containsString("a"));
+    private final Matcher<Iterable<? extends String>> matcher = MatchingIterables.everyItem(containsString("a"));
 
     @Test public void
     copesWithNullsAndUnknownTypes() {

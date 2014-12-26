@@ -139,7 +139,7 @@ public class Matchers {
      * @param itemMatcher the matcher to apply to every item provided by the examined {@link Iterable}
      */
     public static <U> org.hamcrest.Matcher<java.lang.Iterable<? extends U>> everyItem(org.hamcrest.Matcher<U> itemMatcher) {
-        return org.hamcrest.core.Every.everyItem(itemMatcher);
+        return MatchingIterables.everyItem(itemMatcher);
     }
 
     /**
@@ -180,7 +180,7 @@ public class Matchers {
      * Creates a matcher that always matches, regardless of the examined object.
      */
     public static org.hamcrest.Matcher<Object> anything() {
-        return org.hamcrest.core.IsAnything.anything();
+        return MatchingObjects.anything();
     }
 
     /**
@@ -190,7 +190,7 @@ public class Matchers {
      * @param description a meaningful {@link String} used when describing itself
      */
     public static org.hamcrest.Matcher<Object> anything(java.lang.String description) {
-        return org.hamcrest.core.IsAnything.anything(description);
+        return MatchingObjects.anything(description);
     }
 
     /**

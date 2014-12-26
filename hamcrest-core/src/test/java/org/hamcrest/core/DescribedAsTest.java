@@ -7,8 +7,8 @@ import org.junit.Test;
 
 import static org.hamcrest.AbstractMatcherTest.*;
 import static org.hamcrest.core.DescribedAs.describedAs;
-import static org.hamcrest.core.IsAnything.anything;
-import static org.hamcrest.core.IsEqual.equalTo;
+import static org.hamcrest.object.MatchingObjects.anything;
+import static org.hamcrest.object.MatchingObjects.equalTo;
 
 public final class DescribedAsTest {
 
