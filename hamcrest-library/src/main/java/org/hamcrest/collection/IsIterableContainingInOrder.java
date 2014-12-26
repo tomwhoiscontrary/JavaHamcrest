@@ -20,14 +20,14 @@ public class IsIterableContainingInOrder<E> extends TypeSafeDiagnosingMatcher<It
 
     @Override
     protected boolean matchesSafely(Iterable<? extends E> iterable, Description mismatchDescription) {
-        final MatchSeries<E> matchSeries = new MatchSeries<>(matchers, mismatchDescription);
+        final MatchInOrder<E> inOrder = new MatchInOrder<>(matchers, mismatchDescription);
         for (E item : iterable) {
-            if (!matchSeries.matches(item)) {
+            if (!inOrder.matches(item)) {
                 return false;
             }
         }
 
-        return matchSeries.isFinished();
+        return inOrder.isFinished();
     }
 
     @Override
@@ -35,12 +35,12 @@ public class IsIterableContainingInOrder<E> extends TypeSafeDiagnosingMatcher<It
         description.appendText("iterable containing ").appendList("[", ", ", "]", matchers);
     }
 
-    private static class MatchSeries<F> {
+    private static class MatchInOrder<F> {
         private final List<Matcher<? super F>> matchers;
         private final Description mismatchDescription;
         private int nextMatchIx = 0;
 
-        public MatchSeries(List<Matcher<? super F>> matchers, Description mismatchDescription) {
+        public MatchInOrder(List<Matcher<? super F>> matchers, Description mismatchDescription) {
             this.mismatchDescription = mismatchDescription;
             if (matchers.isEmpty()) {
                 throw new IllegalArgumentException("Should specify at least one expected element");

@@ -45,8 +45,7 @@ public class IsIterableContainingInRelativeOrder<E> extends TypeSafeDiagnosingMa
         public void processItems(Iterable<? extends F> iterable) {
             for (F item : iterable) {
                 if (nextMatchIx < matchers.size()) {
-                    Matcher<? super F> matcher = matchers.get(nextMatchIx);
-                    if (matcher.matches(item)) {
+                    if (matchers.get(nextMatchIx).matches(item)) {
                         lastMatchedItem = item;
                         nextMatchIx++;
                     }
