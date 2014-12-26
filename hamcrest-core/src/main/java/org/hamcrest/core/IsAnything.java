@@ -4,7 +4,6 @@ package org.hamcrest.core;
 
 import org.hamcrest.BaseMatcher;
 import org.hamcrest.Description;
-import org.hamcrest.Matcher;
 
 
 /**
@@ -30,23 +29,5 @@ public class IsAnything<T> extends BaseMatcher<T> {
     @Override
     public void describeTo(Description description) {
         description.appendText(message);
-    }
-
-    /**
-     * Creates a matcher that always matches, regardless of the examined object.
-     */
-    public static Matcher<Object> anything() {
-        return new IsAnything<>();
-    }
-
-    /**
-     * Creates a matcher that always matches, regardless of the examined object, but describes
-     * itself with the specified {@link String}.
-     *
-     * @param description
-     *     a meaningful {@link String} used when describing itself
-     */
-    public static Matcher<Object> anything(String description) {
-        return new IsAnything<>(description);
     }
 }
