@@ -36,7 +36,7 @@ public class MatchArrays {
      * @param elementMatcher the matcher to apply to elements in examined arrays
      */
     public static <T> Matcher<T[]> hasItemInArray(Matcher<? super T> elementMatcher) {
-        return IsArrayContaining.hasItemInArray(elementMatcher);
+        return new IsArrayContaining<>(elementMatcher);
     }
 
     /**
@@ -49,7 +49,7 @@ public class MatchArrays {
      * @param element the element that should be present in examined arrays
      */
     public static <T> Matcher<T[]> hasItemInArray(T element) {
-        return IsArrayContaining.hasItemInArray(element);
+        return hasItemInArray(equalTo(element));
     }
 
     /**

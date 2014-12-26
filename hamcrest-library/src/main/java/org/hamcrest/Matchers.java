@@ -499,7 +499,7 @@ public class Matchers {
      * @param elementMatcher the matcher to apply to elements in examined arrays
      */
     public static <T> org.hamcrest.Matcher<T[]> hasItemInArray(org.hamcrest.Matcher<? super T> elementMatcher) {
-        return org.hamcrest.collection.IsArrayContaining.hasItemInArray(elementMatcher);
+        return MatchArrays.hasItemInArray(elementMatcher);
     }
 
     /**
@@ -512,7 +512,7 @@ public class Matchers {
      * @param element the element that should be present in examined arrays
      */
     public static <T> org.hamcrest.Matcher<T[]> hasItemInArray(T element) {
-        return org.hamcrest.collection.IsArrayContaining.hasItemInArray(element);
+        return MatchArrays.hasItemInArray(element);
     }
 
     /**

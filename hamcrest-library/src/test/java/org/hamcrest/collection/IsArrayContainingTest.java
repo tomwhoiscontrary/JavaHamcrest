@@ -3,7 +3,8 @@ package org.hamcrest.collection;
 import org.hamcrest.AbstractMatcherTest;
 import org.hamcrest.Matcher;
 
-import static org.hamcrest.collection.IsArrayContaining.hasItemInArray;
+import static org.hamcrest.collection.MatchArrays.hasItemInArray;
+
 
 public class IsArrayContainingTest extends AbstractMatcherTest {
 
