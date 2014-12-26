@@ -5,7 +5,7 @@ package org.hamcrest.beans;
 import org.hamcrest.AbstractMatcherTest;
 import org.hamcrest.Matcher;
 
-import static org.hamcrest.beans.SamePropertyValuesAs.samePropertyValuesAs;
+import static org.hamcrest.beans.MatchingBeans.samePropertyValuesAs;
 
 @SuppressWarnings("UnusedDeclaration")
 public class SamePropertyValuesAsTest extends AbstractMatcherTest {

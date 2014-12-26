@@ -36,7 +36,7 @@ public class MatchingBeans {
      * @param expectedBean the bean against which examined beans are compared
      */
     public static <T> org.hamcrest.Matcher<T> samePropertyValuesAs(T expectedBean) {
-        return org.hamcrest.beans.SamePropertyValuesAs.samePropertyValuesAs(expectedBean);
+        return new SamePropertyValuesAs<>(expectedBean);
     }
 
 }
