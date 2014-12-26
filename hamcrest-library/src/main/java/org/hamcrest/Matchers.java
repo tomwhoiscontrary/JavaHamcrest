@@ -486,7 +486,7 @@ public class Matchers {
      */
     @SafeVarargs
     public static <T> org.hamcrest.collection.IsArray<T> array(org.hamcrest.Matcher<? super T>... elementMatchers) {
-        return org.hamcrest.collection.IsArray.array(elementMatchers);
+        return MatchArrays.array(elementMatchers);
     }
 
     /**

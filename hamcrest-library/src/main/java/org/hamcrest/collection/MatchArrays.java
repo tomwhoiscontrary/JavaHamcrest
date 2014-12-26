@@ -23,7 +23,7 @@ public class MatchArrays {
      */
     @SafeVarargs
     public static <T> IsArray<T> array(Matcher<? super T>... elementMatchers) {
-        return IsArray.array(elementMatchers);
+        return new IsArray<>(elementMatchers);
     }
 
     /**
