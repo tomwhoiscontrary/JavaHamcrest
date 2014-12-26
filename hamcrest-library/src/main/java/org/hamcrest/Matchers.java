@@ -1,6 +1,7 @@
 package org.hamcrest;
 
 import org.hamcrest.collection.MatchArrays;
+import org.hamcrest.collection.MatchIterables;
 import org.hamcrest.number.MatchNumbers;
 import org.hamcrest.object.MatchObjects;
 import org.hamcrest.text.MatchStrings;
@@ -939,7 +940,7 @@ public class Matchers {
      * @param sizeMatcher a matcher for the number of items that should be yielded by an examined {@link Iterable}
      */
     public static <E> org.hamcrest.Matcher<java.lang.Iterable<E>> iterableWithSize(org.hamcrest.Matcher<? super java.lang.Integer> sizeMatcher) {
-        return org.hamcrest.collection.IsIterableWithSize.iterableWithSize(sizeMatcher);
+        return MatchIterables.iterableWithSize(sizeMatcher);
     }
 
     /**
@@ -952,7 +953,7 @@ public class Matchers {
      * @param size the number of items that should be yielded by an examined {@link Iterable}
      */
     public static <E> org.hamcrest.Matcher<java.lang.Iterable<E>> iterableWithSize(int size) {
-        return org.hamcrest.collection.IsIterableWithSize.iterableWithSize(size);
+        return MatchIterables.iterableWithSize(size);
     }
 
     /**

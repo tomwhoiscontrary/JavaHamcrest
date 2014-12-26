@@ -6,7 +6,8 @@ import org.hamcrest.Matcher;
 import java.util.Arrays;
 import java.util.Collections;
 
-import static org.hamcrest.collection.IsIterableWithSize.iterableWithSize;
+import static org.hamcrest.collection.MatchIterables.iterableWithSize;
+
 
 public class IsIterableWithSizeTest extends AbstractMatcherTest {
 

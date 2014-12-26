@@ -358,7 +358,7 @@ public class MatchIterables {
      * @param size the number of items that should be yielded by an examined {@link Iterable}
      */
     public static <E> Matcher<Iterable<E>> iterableWithSize(int size) {
-        return IsIterableWithSize.iterableWithSize(equalTo(size));
+        return iterableWithSize(equalTo(size));
     }
 
     public static <T> Matcher<Iterable<? extends T>> hasSubsequence(List<Matcher<? super T>> matchers) {
