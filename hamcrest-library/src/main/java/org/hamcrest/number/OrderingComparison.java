@@ -5,6 +5,9 @@ package org.hamcrest.number;
 import org.hamcrest.Matcher;
 import org.hamcrest.comparator.ComparatorMatcherBuilder;
 
+/**
+ * @deprecated use {@link org.hamcrest.object.MatchingObjects}
+ */
 public class OrderingComparison {
 
     private OrderingComparison() {

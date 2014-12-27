@@ -133,4 +133,11 @@ public class HasPropertyWithValue<T> extends TypeSafeDiagnosingMatcher<T> {
         };
     }
 
+    /**
+     * @deprecated use {@link org.hamcrest.beans.MatchingBeans#hasProperty(String, org.hamcrest.Matcher)}
+     */
+    @Deprecated
+    public static <T> Matcher<T> hasProperty(String propertyName, Matcher<?> valueMatcher) {
+        return new HasPropertyWithValue<>(propertyName, valueMatcher);
+    }
 }

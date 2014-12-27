@@ -3,6 +3,7 @@
 package org.hamcrest.beans;
 
 import org.hamcrest.Description;
+import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
 /**
@@ -39,6 +40,14 @@ public class HasProperty<T> extends TypeSafeMatcher<T> {
     @Override
     public void describeTo(Description description) {
         description.appendText("hasProperty(").appendValue(propertyName).appendText(")");
+    }
+
+    /**
+     * @deprecated use {@link org.hamcrest.beans.MatchingBeans#hasProperty(String)}
+     */
+    @Deprecated
+    public static <T> Matcher<T> hasProperty(String propertyName) {
+        return new HasProperty<>(propertyName);
     }
 
 }

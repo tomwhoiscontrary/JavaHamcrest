@@ -3,6 +3,7 @@
 package org.hamcrest.number;
 
 import org.hamcrest.Description;
+import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
 import static java.lang.Math.abs;
@@ -45,5 +46,13 @@ public class IsCloseTo extends TypeSafeMatcher<Double> {
 
     private double actualDelta(Double item) {
       return abs(item - value) - delta;
+    }
+
+    /**
+     * @deprecated use {@link org.hamcrest.number.MatchingNumbers#closeTo(double, double)}
+     */
+    @Deprecated
+    public static Matcher<Double> closeTo(double operand, double error) {
+        return new IsCloseTo(operand, error);
     }
 }

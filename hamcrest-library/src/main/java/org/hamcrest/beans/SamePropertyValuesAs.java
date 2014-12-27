@@ -123,4 +123,12 @@ public class SamePropertyValuesAs<T> extends TypeSafeDiagnosingMatcher<T> {
         }
     }
 
+    /**
+     * @deprecated use {@link org.hamcrest.beans.MatchingBeans#samePropertyValuesAs(Object)}
+     */
+    @Deprecated
+    public static <T> Matcher<T> samePropertyValuesAs(T expectedBean) {
+        return new SamePropertyValuesAs<>(expectedBean);
+    }
+
 }

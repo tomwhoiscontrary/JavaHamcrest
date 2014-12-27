@@ -5,7 +5,6 @@ import org.hamcrest.Matcher;
 import org.hamcrest.collection.IsIn;
 import org.hamcrest.comparator.ComparatorMatcherBuilder;
 import org.hamcrest.core.*;
-import org.hamcrest.number.OrderingComparison;
 
 import java.util.EventObject;
 
@@ -198,7 +197,7 @@ public class MatchingObjects {
      * @param value the value which, when passed to the compareTo method of the examined object, should return zero
      */
     public static <T extends Comparable<? super T>> Matcher<T> comparesEqualTo(T value) {
-        return OrderingComparison.comparesEqualTo(value);
+        return ComparatorMatcherBuilder.<T>usingNaturalOrdering().comparesEqualTo(value);
     }
 
     /**
@@ -212,7 +211,7 @@ public class MatchingObjects {
      *              than zero
      */
     public static <T extends Comparable<? super T>> Matcher<T> greaterThan(T value) {
-        return OrderingComparison.greaterThan(value);
+        return ComparatorMatcherBuilder.<T>usingNaturalOrdering().greaterThan(value);
     }
 
     /**
@@ -240,7 +239,7 @@ public class MatchingObjects {
      *              than zero
      */
     public static <T extends Comparable<? super T>> Matcher<T> lessThan(T value) {
-        return OrderingComparison.lessThan(value);
+        return ComparatorMatcherBuilder.<T>usingNaturalOrdering().lessThan(value);
     }
 
     /**
@@ -254,7 +253,7 @@ public class MatchingObjects {
      *              than or equal to zero
      */
     public static <T extends Comparable<? super T>> Matcher<T> lessThanOrEqualTo(T value) {
-        return OrderingComparison.lessThanOrEqualTo(value);
+        return ComparatorMatcherBuilder.<T>usingNaturalOrdering().lessThanOrEqualTo(value);
     }
 
     /**
