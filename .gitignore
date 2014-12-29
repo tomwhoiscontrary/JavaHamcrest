@@ -16,3 +16,6 @@ gradlew.bat
 
 gradle.properties
 release-key.asc
+=======
+*.swp
+*.*~
