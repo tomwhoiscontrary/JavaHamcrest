@@ -1,15 +1,15 @@
 package org.hamcrest.beans;
 
-import org.hamcrest.Condition;
 import org.hamcrest.Description;
+import org.hamcrest.FeatureMatcher;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeDiagnosingMatcher;
+import org.hamcrest.beans.HasPropertyWithValue.Matchable;
 
 import java.beans.PropertyDescriptor;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import static org.hamcrest.Condition.matched;
-import static org.hamcrest.Condition.notMatched;
 import static org.hamcrest.beans.PropertyUtil.NO_ARGUMENTS;
 
 /**
@@ -64,69 +64,63 @@ import static org.hamcrest.beans.PropertyUtil.NO_ARGUMENTS;
  * @author Nat Pryce
  * @author Steve Freeman
  */
-public class HasPropertyWithValue<T> extends TypeSafeDiagnosingMatcher<T> {
-    private static final Condition.Step<PropertyDescriptor,Method> WITH_READ_METHOD = withReadMethod();
+public class HasPropertyWithValue<T> extends FeatureMatcher<T, Matchable> {
     private final String propertyName;
-    private final Matcher<Object> valueMatcher;
 
     public HasPropertyWithValue(String propertyName, Matcher<?> valueMatcher) {
+        super(liftOverMatchable(valueMatcher), "has property \"" + propertyName + "\"", propertyName);
         this.propertyName = propertyName;
-        this.valueMatcher = nastyGenericsWorkaround(valueMatcher);
     }
 
-    @Override
-    public boolean matchesSafely(T bean, Description mismatch) {
-        return propertyOn(bean, mismatch)
-                  .and(WITH_READ_METHOD)
-                  .and(withPropertyValue(bean))
-                  .matching(valueMatcher, "property '" + propertyName + "' ");
-    }
-
-    @Override
-    public void describeTo(Description description) {
-        description.appendText("hasProperty(").appendValue(propertyName).appendText(", ")
-                   .appendDescriptionOf(valueMatcher).appendText(")");
-    }
-
-    private Condition<PropertyDescriptor> propertyOn(T bean, Description mismatch) {
-        PropertyDescriptor property = PropertyUtil.getPropertyDescriptor(propertyName, bean);
-        if (property == null) {
-            mismatch.appendText("No property \"" + propertyName + "\"");
-            return notMatched();
-        }
-
-        return matched(property, mismatch);
-    }
-
-    private Condition.Step<Method, Object> withPropertyValue(final T bean) {
-        return new Condition.Step<Method, Object>() {
+    private static Matcher<Matchable> liftOverMatchable(final Matcher<?> matcher) {
+        return new TypeSafeDiagnosingMatcher<Matchable>() {
             @Override
-            public Condition<Object> apply(Method readMethod, Description mismatch) {
-                try {
-                    return matched(readMethod.invoke(bean, NO_ARGUMENTS), mismatch);
-                } catch (Exception e) {
-                    mismatch.appendText(e.getMessage());
-                    return notMatched();
-                }
+            protected boolean matchesSafely(Matchable item, Description mismatchDescription) {
+                return item.matchWith(matcher, mismatchDescription);
+            }
+
+            @Override
+            public void describeTo(Description description) {
+                matcher.describeTo(description);
             }
         };
     }
 
-    @SuppressWarnings("unchecked")
-    private static Matcher<Object> nastyGenericsWorkaround(Matcher<?> valueMatcher) {
-        return (Matcher<Object>) valueMatcher;
+    @Override
+    protected Matchable featureValueOf(T actual) {
+        PropertyDescriptor property = PropertyUtil.getPropertyDescriptor(propertyName, actual);
+        if (null == property) return failure("is not a property");
+        Method readMethod = property.getReadMethod();
+        if (null == readMethod) return failure("is not readable");
+        try {
+            return value(readMethod.invoke(actual, NO_ARGUMENTS));
+        }
+        catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+            return failure(e.getMessage());
+        }
     }
 
-    private static Condition.Step<PropertyDescriptor,Method> withReadMethod() {
-        return new Condition.Step<PropertyDescriptor, java.lang.reflect.Method>() {
+    interface Matchable {
+        public boolean matchWith(Matcher<?> matcher, Description mismatchDescription);
+    }
+
+    private Matchable value(final Object value) {
+        return new Matchable() {
             @Override
-            public Condition<Method> apply(PropertyDescriptor property, Description mismatch) {
-                final Method readMethod = property.getReadMethod();
-                if (null == readMethod) {
-                    mismatch.appendText("property \"" + property.getName() + "\" is not readable");
-                    return notMatched();
-                }
-                return matched(readMethod, mismatch);
+            public boolean matchWith(Matcher<?> matcher, Description mismatchDescription) {
+                boolean matches = matcher.matches(value);
+                if (!matches) matcher.describeMismatch(value, mismatchDescription);
+                return matches;
+            }
+        };
+    }
+
+    private Matchable failure(final String reason) {
+        return new Matchable() {
+            @Override
+            public boolean matchWith(Matcher<?> matcher, Description mismatchDescription) {
+                mismatchDescription.appendText(reason);
+                return false;
             }
         };
     }

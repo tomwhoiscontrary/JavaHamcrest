@@ -35,28 +35,28 @@ public class HasPropertyWithValueTest extends AbstractMatcherTest {
 
   public void testMatchesInfolessBeanWithMatchedNamedProperty() {
     assertMatches("with property", hasProperty("property", equalTo("is expected")), shouldMatch);
-    assertMismatchDescription("property 'property' was \"not expected\"", 
+    assertMismatchDescription("property was \"not expected\"", 
                               hasProperty("property", equalTo("is expected")), shouldNotMatch);
   }
 
   public void testMatchesBeanWithInfoWithMatchedNamedProperty() {
     assertMatches("with bean info", hasProperty("property", equalTo("with info")), beanWithInfo);
-    assertMismatchDescription("property 'property' was \"with info\"", 
+    assertMismatchDescription("property was \"with info\"", 
         hasProperty("property", equalTo("without info")), beanWithInfo);
   }
 
   public void testDoesNotMatchInfolessBeanWithoutMatchedNamedProperty() {
-    assertMismatchDescription("No property \"nonExistentProperty\"", 
+    assertMismatchDescription("nonExistentProperty is not a property", 
                               hasProperty("nonExistentProperty", anything()), shouldNotMatch);
    }
 
   public void testDoesNotMatchWriteOnlyProperty() {
-    assertMismatchDescription("property \"writeOnlyProperty\" is not readable",
+    assertMismatchDescription("writeOnlyProperty is not readable",
                               hasProperty("writeOnlyProperty", anything()), shouldNotMatch); 
   }
 
   public void testDescribeTo() {
-    assertDescription("hasProperty(\"property\", <true>)", hasProperty("property", equalTo(true)));
+    assertDescription("has property \"property\" <true>", hasProperty("property", equalTo(true)));
   }
 
   public void testMatchesPropertyAndValue() {
@@ -70,7 +70,7 @@ public class HasPropertyWithValueTest extends AbstractMatcherTest {
   }
 
   public void testDescribesMissingPropertyMismatch() {
-    assertMismatchDescription("No property \"honk\"", hasProperty( "honk", anything()), shouldNotMatch);
+    assertMismatchDescription("honk is not a property", hasProperty( "honk", anything()), shouldNotMatch);
   }
 
   public void testCanAccessAnAnonymousInnerClass() {
